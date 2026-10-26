@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import random
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -40,25 +41,42 @@ def base_art() -> Image.Image:
     art = Image.open(ART).convert("RGB").resize((W, H), Image.LANCZOS)
     veil = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(veil)
-    # Left-to-right scrim so the text block sits on near-black.
-    for x in range(W):
-        if x < 900:
-            alpha = 232
-        else:
-            alpha = int(232 * max(0.0, 1 - (x - 900) / 760) ** 1.5)
-        d.line([(x, 0), (x, H)], fill=(5, 9, 20, alpha))
+    # A flat veil first, then the left-to-right scrim on top of it. ImageDraw
+    # writes the fill verbatim (it does not blend), so order matters here: a
+    # full-frame rectangle painted last would erase the scrim underneath it.
     d.rectangle((0, 0, W, H), fill=(5, 9, 20, 46))
+    for x in range(W):
+        if x < 980:
+            alpha = 242
+        else:
+            alpha = int(242 * max(0.0, 1 - (x - 980) / 600) ** 1.5)
+        d.line([(x, 0), (x, H)], fill=(5, 9, 20, alpha))
     return Image.alpha_composite(art.convert("RGBA"), veil)
 
 
 def title_card() -> None:
     im = base_art()
+    # A quiet starfield in the dark half, so the card belongs to the theme.
+    rng = random.Random(7)
     d = ImageDraw.Draw(im)
-    d.rectangle((102, 92, 104, 968), fill=(*LILAC, 210))
-    spaced(d, (136, 96), "COLUMBINA  //  DSH THEME", font(15), (*LILAC, 230), 3.2)
-    d.text((134, 596), "哥伦比娅 · 月下摇篮", font=font(74), fill=(*MOON, 255))
-    d.text((138, 706), "DeepSeek Harness 主题 · v1.0.0", font=font(27), fill=(*LILAC, 235))
-    d.text((140, 762), "月牙开屏  /  三首摇篮曲  /  少女语气", font=font(23), fill=(220, 228, 248, 225))
+    for _ in range(150):
+        x = rng.randint(110, 930)
+        y = rng.randint(170, 520)
+        r = rng.choice([0.8, 1.1, 1.5, 2.1])
+        a = rng.randint(30, 120)
+        d.ellipse((x - r, y - r, x + r, y + r), fill=(*MOON, a))
+
+    # Badge + label.
+    badge = Image.open(ROOT / "dsh-theme-columbina" / "assets" / "icon.png").convert("RGBA")
+    im.alpha_composite(badge.resize((52, 52), Image.LANCZOS), (128, 82))
+    d = ImageDraw.Draw(im)
+    spaced(d, (198, 104), "COLUMBINA  //  DSH THEME", font(14), (*LILAC, 230), 3.0)
+
+    d.rectangle((102, 150, 104, 968), fill=(*LILAC, 200))
+    d.text((134, 552), "哥伦比娅 · 月下摇篮", font=font(72), fill=(*MOON, 255))
+    d.text((138, 660), "DeepSeek Harness 主题 · v1.0.0", font=font(26), fill=(*LILAC, 235))
+    spaced(d, (140, 714), "月光作幕，歌声为枕", font(21), (223, 230, 255, 225), 2.0)
+    d.text((140, 764), "月牙开屏  /  三首摇篮曲  /  少女语气", font=font(22), fill=(198, 208, 232, 220))
     d.text((138, 900), "github.com/Touhouywn/dsh-theme-columbina", font=font(17), fill=(140, 152, 186, 220))
     im.convert("RGB").save(OUT / "title.png")
 
