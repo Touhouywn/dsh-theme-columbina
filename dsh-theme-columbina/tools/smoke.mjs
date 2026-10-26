@@ -6,7 +6,12 @@
 // method guard, the music deck description and the whitelist rejection. The
 // streaming path itself needs the network and a live host, so it is not
 // covered here (see README "验证").
+import { existsSync } from 'node:fs'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { apply, name, inject } from '../lib/index.js'
+
+const here = dirname(fileURLToPath(import.meta.url))
 
 const routes = []
 const injections = new Map()
@@ -98,10 +103,20 @@ const deck = await request('/theme-columbina/music/deck')
 check('GET music/deck', deck.status, 200)
 const parsed = JSON.parse(deck.body.toString())
 check('music/deck track count', parsed.tracks.length, 3)
-check('music/deck stream route', parsed.stream, '/theme-columbina/music/stream')
+check('music/deck track route', parsed.track, '/theme-columbina/music/track')
+check('music/deck reports local flags', parsed.tracks.every((track) => typeof track.local === 'boolean'), true)
 
-const rejected = await request('/theme-columbina/music/stream?id=1')
-check('music/stream rejects unknown id', rejected.status, 403)
+const rejected = await request('/theme-columbina/music/track?slug=iv')
+check('music/track rejects unknown slug', rejected.status, 403)
+
+const trackPath = resolve(here, '../assets/bgm/01-somnias-a-luna.mp3')
+if (existsSync(trackPath)) {
+  const ranged = await request('/theme-columbina/music/track?slug=i', 'GET', { range: 'bytes=0-1023' })
+  check('music/track range request', ranged.status, 206)
+  check('music/track content-type', ranged.headers['content-type'], 'audio/mpeg')
+} else {
+  console.log('skip music/track range (no local copy in assets/bgm)')
+}
 
 const status = await request('/theme-columbina/status')
 check('GET status', status.status, 200)

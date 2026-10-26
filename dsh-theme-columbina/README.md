@@ -67,18 +67,16 @@ http://127.0.0.1:<GUI端口>/theme-columbina/music/deck
 
 圆窗用的是加在 `<video>` 上的径向遮罩，不是容器的 `overflow` 圆角：后者在视频层被提升成合成层时会渲染成圆角方形。
 
-开屏配乐是 `assets/opening-score.m4a`（八音盒摇篮曲，原创，MIT）；同时附带 `opening-score-starfall.m4a`（钢片琴变奏）。想换默认曲目，把 `localStorage['columbina-opening-score']` 设为 `starfall` 即可，缺文件时会自动回退。
+开屏配乐有三首原创候选：`opening-score.m4a`（月茧，八音盒）、`opening-score-starfall.m4a`（星落，钢片琴）、`opening-score-cradle.m4a`（摇篮，3/4 圆舞）。在侧栏「月下摇篮 → 开屏 → 配乐」里切换，或设 `localStorage['columbina-opening-score']` 为 `moon-cocoon` / `starfall` / `cradle`。
 
 ## 摇篮曲播放器
 
-三首曲子**不在仓库里**。播放器优先读本机 `assets/bgm/` 下的同名文件；没有本地文件时，才把 `<audio>` 指向本机 Host 的 `/theme-columbina/music/stream?id=<songId>`，由 Host 用固定白名单去网易云解析公开播放地址并把字节流转发过来：
+三首曲子随包分发，放在 `assets/bgm/`。播放器读这三个文件，Host 只暴露 `/theme-columbina/music/track?slug=<i|ii|iii>` 三个 slug：
 
-- 仓库里只有曲目 id 和三首曲名，公开仓库不包含任何受版权保护的音频（`assets/bgm/` 在 `.gitignore` 里）；
-- 浏览器拿不到外链（CDN 拒绝外来 Referer），所以必须经过 Host 代理；
-- 只有 `lib/index.js` 里 `TRACKS` 白名单中的 id 会被代理，不能当开放代理用；
-- 本地文件缺失/读不出会自动回退到在线流；两边都不行才显示 `OFFLINE`，不报错、不卡界面。
-
-加歌：把文件按 `TRACKS` 里的 `file` 名放进 `assets/bgm/`（安装后是 `%USERPROFILE%\.dsh\themes\columbina\assets\bgm\`），刷新页面即可；`/theme-columbina/music/deck` 会回报 `local: true`。
+- 音频版权归 HOYO-MiX / 权利人，**不属于 MIT**（见 `ASSET-LICENSE.md`）；
+- 文件名缺失/读不出时保持静音并显示「未找到」，不报错、不卡界面；
+- 点右下角小月亮，或面板里的任意一首，都会直接开始播放（浏览器要求的那一次点击就是它）；
+- 换歌：把同名文件放进 `assets/bgm/`（安装后是 `%USERPROFILE%\.dsh\themes\columbina\assets\bgm\`），刷新页面即可。
 
 ## 标题栏
 

@@ -8,12 +8,12 @@
 | `dsh-theme-columbina/assets/background.webp`、`background-1280.webp`、`opening-art.webp`、`opening.mp4`、`docs/opening*.png`、`docs/screenshot*.png` 里的角色画面 | 第三方美术，**不授予再分发许可** |
 | `dsh-theme-columbina/assets/icon.png`、`ornament-*.png` | 本仓库脚本绘制的原创图形，MIT |
 | `dsh-theme-columbina/assets/opening-score*.m4a` | `tools/build-score.py` 合成的原创配乐，MIT |
-| 三首《新月的摇篮曲》 | © HOYO-MiX，**不随仓库分发** |
+| 三首《新月的摇篮曲》（`assets/bgm/*.mp3`） | © HOYO-MiX，**不属于 MIT**；按使用者提供的文件原样收录 |
 
 ## 说明
 
 - 角色画面来自主题使用者提供的插画与 Wallpaper Engine 创意工坊条目（workshop id `3646105959`）。它们不是 MIT 素材，本仓库只做「按原样引用」的移植，不提供任何再授权。
-- 三首《新月的摇篮曲》只在运行时经本机 Host 代理播放，仓库里只有网易云 song id 与曲名。若你在本地保存了音频，那只属于你自己听。
+- 三首《新月的摇篮曲》是使用者自己购买/下载的文件，仓库按原样收录以便主题开箱即用；它们不属于 MIT，若权利人要求会立刻移除。
 - 截图里出现的角色形象同样属于第三方美术，转载截图前请自行确认。
 - 移除 `assets/` 中的角色画面与 `opening.mp4` 后主题仍可运行：开屏会退到暗场 + HUD，界面回退到纯渐变底色。
 

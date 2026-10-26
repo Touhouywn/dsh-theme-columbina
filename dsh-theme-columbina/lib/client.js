@@ -97,6 +97,43 @@ window.__ModuleLoader__.load({
       }
     }
 
+    /**
+     * Put a sidebar toggle in the title bar, top-left.
+     *
+     * The shell's control lives inside the sidebar, whose `backdrop-filter`
+     * makes it the containing block for fixed children and whose `overflow`
+     * clips anything above its top edge. A button mounted on <html> can sit on
+     * the title bar; it forwards the click to the shell's control so the shell
+     * keeps owning the state and the Ctrl+B shortcut.
+     */
+    function installTitlebarToggle() {
+      if (document.querySelector('[data-columbina-titlebar-toggle]') !== null) return
+      var button = document.createElement('button')
+      button.type = 'button'
+      button.setAttribute('data-columbina-titlebar-toggle', '')
+      button.setAttribute('aria-label', '切换侧边栏')
+      button.title = '切换侧边栏（Ctrl+B）'
+      button.innerHTML =
+        '<svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+        '<rect x="1.5" y="2.5" width="13" height="11" rx="2.4" stroke="currentColor" stroke-width="1.3"/>' +
+        '<path d="M6.2 2.7v10.6" stroke="currentColor" stroke-width="1.3"/>' +
+        '</svg>'
+      button.addEventListener('click', function (event) {
+        event.stopPropagation()
+        var control = document.querySelector(
+          'button[aria-label="收起侧边栏"],button[aria-label="展开侧边栏"]',
+        )
+        if (control === null) {
+          control = document.querySelector('button[aria-label*="侧边栏"]')
+        }
+        if (control !== null) control.click()
+      })
+      document.documentElement.appendChild(button)
+      return function () {
+        button.remove()
+      }
+    }
+
     /* ==================================================================
        Cinematic opening — 月下摇篮
        The reference film opens on black, lets the artwork surface under a
@@ -109,6 +146,7 @@ window.__ModuleLoader__.load({
     var SCORES = {
       'moon-cocoon': '/theme-columbina/opening-score.m4a',
       starfall: '/theme-columbina/opening-score-starfall.m4a',
+      cradle: '/theme-columbina/opening-score-cradle.m4a',
     }
 
     /** Read the preferred opening score; defaults to the music-box lullaby. */
@@ -614,9 +652,9 @@ window.__ModuleLoader__.load({
        the persisted choice, and the floating panel.
        ================================================================== */
     var FALLBACK_TRACKS = [
-      { id: '2756019215', title: '新月的摇篮曲（其一）：伴月同眠', latin: 'Somnias a Luna', local: false },
-      { id: '2756018754', title: '新月的摇篮曲（其二）：宵晖下的笑颜', latin: 'Lucens ut risus', local: false },
-      { id: '2756018755', title: '新月的摇篮曲（其三）：眉间落英', latin: 'Petala ceciderunt', local: false },
+      { slug: 'i', title: '新月的摇篮曲（其一）：伴月同眠', latin: 'Somnias a Luna', local: false },
+      { slug: 'ii', title: '新月的摇篮曲（其二）：宵晖下的笑颜', latin: 'Lucens ut risus', local: false },
+      { slug: 'iii', title: '新月的摇篮曲（其三）：眉间落英', latin: 'Petala ceciderunt', local: false },
     ]
 
     /** Read the persisted deck state. */
@@ -778,7 +816,7 @@ window.__ModuleLoader__.load({
 
       var hint = document.createElement('div')
       hint.style.cssText = 'margin-top:10px;font-size:9.5px;line-height:1.7;color:rgba(152,162,194,.8)'
-      hint.textContent = '优先播放本机 bgm 文件夹里的文件；没有本地文件时由本机代理网易云实时播放。音频都不随仓库分发。'
+      hint.textContent = '读取 assets/bgm 里的三首本地文件；文件不在时保持静音并提示。音频不随仓库分发。'
       panel.appendChild(hint)
 
       root.appendChild(panel)
@@ -793,7 +831,7 @@ window.__ModuleLoader__.load({
             playing: !audio.paused && started,
             blocked: blocked,
             failed: failed,
-            source: usingStream === false && tracks[state.track] && tracks[state.track].local === true ? 'local' : 'stream',
+            source: tracks[state.track] && tracks[state.track].local === true ? 'local' : 'missing',
             tracks: tracks.slice(),
           }
         },
@@ -812,9 +850,10 @@ window.__ModuleLoader__.load({
         select: function (index) {
           if (index < 0 || index >= tracks.length) return state.track
           state.track = index
-          usingStream = false
+          // Picking a track is a play request, even when the deck was muted.
+          state.enabled = true
           writeState(state)
-          if (state.enabled) attempt(true)
+          attempt(true)
           paint()
           notify()
           return state.track
@@ -839,13 +878,8 @@ window.__ModuleLoader__.load({
       }
       window.__columbinaDeck = api
 
-      var usingStream = false
-      var srcFor = function (index, stream) {
-        var track = tracks[index]
-        if (stream !== true && track.local === true) {
-          return '/theme-columbina/music/local?id=' + encodeURIComponent(track.id)
-        }
-        return '/theme-columbina/music/stream?id=' + encodeURIComponent(track.id)
+      var srcFor = function (index) {
+        return '/theme-columbina/music/track?slug=' + encodeURIComponent(tracks[index].slug)
       }
 
       /** Swap the source when needed, then let `play()` report the real state. */
@@ -853,7 +887,7 @@ window.__ModuleLoader__.load({
         if (!state.enabled) return
         failed = false
         var target = state.track
-        var url = srcFor(target, usingStream)
+        var url = srcFor(target)
         var play = function () {
           var played = audio.play()
           if (played && typeof played.then === 'function') {
@@ -890,24 +924,6 @@ window.__ModuleLoader__.load({
         notify()
       })
       audio.addEventListener('error', function () {
-        // A local copy that is missing or unreadable falls back to the live
-        // stream once; after that the deck reports OFFLINE instead of looping.
-        if (usingStream === false && tracks[state.track].local === true) {
-          usingStream = true
-          failed = false
-          audio.pause()
-          audio.setAttribute('src', srcFor(state.track, true))
-          try {
-            audio.load()
-          } catch (error) {
-            // Best effort; the next error settles as failed.
-          }
-          var retried = audio.play()
-          if (retried && typeof retried.catch === 'function') retried.catch(function () {})
-          paint()
-          notify()
-          return
-        }
         failed = true
         started = false
         paint()
@@ -922,7 +938,7 @@ window.__ModuleLoader__.load({
         var track = tracks[state.track]
         pillText.textContent = track.title.replace(/^新月的摇篮曲（其[一二三]）：/, '')
         var playing = !audio.paused && started && !failed
-        pillState.textContent = failed ? 'OFFLINE' : blocked ? '点击播放' : playing ? 'NOW' : 'PAUSED'
+        pillState.textContent = failed ? '未找到' : blocked ? '点击播放' : playing ? 'NOW' : 'PAUSED'
         pillState.style.color = failed ? 'rgba(227,154,192,.85)' : playing ? 'rgba(159,216,245,.85)' : 'rgba(203,182,238,.6)'
         pill.style.borderColor = playing ? 'rgba(203,182,238,.62)' : 'rgba(203,182,238,.3)'
         toggle.textContent = state.enabled ? (playing ? '暂停 · ON' : '播放 · ON') : '播放 · OFF'
@@ -994,7 +1010,7 @@ window.__ModuleLoader__.load({
           if (data === null || !Array.isArray(data.tracks)) return
           for (var index = 0; index < tracks.length && index < data.tracks.length; index += 1) {
             var entry = data.tracks[index]
-            if (entry.id !== tracks[index].id) continue
+            if (entry.slug !== tracks[index].slug) continue
             tracks[index].local = entry.local === true
             if (typeof entry.title === 'string') tracks[index].title = entry.title
             if (typeof entry.latin === 'string') tracks[index].latin = entry.latin
@@ -1029,14 +1045,21 @@ window.__ModuleLoader__.load({
           var disposeStyle = ensureStylesheet()
           var disposeDark = holdDarkPalette()
           var disposeDeck = null
+          var disposeToggle = null
           try {
             disposeDeck = mountDeck()
           } catch (error) {
             // A broken deck must never take the UI down with it.
           }
+          try {
+            disposeToggle = installTitlebarToggle()
+          } catch (error) {
+            // The stock control stays in place if the extra one cannot mount.
+          }
           reportFacts()
           setTimeout(reportFacts, 2600)
           return function () {
+            if (typeof disposeToggle === 'function') disposeToggle()
             if (typeof disposeDeck === 'function') disposeDeck()
             disposeDark()
             disposeStyle()

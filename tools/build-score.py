@@ -45,6 +45,9 @@ A4 = 440.0
 def midi(note: str) -> float:
     """Scientific pitch name to frequency, e.g. ``C#5``."""
     names = {"C": 0, "C#": 1, "D": 2, "D#": 3, "E": 4, "F": 5, "F#": 6, "G": 7, "G#": 8, "A": 9, "A#": 10, "B": 11}
+    flats = {"Bb": "A#", "Eb": "D#", "Ab": "G#", "Db": "C#", "Gb": "F#", "Cb": "B", "Fb": "E"}
+    if len(note) > 2 and note[:2] in flats:
+        note = flats[note[:2]] + note[2:]
     pitch, octave = note[:-1], int(note[-1])
     return A4 * 2 ** ((names[pitch] + 12 * (octave + 1) - 69) / 12)
 
@@ -274,8 +277,48 @@ def score_starfall() -> tuple[np.ndarray, np.ndarray]:
     return dry_l, dry_r
 
 
+def score_cradle() -> tuple[np.ndarray, np.ndarray]:
+    """A slow 3/4 waltz: music-box arpeggios under a celesta line, no impact."""
+    total = int((DURATION + TAIL) * RATE)
+    dry_l = np.zeros(total)
+    dry_r = np.zeros(total)
+    eighth = BEAT / 2
+    bars = (
+        ("D3", ("D3", "A3", "F4"), ("A4", "D5", "F5")),
+        ("Bb2", ("Bb2", "F3", "D4"), ("F5", "E5", "D5")),
+        ("F2", ("F2", "C3", "A3"), ("C5", "A4", "F4")),
+        ("C3", ("C3", "G3", "E4"), ("G4", "A4", "Bb4")),
+        ("D3", ("D3", "A3", "F4"), ("A4", "D5", "F5")),
+    )
+    for index, (bass, chord, melody) in enumerate(bars):
+        at = OFFSET + index * 3 * BEAT
+        place(dry_l, pad(midi(bass), 4.2, 1.0), at)
+        place(dry_r, pad(midi(bass), 4.2, 1.0), at + 0.006)
+        # Waltz accompaniment: root, fifth, third, fifth over the bar.
+        pattern = (chord[0], chord[1], chord[2], chord[1])
+        for step, note in enumerate(pattern):
+            tone = music_box(midi(note), 2.0, 0.42)
+            place(dry_l, tone, at + step * BEAT, 0.85)
+            place(dry_r, tone, at + step * BEAT + 0.014, 0.7)
+        # A celesta line, one note per beat.
+        for step, note in enumerate(melody):
+            place(dry_l, celesta(midi(note), 2.4, 0.55), at + step * BEAT)
+            place(dry_r, celesta(midi(note), 2.4, 0.45), at + step * BEAT + 0.02)
+    # A single high bell and a soft string swell, no percussive hit.
+    place(dry_l, strings(midi("D4"), 4.0, 0.5), OFFSET + 8 * BEAT)
+    place(dry_r, strings(midi("A3"), 4.0, 0.4), OFFSET + 8 * BEAT + 0.05)
+    place(dry_l, celesta(midi("D6"), 4.0, 0.5), OFFSET + 12 * BEAT)
+    place(dry_r, celesta(midi("A5"), 4.0, 0.4), OFFSET + 12 * BEAT + 0.03)
+    return dry_l, dry_r
+
+
 def render(name: str) -> Path:
-    dry_l, dry_r = score_moon_cocoon() if name == "moon-cocoon" else score_starfall()
+    if name == "moon-cocoon":
+        dry_l, dry_r = score_moon_cocoon()
+    elif name == "starfall":
+        dry_l, dry_r = score_starfall()
+    else:
+        dry_l, dry_r = score_cradle()
     ir_l, ir_r = reverb_ir()
     wet_l = convolve(dry_l, ir_l)
     wet_r = convolve(dry_r, ir_r)
@@ -309,7 +352,11 @@ def render(name: str) -> Path:
         handle.setframerate(RATE)
         handle.writeframes(pcm.tobytes())
 
-    m4a_path = OUT / ("opening-score.m4a" if name == "moon-cocoon" else "opening-score-starfall.m4a")
+    m4a_path = OUT / {
+        "moon-cocoon": "opening-score.m4a",
+        "starfall": "opening-score-starfall.m4a",
+        "cradle": "opening-score-cradle.m4a",
+    }[name]
     ffmpeg = _ffmpeg()
     subprocess.run(
         [ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-i", str(wav_path),
@@ -331,10 +378,10 @@ def _ffmpeg() -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--variant", choices=("moon-cocoon", "starfall", "both"), default="both")
+    parser.add_argument("--variant", choices=("moon-cocoon", "starfall", "cradle", "all"), default="all")
     args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
-    names = ("moon-cocoon", "starfall") if args.variant == "both" else (args.variant,)
+    names = ("moon-cocoon", "starfall", "cradle") if args.variant == "all" else (args.variant,)
     for name in names:
         render(name)
 

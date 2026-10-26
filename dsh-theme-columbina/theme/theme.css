@@ -110,7 +110,7 @@ html body[data-ds-dark-theme] {
   --dsw-alias-interactive-bg-hover-accent: rgba(159, 216, 245, 0.16);
   --dsw-alias-interactive-bg-hover-danger: rgba(216, 143, 190, 0.18);
   --dsw-alias-link: #9fd8f5;
-  --dsw-focus-ring-color: #cbb6ee;
+  --dsw-focus-ring-color: #9fd8f5;
 
   /* --- state ------------------------------------------------------------ */
   --dsw-alias-state-business-primary: #9fd8f5;
@@ -415,13 +415,48 @@ html body[data-ds-dark-theme] [class*="projectRow"] [class*="folder"] > * {
 
 /* --------------------------------------------------------------------------
    5. Title-bar sidebar toggle
-   The stock Ctrl+B control sits half over the brand mark in the Windows title
-   bar and paints its focus ring on top of the moon badge. Hide the button; the
-   Ctrl+B shortcut still toggles the sidebar, and the shell keeps its state.
+   The shell's own Ctrl+B control lives inside the sidebar column, and that
+   column sets `backdrop-filter` — which makes it the containing block for
+   `position: fixed` descendants and clips anything above its own top edge. So
+   the button is hidden and replaced by one mounted on <html> (a layer React
+   never reconciles), pinned to the title bar at the top-left, forwarding the
+   click to the shell's control. The shell still owns the state and Ctrl+B.
    -------------------------------------------------------------------------- */
 html body[data-ds-dark-theme] button[aria-label="收起侧边栏"],
 html body[data-ds-dark-theme] button[aria-label="展开侧边栏"] {
-  display: none !important;
+  visibility: hidden;
+}
+
+html [data-columbina-titlebar-toggle] {
+  position: fixed;
+  left: 8px;
+  top: 5px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483000;
+  border: 1px solid rgba(203, 182, 238, 0.26);
+  border-radius: 7px;
+  background: rgba(9, 14, 29, 0.62);
+  color: #cbb6ee;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  transition: background 0.18s ease-out, color 0.18s ease-out, border-color 0.18s ease-out;
+  backdrop-filter: blur(8px);
+}
+
+html [data-columbina-titlebar-toggle]:hover {
+  background: rgba(203, 182, 238, 0.2);
+  border-color: rgba(203, 182, 238, 0.55);
+  color: #f0e9ff;
+}
+
+html [data-columbina-titlebar-toggle]:focus-visible {
+  outline: 1px solid rgba(159, 216, 245, 0.7);
+  outline-offset: 1px;
 }
 
 /* --------------------------------------------------------------------------

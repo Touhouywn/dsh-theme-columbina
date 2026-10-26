@@ -5,75 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>月下摇篮 · 开屏配乐试听</title>
 <style>
-  :root {
-    --night: #070b18;
-    --ink: #e9eeff;
-    --dim: #98a2c2;
-    --lilac: #cbb6ee;
-    --ice: #9fd8f5;
-  }
+  :root { --night: #070b18; --ink: #e9eeff; --dim: #98a2c2; --lilac: #cbb6ee; --ice: #9fd8f5; }
   * { box-sizing: border-box; }
   body {
-    margin: 0;
-    min-height: 100vh;
+    margin: 0; min-height: 100vh; padding: 48px 24px 72px;
     background:
-      radial-gradient(60% 50% at 76% 18%, rgba(159, 216, 245, .18), transparent 70%),
-      radial-gradient(50% 40% at 20% 90%, rgba(203, 182, 238, .12), transparent 70%),
+      radial-gradient(60% 50% at 76% 18%, rgba(159,216,245,.18), transparent 70%),
+      radial-gradient(50% 40% at 20% 90%, rgba(203,182,238,.12), transparent 70%),
       var(--night);
     color: var(--ink);
     font-family: "Segoe UI", system-ui, -apple-system, "Microsoft YaHei", sans-serif;
-    padding: 48px 24px 72px;
   }
   .wrap { max-width: 880px; margin: 0 auto; }
-  header { display: flex; align-items: baseline; gap: 18px; margin-bottom: 8px; }
+  header { display: flex; align-items: baseline; gap: 18px; margin-bottom: 8px; flex-wrap: wrap; }
   h1 { font-size: 26px; font-weight: 300; letter-spacing: .16em; margin: 0; }
   .en { font-family: ui-monospace, Consolas, monospace; font-size: 10px; letter-spacing: .34em; color: var(--lilac); opacity: .7; }
-  .lead { margin: 14px 0 34px; color: var(--dim); font-size: 14px; line-height: 1.9; max-width: 720px; }
+  .lead { margin: 14px 0 26px; color: var(--dim); font-size: 14px; line-height: 1.9; max-width: 760px; }
   .card {
-    position: relative;
-    border: 1px solid rgba(203, 182, 238, .2);
-    background: linear-gradient(180deg, rgba(16, 24, 44, .78), rgba(9, 14, 28, .9));
-    border-radius: 16px;
-    padding: 20px 22px 18px;
-    margin-bottom: 16px;
-    box-shadow: 0 20px 50px rgba(2, 5, 12, .45);
+    position: relative; border: 1px solid rgba(203,182,238,.2);
+    background: linear-gradient(180deg, rgba(16,24,44,.78), rgba(9,14,28,.9));
+    border-radius: 16px; padding: 20px 22px 18px; margin-bottom: 16px;
+    box-shadow: 0 20px 50px rgba(2,5,12,.45);
   }
-  .card.pick { border-color: rgba(203, 182, 238, .62); box-shadow: 0 20px 60px rgba(2, 5, 12, .55), 0 0 0 1px rgba(203, 182, 238, .25); }
+  .card.pick { border-color: rgba(203,182,238,.62); box-shadow: 0 20px 60px rgba(2,5,12,.55), 0 0 0 1px rgba(203,182,238,.25); }
   .badge {
-    position: absolute; top: -10px; right: 18px;
-    padding: 3px 10px; border-radius: 999px;
-    background: linear-gradient(90deg, rgba(203, 182, 238, .9), rgba(159, 216, 245, .85));
+    position: absolute; top: -10px; right: 18px; padding: 3px 10px; border-radius: 999px;
+    background: linear-gradient(90deg, rgba(203,182,238,.9), rgba(159,216,245,.85));
     color: #0a1020; font-size: 11px; letter-spacing: .12em; font-weight: 600;
   }
   h2 { margin: 0 0 4px; font-size: 17px; font-weight: 400; letter-spacing: .06em; }
-  .sub { font-family: ui-monospace, monospace; font-size: 9px; letter-spacing: .26em; color: rgba(159, 216, 245, .7); margin-bottom: 12px; }
+  .sub { font-family: ui-monospace, monospace; font-size: 9px; letter-spacing: .24em; color: rgba(159,216,245,.7); margin-bottom: 12px; }
   p { margin: 0 0 14px; color: var(--dim); font-size: 13px; line-height: 1.85; }
   audio { width: 100%; height: 38px; filter: invert(.92) hue-rotate(180deg) saturate(1.3); border-radius: 999px; }
   .tag { display: inline-block; font-size: 11px; color: var(--lilac); border: 1px solid rgba(203,182,238,.3); border-radius: 6px; padding: 2px 8px; margin-right: 8px; }
-  footer { margin-top: 38px; color: var(--dim); font-size: 12.5px; line-height: 1.9; border-top: 1px solid rgba(203, 182, 238, .16); padding-top: 20px; }
-  code { font-family: ui-monospace, monospace; font-size: 11.5px; color: var(--ice); background: rgba(159, 216, 245, .08); padding: 1px 5px; border-radius: 4px; }
+  footer { margin-top: 38px; color: var(--dim); font-size: 12.5px; line-height: 1.9; border-top: 1px solid rgba(203,182,238,.16); padding-top: 20px; }
+  code { font-family: ui-monospace, monospace; font-size: 11.5px; color: var(--ice); background: rgba(159,216,245,.08); padding: 1px 5px; border-radius: 4px; }
+  .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0 0 26px; }
+  .flow div { border: 1px solid rgba(203,182,238,.16); border-radius: 10px; padding: 10px 12px; font-size: 11.5px; color: var(--dim); line-height: 1.6; }
+  .flow b { display: block; color: var(--ink); font-weight: 500; margin-bottom: 3px; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>开屏配乐试听</h1>
+    <h1>开屏配乐 · 三选一</h1>
     <span class="en">MOONLIT CRADLE · OPENING SCORE</span>
   </header>
   <p class="lead">
-    三段都是 17 秒、和开屏的节拍对齐：0–1.2 秒留白，1.2 秒起音，9.15 秒落点，15.3 秒开始收。
-    点播放试听，然后告诉我留哪一首——默认已经选了第一首「月茧」。
+    三段都是 17.2 秒，跟开屏同一根时间轴：0–1.2 秒留白，1.2 秒起音，9.15 秒落点，15.3 秒开始收。
+    点播放试听，选好告诉我，或者直接在侧栏「月下摇篮 → 开屏 → 配乐」里切换。
   </p>
+
+  <div class="flow">
+    <div><b>0–1.2s</b>月牙描出，黑场</div>
+    <div><b>1.2–9.15s</b>圆窗开出，三句话</div>
+    <div><b>9.15s</b>涨满全屏，标题落下</div>
+  </div>
 
   <div class="card pick">
     <div class="badge">默认 / 推荐</div>
     <h2>月茧</h2>
-    <div class="sub">MOON COCOON · MUSIC BOX LULLABY · A MINOR 72 BPM</div>
+    <div class="sub">MOON COCOON · MUSIC BOX · A MINOR 72 BPM</div>
     <p>
       八音盒主奏，低音弦铺底，9.15 秒有一记低频落点。最接近「摇篮曲」这个意象：干净、近、像有人在床边哼。
-      完全是本仓库合成的，可以随主题以 MIT 发布——公开仓库不会因为这段音频惹版权。
+      落点正好接上开屏的闪光，是三者里和画面对得最齐的一首。
     </p>
-    <span class="tag">原创</span><span class="tag">可随仓库分发</span><span class="tag">推荐</span>
+    <span class="tag">八音盒</span><span class="tag">有落点</span><span class="tag">推荐</span>
     <audio controls preload="metadata" src="../dsh-theme-columbina/assets/opening-score.m4a"></audio>
   </div>
 
@@ -82,28 +79,26 @@
     <div class="sub">STARFALL · CELESTA ARPEGGIO · NO IMPACT</div>
     <p>
       同一套和声，换成钢片琴分解和弦，没有落点，尾巴更长。更空、更远，像隔着水面听见的歌声。
-      喜欢「安静地亮起来」而不是「一记重击」的话选它。
+      9.15 秒只有闪光、没有重击——喜欢「安静地亮起来」就选它。
     </p>
-    <span class="tag">原创</span><span class="tag">可随仓库分发</span>
+    <span class="tag">钢片琴</span><span class="tag">无落点</span>
     <audio controls preload="metadata" src="../dsh-theme-columbina/assets/opening-score-starfall.m4a"></audio>
   </div>
 
   <div class="card">
-    <h2>新月的摇篮曲（其一）· 节选</h2>
-    <div class="sub">LULLABY OF THE NEW MOON I · REFERENCE ONLY</div>
+    <h2>摇篮</h2>
+    <div class="sub">CRADLE · 3/4 WALTZ · D MINOR 60 BPM</div>
     <p>
-      官方原曲的 17 秒节选，只放在这个本地试听页里做参照，<strong>不会</strong>进仓库、也不会随主题分发。
-      它当然最「原汁原味」，但公开项目里用不了；如果你想要，我可以把它做成只在你本机生效的可选配乐。
+      新写的一首：3/4 拍慢圆舞，八音盒走「根—五—三—五」，钢片琴在上面唱一条很短的旋律。
+      没有打击乐，也没有落点，像一首真的能跟着晃的摇篮曲。三段里最软的一首。
     </p>
-    <span class="tag" style="color:#e39ac0;border-color:rgba(227,154,192,.35)">仅本地</span><span class="tag" style="color:#e39ac0;border-color:rgba(227,154,192,.35)">不可分发</span>
-    <audio controls preload="metadata" src="audio/lullaby-i-excerpt.mp3"></audio>
+    <span class="tag">圆舞曲</span><span class="tag">最柔</span><span class="tag">新增</span>
+    <audio controls preload="metadata" src="../dsh-theme-columbina/assets/opening-score-cradle.m4a"></audio>
   </div>
 
   <footer>
-    换开屏配乐：在 DSH 里按 F12 打开控制台，执行
-    <code>localStorage['columbina-opening-score'] = 'starfall'</code>（改回 <code>'moon-cocoon'</code> 即可还原），
-    或者直接替换 <code>dsh-theme-columbina/assets/opening-score.m4a</code>。
-    主界面那三首摇篮曲另有一套播放器，在右下角的小月亮按钮里切换。
+    三首都随仓库分发（MIT，<code>tools/build-score.py</code> 合成）。切换：侧栏「月下摇篮 → 开屏 → 配乐」，或
+    <code>localStorage['columbina-opening-score'] = 'cradle'</code>（可选 <code>moon-cocoon</code> / <code>starfall</code> / <code>cradle</code>）。
   </footer>
 </div>
 </body>

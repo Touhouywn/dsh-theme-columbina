@@ -12,9 +12,9 @@
 - 不读取 DSH 的会话、凭据或 profile 配置；安装脚本只往 profile 的 `cordis.patch.yml` 追加 row（写前备份）。
 - 不注册任何模型可见的工具或提示，唯一影响模型的是 `dsh-plugin-columbina-persona` 那一段**可关闭**的系统提示。
 
-## 关于音乐代理
+## 关于音乐
 
-`/theme-columbina/music/stream` 只接受 `lib/index.js` 里 `TRACKS` 白名单中的三个 song id，其它 id 一律 403；它不是通用代理，也不能用来访问任意 URL。
+播放器只读主题目录里 `assets/bgm/` 的三个文件，Host 路由 `/music/track` 只接受 `i` / `ii` / `iii` 三个 slug，不访问网络、也不是通用文件读取接口。
 
 ## 关于密钥
 

@@ -17,7 +17,6 @@
  */
 import { existsSync } from 'node:fs'
 import { stat, readFile } from 'node:fs/promises'
-import { Readable } from 'node:stream'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -38,30 +37,26 @@ const PLUGIN_ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..')
  */
 const TRACKS = [
   {
-    id: '2756019215',
-    title: '新月的摇篮曲（其一）：伴月同眠',
-    subtitle: 'Lullaby of the New Moon · I',
-    latin: 'Somnias a Luna',
+    slug: 'i',
     file: '01-somnias-a-luna.mp3',
+    title: '新月的摇篮曲（其一）：伴月同眠',
+    latin: 'Somnias a Luna',
   },
   {
-    id: '2756018754',
-    title: '新月的摇篮曲（其二）：宵晖下的笑颜',
-    subtitle: 'Lullaby of the New Moon · II',
-    latin: 'Lucens ut risus',
+    slug: 'ii',
     file: '02-lucens-ut-risus.mp3',
+    title: '新月的摇篮曲（其二）：宵晖下的笑颜',
+    latin: 'Lucens ut risus',
   },
   {
-    id: '2756018755',
-    title: '新月的摇篮曲（其三）：眉间落英',
-    subtitle: 'Lullaby of the New Moon · III',
-    latin: 'Petala ceciderunt',
+    slug: 'iii',
     file: '03-petala-ceciderunt.mp3',
+    title: '新月的摇篮曲（其三）：眉间落英',
+    latin: 'Petala ceciderunt',
   },
 ]
-const TRACK_IDS = new Set(TRACKS.map((track) => track.id))
 
-/** Where a local copy of the deck lives, if the user has one. Never in git. */
+/** Where the user's own copies of the deck live. Never in git. */
 const LOCAL_DIR = join(PLUGIN_ROOT, 'assets', 'bgm')
 
 /** Public path → file on disk. An explicit allow-list, so no request can walk out of the package. */
@@ -73,11 +68,12 @@ const FILES = new Map([
   ['opening.mp4', { file: join(PLUGIN_ROOT, 'assets', 'opening.mp4'), type: 'video/mp4' }],
   ['opening-score.m4a', { file: join(PLUGIN_ROOT, 'assets', 'opening-score.m4a'), type: 'audio/mp4' }],
   ['opening-score-starfall.m4a', { file: join(PLUGIN_ROOT, 'assets', 'opening-score-starfall.m4a'), type: 'audio/mp4' }],
+  ['opening-score-cradle.m4a', { file: join(PLUGIN_ROOT, 'assets', 'opening-score-cradle.m4a'), type: 'audio/mp4' }],
   ['icon.png', { file: join(PLUGIN_ROOT, 'assets', 'icon.png'), type: 'image/png' }],
 ])
-for (const name of ['moon', 'star', 'feather', 'flower', 'bell', 'cradle', 'note']) {
-  FILES.set(`ornament-${name}.png`, {
-    file: join(PLUGIN_ROOT, 'assets', `ornament-${name}.png`),
+for (const ornament of ['moon', 'star', 'feather', 'flower', 'bell', 'cradle', 'note']) {
+  FILES.set(`ornament-${ornament}.png`, {
+    file: join(PLUGIN_ROOT, 'assets', `ornament-${ornament}.png`),
     type: 'image/png',
   })
 }
@@ -143,7 +139,7 @@ function serveStatus(res) {
     hits: { ...HITS },
     reportCount,
     lastReport,
-    music: { tracks: TRACKS.length, ids: [...TRACK_IDS], local: deck().filter((track) => track.local).length },
+    music: { tracks: TRACKS.length, local: deck().filter((track) => track.local).length },
   })
   res.writeHead(200, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' })
   res.end(body)
@@ -218,6 +214,15 @@ function deck() {
 }
 
 /**
+ * Resolve one deck entry by slug.
+ * @param slug - `i` / `ii` / `iii`.
+ * @returns the track row, or undefined.
+ */
+function trackBySlug(slug) {
+  return TRACKS.find((track) => track.slug === slug)
+}
+
+/**
  * Serve one GET/HEAD request for a themed asset.
  * @param pathname - decoded request pathname.
  * @param req - incoming request (read for `if-none-match`).
@@ -244,101 +249,6 @@ async function serveAsset(pathname, req, res) {
 }
 
 /**
- * Stream one whitelisted lullaby from NetEase through the host.
- *
- * The browser cannot play `music.163.com` URLs directly (the CDN rejects
- * foreign referrers and the endpoints are http), so the host resolves the
- * public play URL and forwards the bytes. Only ids from `TRACK_IDS` are
- * accepted: the route is a player for this deck, not an open proxy.
- *
- * @param req - incoming request (Range and method are forwarded).
- * @param res - response to write.
- * @param id - requested song id.
- */
-async function streamMusic(req, res, id) {
-  if (!TRACK_IDS.has(id)) {
-    res.writeHead(403, { 'cache-control': 'no-store' })
-    res.end()
-    return
-  }
-  const headers = {
-    'user-agent':
-      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36',
-    referer: 'https://music.163.com/',
-    accept: '*/*',
-  }
-  if (typeof req.headers.range === 'string') headers.range = req.headers.range
-
-  // Abort only the connection attempt. The signal must be cleared once the
-  // headers are in: `AbortSignal.timeout` would otherwise kill the body of a
-  // slow stream and the upstream error would surface as an uncaught exception.
-  const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), 15000)
-  let upstream
-  try {
-    upstream = await fetch(`https://music.163.com/song/media/outer/url?id=${id}.mp3`, {
-      headers,
-      redirect: 'follow',
-      signal: controller.signal,
-    })
-  } catch {
-    clearTimeout(timer)
-    res.writeHead(502, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' })
-    res.end(JSON.stringify({ error: 'upstream unreachable' }))
-    return
-  }
-  clearTimeout(timer)
-  if (!upstream.ok || upstream.body === null) {
-    res.writeHead(502, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' })
-    res.end(JSON.stringify({ error: 'upstream refused', status: upstream.status }))
-    return
-  }
-
-  const type = upstream.headers.get('content-type') ?? 'audio/mpeg'
-  if (!type.startsWith('audio/')) {
-    // NetEase answers 200 with an HTML error page for tracks that need a login.
-    res.writeHead(502, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' })
-    res.end(JSON.stringify({ error: 'not playable without an account' }))
-    return
-  }
-  const length = upstream.headers.get('content-length')
-  const contentRange = upstream.headers.get('content-range')
-  const status = upstream.status === 206 ? 206 : 200
-  const responseHeaders = {
-    'content-type': type,
-    'accept-ranges': 'bytes',
-    'cache-control': 'public, max-age=1800',
-  }
-  if (length !== null) responseHeaders['content-length'] = length
-  if (contentRange !== null) responseHeaders['content-range'] = contentRange
-  res.writeHead(status, responseHeaders)
-  if (req.method === 'HEAD') {
-    res.end()
-    return
-  }
-  const stream = Readable.fromWeb(upstream.body)
-  // A paused or seeked <audio> element closes the socket mid-body; that must
-  // tear the upstream stream down quietly instead of throwing at the process.
-  const destroy = () => {
-    try {
-      stream.destroy()
-    } catch {
-      // Already closed.
-    }
-  }
-  res.on('close', destroy)
-  res.on('error', destroy)
-  stream.on('error', () => {
-    try {
-      res.destroy()
-    } catch {
-      // Already closed.
-    }
-  })
-  stream.pipe(res)
-}
-
-/**
  * Mount the theme on the running host.
  * @param ctx - plugin context carrying the web server.
  * @param config - `art` (default true), `forceDark` (default true), `music` (default true).
@@ -361,13 +271,8 @@ export function apply(ctx, config = {}) {
           }
           const { pathname, searchParams } = new URL(req.url ?? '/', 'http://localhost')
           try {
-            if (music && pathname === `${ROUTE}/music/stream`) {
-              await streamMusic(req, res, searchParams.get('id') ?? '')
-              return
-            }
-            if (music && pathname === `${ROUTE}/music/local`) {
-              const id = searchParams.get('id') ?? ''
-              const track = TRACKS.find((entry) => entry.id === id)
+            if (music && pathname === `${ROUTE}/music/track`) {
+              const track = trackBySlug(searchParams.get('slug') ?? '')
               if (track === undefined) {
                 res.writeHead(403, { 'cache-control': 'no-store' })
                 res.end()
@@ -378,11 +283,12 @@ export function apply(ctx, config = {}) {
             }
             if (music && pathname === `${ROUTE}/music/deck`) {
               res.writeHead(200, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' })
-              res.end(JSON.stringify({ tracks: deck(), stream: `${ROUTE}/music/stream`, local: `${ROUTE}/music/local` }))
+              res.end(JSON.stringify({ tracks: deck(), track: `${ROUTE}/music/track` }))
               return
             }
             await serveAsset(pathname, req, res)
-          } catch {
+          } catch (error) {
+            if (process.env.COLUMBINA_DEBUG === '1') console.error(error)
             // A media stream that dies mid-body must never take the host down.
             try {
               if (!res.headersSent) res.writeHead(500, { 'cache-control': 'no-store' })

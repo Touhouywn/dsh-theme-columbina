@@ -29,7 +29,7 @@
 - **电影式开屏**：15 秒壁纸影片作底 + 启动 HUD（进度、时钟、诊断行）+ 原创八音盒摇篮曲；点击或任意键跳过，每个页面会话只播一次。
 - **摇篮曲播放器**：右下角常驻的小月亮按钮，展开是「月之摇篮曲」面板——三首曲子任选、开关背景音乐、调音量；选择记在本地。
 - **对话人格**：可开关的系统提示段，短句、省略号、偶尔用哼唱代替回答；命令、路径、代码、报错仍然精确。
-- **干净的标题栏**：Ctrl+B 的侧栏开关按钮会压在月徽上，主题直接把它藏了；`Ctrl+B` 快捷键照常可用。
+- **标题栏侧栏开关**：外壳自带的 Ctrl+B 按钮会压在月徽上，主题把它换成左上角一枚银紫小按钮（和桑多涅主题同位置），点击转发给外壳，`Ctrl+B` 照常可用。
 - **深色专用**：启用期间钉住 `body[data-ds-dark-theme]`，禁用后立刻回到 DSH 原生外观。
 
 ## 开屏
@@ -54,40 +54,33 @@
 
 圆窗用的是加在 `<video>` 上的径向遮罩，不是容器的 `overflow` 圆角——后者在视频层被提升成合成层时会渲染成圆角方形（试过，真的会）。
 
-### 开屏配乐（需要你拍板）
+### 开屏配乐（三选一）
 
-两首原创候选已经做进仓库，节拍都与上面的时间轴对齐：
+三首原创候选都做进了仓库，节拍与上面的时间轴对齐：
 
 | 候选 | 气质 | 文件 |
 | --- | --- | --- |
 | **月茧**（默认） | 八音盒主奏 + 低音弦，9.15s 有一记落点 | `assets/opening-score.m4a` |
 | 星落 | 钢片琴分解和弦，没有落点，尾巴更长 | `assets/opening-score-starfall.m4a` |
+| 摇篮 | 3/4 慢圆舞，八音盒 + 钢片琴，无打击乐 | `assets/opening-score-cradle.m4a` |
 
-试听页（本地起一个静态服务即可）：`python preview/serve.py` → <http://127.0.0.1:52881/preview/audition.html>
-
-同一页还放了官方《新月的摇篮曲（其一）》的 17 秒节选做参照——那份**只在本地试听**，不进仓库、不随主题分发。选定后告诉我，或者自己切：
-
-```js
-localStorage['columbina-opening-score'] = 'starfall'   // 改回 'moon-cocoon'
-```
+试听页：`python preview/serve.py` → <http://127.0.0.1:52881/preview/audition.html>
+也可以在侧栏「月下摇篮 → 开屏 → 配乐」里直接切换。
 
 ## 主界面 BGM
 
-三首《新月的摇篮曲》优先播**你本机的文件**（`dsh-theme-columbina/assets/bgm/`）。没有本地文件时，播放器才走本机 Host 的 `/theme-columbina/music/stream?id=<songId>`，由 Host 用固定白名单去网易云解析公开播放地址，再把字节流转发过来。
+三首《新月的摇篮曲》**随仓库分发**，放在 `dsh-theme-columbina/assets/bgm/`，由本机 Host 通过 `/theme-columbina/music/track?slug=<i|ii|iii>` 提供给播放器。
 
-| # | 曲目 | 网易云 id | 本地文件名 |
-| --- | --- | --- | --- |
-| Ⅰ | 新月的摇篮曲（其一）：伴月同眠 | `2756019215` | `01-somnias-a-luna.mp3` |
-| Ⅱ | 新月的摇篮曲（其二）：宵晖下的笑颜 | `2756018754` | `02-lucens-ut-risus.mp3` |
-| Ⅲ | 新月的摇篮曲（其三）：眉间落英 | `2756018755` | `03-petala-ceciderunt.mp3` |
+| # | 曲目 | 文件 |
+| --- | --- | --- |
+| Ⅰ | 新月的摇篮曲（其一）：伴月同眠 | `01-somnias-a-luna.mp3` |
+| Ⅱ | 新月的摇篮曲（其二）：宵晖下的笑颜 | `02-lucens-ut-risus.mp3` |
+| Ⅲ | 新月的摇篮曲（其三）：眉间落英 | `03-petala-ceciderunt.mp3` |
 
-- 本地文件、`preview/audio/` 都在 `.gitignore` 里，公开仓库里只有 song id 和曲名，没有任何受版权保护的音频；
-- 浏览器直接拿外链播不了（CDN 拒绝外来 Referer，接口还是 http），所以必须经过 Host 代理；
-- 只有 `lib/index.js` 里 `TRACKS` 白名单中的 id 会被代理，不是开放代理；
-- 本地文件缺失或读不出时会自动回退到在线流；两边都不行才显示 `OFFLINE`，不报错、不卡界面；
-- 浏览器要求先有一次点击才允许出声：第一次点击页面就会开始播放，右下角按钮也能手动开。
-
-加歌：把文件按上表命名放进 `%USERPROFILE%\.dsh\themes\columbina\assets\bgm\`（安装后的目录），刷新页面即可；`/theme-columbina/music/deck` 会回报 `local: true`。
+- 音频版权归 HOYO-MiX / 权利人，**不属于 MIT**；仓库只是把使用者提供的文件原样放进来，见 [ASSET-LICENSE.md](ASSET-LICENSE.md)；
+- 只有 `lib/index.js` 里 `TRACKS` 白名单中的三个 slug 会被读取，不是通用文件接口；
+- 文件名缺失或读不出时保持静音并显示「未找到」，不报错、不卡界面；
+- 浏览器要求先有一次点击才允许出声：点右下角的小月亮或面板里的任意一首，就会直接开始播放。
 
 ## 安装
 
@@ -163,7 +156,7 @@ CSS 与 JSON 资源带 `no-cache` + ETag，改完刷新页面（Ctrl+R）即可�
 ├── dsh-theme-columbina/
 │   ├── package.json            # DSH bundle + client 声明
 │   ├── cordis.patch.yml
-│   ├── lib/index.js            # 宿主半边：资源路由、Range、网易云代理、自检
+│   ├── lib/index.js            # 宿主半边：资源路由、Range、本地曲库、自检
 │   ├── lib/client.js           # 浏览器半边：注入样式、钉深色、开屏、播放器
 │   ├── theme/theme.css         # 全部视觉
 │   ├── assets/                 # 背景、开屏影片/美术、原创配乐、图标与徽记
@@ -178,7 +171,7 @@ CSS 与 JSON 资源带 `no-cache` + ETag，改完刷新页面（Ctrl+R）即可�
 
 DSH 桌面端的主窗口不是用 `http://127.0.0.1:<port>/` 加载的，而是走 `dsh-app://app/` 自定义协议；宿主在**启动时**采集一次 index 注入行，之后不再刷新。所以只做 index 注入，在桌面端会「装上了但没反应」。
 
-- **宿主半边** `lib/index.js`：注册 `/theme-columbina/*` 静态资源路由（CSS、立绘、开屏影片、配乐、自检 beacon、网易云代理），并额外贡献 index 注入行（纯浏览器 `dsh web` 场景的首屏兜底）。
+- **宿主半边** `lib/index.js`：注册 `/theme-columbina/*` 静态资源路由（CSS、立绘、开屏影片、三首配乐、本地摇篮曲、自检 beacon），并额外贡献 index 注入行（纯浏览器 `dsh web` 场景的首屏兜底）。
 - **浏览器半边** `lib/client.js`：`dsh.client` 声明的客户端插件，随模块图进页面，挂载时注入样式表、把 `data-ds-dark-theme` 钉住、挂开屏和播放器。
 
 ### 几个踩出来的约束
@@ -197,7 +190,7 @@ DSH 桌面端的主窗口不是用 `http://127.0.0.1:<port>/` 加载的，而是
 - 升级后立绘 / 图标消失：多半是 DSH 改了后缀或 token 名，改 `theme/theme.css` 对应选择器即可。
 - DSH 起不来：检查 profile 的 `package.json` 和 `cordis.patch.yml` 是否有 UTF-8 BOM；安装脚本会自动清理。
 - 侧栏入口没出现：先 `Ctrl+R`，再完整退出 DSH 重开。
-- 播放器一直 `OFFLINE`：本机访问不了网易云，或接口变了；`curl` 一下 `/theme-columbina/music/stream?id=2756019215` 看返回。
+- 播放器显示「未找到」：`assets/bgm/` 里的三个文件没被安装脚本带上，重新跑一次 `install.ps1`，或直接看 `/theme-columbina/music/deck` 的 `local` 字段。
 
 ## 素材、许可与声明
 
@@ -205,8 +198,8 @@ DSH 桌面端的主窗口不是用 `http://127.0.0.1:<port>/` 加载的，而是
 
 - 本仓库新增的 DSH 移植代码（`lib/`、`theme/theme.css`、安装脚本、`tools/`、语气提示文本）：**MIT**，见 [LICENSE](LICENSE)。
 - `dsh-theme-columbina/assets/` 里的角色图、开屏影片与衍生素材：**不属于 MIT**，来自你提供的插画与 Wallpaper Engine 创意工坊素材，权利归原权利人。
-- 开屏配乐：`tools/build-score.py` 用 numpy 从零合成，随代码以 MIT 发布。
-- 主界面三首《新月的摇篮曲》：版权归 HOYO-MiX / 权利人所有，**不随仓库分发**，只保存 id 与曲名，由本机代理实时播放。
+- 开屏配乐（月茧 / 星落 / 摇篮）：`tools/build-score.py` 用 numpy 从零合成，随代码以 MIT 发布。
+- 主界面三首《新月的摇篮曲》：版权归 HOYO-MiX / 权利人所有，**不属于 MIT**；仓库按使用者提供的文件原样收录，若权利人要求会移除。
 - 逐文件来源、SHA-256 与转换说明见 [dsh-theme-columbina/PROVENANCE.json](dsh-theme-columbina/PROVENANCE.json)，权利说明见 [ASSET-LICENSE.md](ASSET-LICENSE.md) 与 [NOTICE.md](NOTICE.md)。
 
 非官方同人主题，与 HoYoverse / COGNOSPHERE、DeepSeek 均无隶属或背书关系。
@@ -219,7 +212,7 @@ DSH 桌面端的主窗口不是用 `http://127.0.0.1:<port>/` 加载的，而是
 
 ## English
 
-A moonlit night-blue theme for the **DeepSeek Harness Web GUI**, built from scratch against DSH's own design tokens: character artwork on the canvas, a frosted sidebar, a 16-second cinematic opening (Wallpaper Engine film + HUD + original music-box score), a three-track lullaby player that streams NetEase Music through the local host (no audio is redistributed), and a toggleable Columbina persona.
+A moonlit night-blue theme for the **DeepSeek Harness Web GUI**, built from scratch against DSH's own design tokens: character artwork on the canvas, a frosted sidebar, a 17-second cinematic opening (crescent window over the supplied film, original score), a three-track lullaby deck, a themed title-bar toggle, and a toggleable Columbina persona.
 
 - Requires DSH `0.2.1-rc.3+`; install with `pwsh -File .\install.ps1`, then fully restart DSH.
 - Code and the synthesized score are MIT. Character artwork and the opening film are **not** MIT; the three lullabies are not redistributed.

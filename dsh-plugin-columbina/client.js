@@ -18,6 +18,8 @@ window.__ModuleLoader__.load({
     const STATUS_URL = '/theme-columbina/status'
     const PERSONA_URL = '/columbina-persona/status'
     const PERSONA_SET_URL = '/columbina-persona/enabled'
+    const SCORE_KEY = 'columbina-opening-score'
+    const BGM_DIR = '%USERPROFILE%\\.dsh\\themes\\columbina\\assets\\bgm'
 
     const zh = {
       panel: '月下摇篮',
@@ -30,7 +32,21 @@ window.__ModuleLoader__.load({
       'row.dark': '深色属性',
       'row.applied': '样式已应用',
       'row.opening': '开屏遮罩',
+      'row.player': '播放器',
       'row.persona': '当前人格',
+      'opening.title': '开屏',
+      'opening.score': '配乐',
+      'opening.replay': '重播开屏',
+      'opening.hint': '重播会重新加载页面，并强制播放一次开屏；地址带 #opening 也可以。',
+      'opening.scoreHint': '换配乐只影响下一次开屏；三份都是仓库里的原创曲。',
+      'opening.mood': '月茧',
+      'opening.alt': '星落',
+      'opening.cradle': '摇篮',
+      'deck.local': '本地',
+      'deck.absent': '缺文件',
+      'deck.folder': '放文件的目录',
+      'deck.copy': '复制路径',
+      'deck.copied': '已复制',
       'state.online': '主题在线',
       'state.offline': '主题未响应',
       'state.loading': '读取中…',
@@ -39,12 +55,12 @@ window.__ModuleLoader__.load({
       'deck.on': '播放中',
       'deck.off': '已关闭',
       'deck.blocked': '等待点击播放',
-      'deck.offline': '暂时无法连接网易云',
+      'deck.offline': '未找到本地文件',
       'deck.toggleOn': '开启背景音乐',
       'deck.toggleOff': '关闭背景音乐',
       'deck.volume': '音量',
       'deck.missing': '主题播放器未挂载：确认 dsh-theme-columbina 已启用。',
-      'deck.note': '优先播放本机 bgm 文件夹里的文件；没有本地文件时由本机代理网易云实时播放。音频都不随仓库分发。',
+      'deck.note': '读取主题 assets/bgm 里的三首本地文件；文件不在时保持静音并提示。音频不随仓库分发。',
       'persona.title': '对话语气',
       'persona.on': '哥伦比娅',
       'persona.off': '关闭',
@@ -56,11 +72,11 @@ window.__ModuleLoader__.load({
       'action.persona': '切换语气',
       'action.copy': '复制诊断',
       'action.copied': '已复制',
-      'action.hint': '重播会重新加载当前页面并强制播放一次开屏。',
+      'action.hint': '诊断信息包含主题状态、播放器状态与当前开屏配乐。',
       'on': '已启用',
       'off': '未启用',
       'note.title': '说明',
-      'note.body': '这个入口只读取 /theme-columbina/status、驱动主题自带的播放器、切换语气插件的开关注册，并可重播开屏；不会修改 DSH 核心、配置文件或其他插件。',
+      'note.body': '这个入口只读取主题的公开路由、驱动主题自带的播放器、写一次开屏配乐偏好，并可重播开屏；不会修改 DSH 核心、配置文件或其他插件。',
       error: '读取状态失败',
     }
 
@@ -75,7 +91,21 @@ window.__ModuleLoader__.load({
       'row.dark': 'Dark attribute',
       'row.applied': 'Styles applied',
       'row.opening': 'Opening overlay',
+      'row.player': 'Player',
       'row.persona': 'Current voice',
+      'opening.title': 'Opening',
+      'opening.score': 'Score',
+      'opening.replay': 'Replay opening',
+      'opening.hint': 'Replay reloads the page and forces the opening once; #opening works too.',
+      'opening.scoreHint': 'Takes effect on the next opening; all three tracks are original.',
+      'opening.mood': 'Moon Cocoon',
+      'opening.alt': 'Starfall',
+      'opening.cradle': 'Cradle',
+      'deck.local': 'local',
+      'deck.absent': 'missing',
+      'deck.folder': 'Folder',
+      'deck.copy': 'Copy path',
+      'deck.copied': 'Copied',
       'state.online': 'Theme online',
       'state.offline': 'Theme not responding',
       'state.loading': 'Reading…',
@@ -84,12 +114,12 @@ window.__ModuleLoader__.load({
       'deck.on': 'Playing',
       'deck.off': 'Muted',
       'deck.blocked': 'Click to start',
-      'deck.offline': 'NetEase unreachable',
+      'deck.offline': 'Local files missing',
       'deck.toggleOn': 'Turn music on',
       'deck.toggleOff': 'Turn music off',
       'deck.volume': 'Volume',
       'deck.missing': 'Player not mounted: make sure dsh-theme-columbina is enabled.',
-      'deck.note': 'Plays the local bgm folder first; otherwise streams through this host. No audio ships with the repository.',
+      'deck.note': 'Plays the three files in the theme assets/bgm folder; stays silent when they are missing. No audio ships with the repository.',
       'persona.title': 'Conversation voice',
       'persona.on': 'Columbina',
       'persona.off': 'off',
@@ -101,7 +131,7 @@ window.__ModuleLoader__.load({
       'action.persona': 'Toggle voice',
       'action.copy': 'Copy diagnostics',
       'action.copied': 'Copied',
-      'action.hint': 'Replay reloads the page and forces the opening once.',
+      'action.hint': 'Diagnostics include theme state, player state and the current opening score.',
       'on': 'on',
       'off': 'off',
       'note.title': 'Notes',
@@ -117,7 +147,19 @@ window.__ModuleLoader__.load({
       color: 'var(--dsw-alias-label-primary)',
       fontFamily: 'var(--dsw-font-family, system-ui, -apple-system, "Segoe UI", sans-serif)',
     }
-    const header = { display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '22px' }
+    const header = {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '18px',
+      padding: '20px 22px',
+      marginBottom: '18px',
+      borderRadius: '18px',
+      border: '1px solid rgba(203,182,238,.22)',
+      background:
+        'radial-gradient(120% 160% at 8% 0%, rgba(203,182,238,.16), transparent 52%),' +
+        'linear-gradient(180deg, rgba(18,26,48,.8), rgba(9,14,28,.88))',
+      boxShadow: '0 24px 60px rgba(2,5,12,.45)',
+    }
     const emblem = {
       width: '58px',
       height: '58px',
@@ -359,6 +401,28 @@ window.__ModuleLoader__.load({
       return { state: state, setEnabled: setEnabled }
     }
 
+    /** Read and write the opening-score preference shared with the theme. */
+    function useOpeningScore() {
+      const read = function () {
+        try {
+          const stored = window.localStorage.getItem(SCORE_KEY)
+          return stored === 'starfall' || stored === 'cradle' ? stored : 'moon-cocoon'
+        } catch (error) {
+          return 'moon-cocoon'
+        }
+      }
+      const [score, setScore] = React.useState(read)
+      const choose = function (next) {
+        setScore(next)
+        try {
+          window.localStorage.setItem(SCORE_KEY, next)
+        } catch (error) {
+          // Storage unavailable: the choice still shows for this page.
+        }
+      }
+      return { score: score, choose: choose }
+    }
+
     /** The page itself. */
     function ColumbinaPage(props) {
       const t = props && props.t ? props.t : function (key) {
@@ -367,7 +431,9 @@ window.__ModuleLoader__.load({
       const status = useStatus()
       const deck = useDeck()
       const persona = usePersona()
+      const opening = useOpeningScore()
       const [copied, setCopied] = React.useState(false)
+      const [folderCopied, setFolderCopied] = React.useState(false)
 
       React.useEffect(function () {
         if (!copied) return undefined
@@ -391,6 +457,39 @@ window.__ModuleLoader__.load({
       function replay() {
         window.location.hash = 'opening'
         window.location.reload()
+      }
+
+      function copyFolder() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(BGM_DIR).then(function () {
+            setFolderCopied(true)
+            setTimeout(function () {
+              setFolderCopied(false)
+            }, 1700)
+          }).catch(function () {})
+        }
+      }
+
+      const scoreOption = function (label, mood, active, onClick) {
+        return h(
+          'button',
+          {
+            type: 'button',
+            onClick: onClick,
+            style: {
+              ...button,
+              flex: '1 1 0',
+              textAlign: 'left',
+              padding: '10px 12px',
+              borderColor: active ? 'rgba(203,182,238,.65)' : 'var(--dsw-alias-border-l2)',
+              background: active
+                ? 'linear-gradient(90deg, rgba(203,182,238,.2), rgba(159,216,245,.08))'
+                : 'var(--dsw-alias-bg-layer-2)',
+            },
+          },
+          h('div', { style: { fontSize: '12.5px', marginBottom: '3px' } }, label),
+          h('div', { style: { fontSize: '9px', letterSpacing: '.08em', opacity: 0.7, fontFamily: 'ui-monospace, monospace' } }, mood),
+        )
       }
 
       function copy() {
@@ -451,7 +550,8 @@ window.__ModuleLoader__.load({
             h('div', { style: row }, h('span', { style: rowLabel }, t('row.css')), h('span', { style: rowValue }, String(hits || 0))),
             h('div', { style: row }, h('span', { style: rowLabel }, t('row.reports')), h('span', { style: rowValue }, data ? String(data.reportCount || 0) : '—')),
             h('div', { style: row }, h('span', { style: rowLabel }, t('row.dark')), h('span', { style: rowValue }, report ? report.dark || '—' : '—')),
-            h('div', { style: rowLast }, h('span', { style: rowLabel }, t('row.opening')), h('span', { style: rowValue }, report ? report.opening || '—' : '—')),
+            h('div', { style: row }, h('span', { style: rowLabel }, t('row.opening')), h('span', { style: rowValue }, report ? report.opening || '—' : '—')),
+            h('div', { style: rowLast }, h('span', { style: rowLabel }, t('row.player')), h('span', { style: rowValue }, report ? report.player || report.bgm || '—' : '—')),
             status.state.error !== null && h('p', { style: errorText }, t('error')),
           ),
           h(
@@ -490,6 +590,44 @@ window.__ModuleLoader__.load({
         h(
           'section',
           { style: { ...card, marginBottom: '16px' } },
+          h('h2', { style: cardTitle }, t('opening.title')),
+          h('p', { style: { ...note, marginBottom: '12px', color: 'var(--dsw-alias-label-tertiary)' } }, t('opening.score')),
+          h(
+            'div',
+            { style: { display: 'flex', gap: '9px', marginBottom: '14px' } },
+            scoreOption('月茧', 'MUSIC BOX · 9.15s', opening.score === 'moon-cocoon', function () {
+              opening.choose('moon-cocoon')
+            }),
+            scoreOption('星落', 'CELESTA · ARPEGGIO', opening.score === 'starfall', function () {
+              opening.choose('starfall')
+            }),
+            scoreOption('摇篮', 'WALTZ · NO IMPACT', opening.score === 'cradle', function () {
+              opening.choose('cradle')
+            }),
+          ),
+          h(
+            'div',
+            { style: { display: 'flex', gap: '10px', flexWrap: 'wrap' } },
+            h(
+              'button',
+              {
+                type: 'button',
+                style: {
+                  ...button,
+                  borderColor: 'rgba(203,182,238,.55)',
+                  background: 'linear-gradient(90deg, rgba(203,182,238,.22), rgba(159,216,245,.1))',
+                },
+                onClick: replay,
+              },
+              t('opening.replay'),
+            ),
+          ),
+          h('p', { style: hint }, t('opening.scoreHint')),
+          h('p', { style: hint }, t('opening.hint')),
+        ),
+        h(
+          'section',
+          { style: { ...card, marginBottom: '16px' } },
           h('h2', { style: cardTitle }, t('deck.title')),
           h('p', { style: { ...note, marginBottom: '14px', color: 'var(--dsw-alias-label-tertiary)' } }, t('deck.subtitle')),
           h(
@@ -500,7 +638,7 @@ window.__ModuleLoader__.load({
               return h(
                 'button',
                 {
-                  key: track.id,
+                  key: track.slug || index,
                   type: 'button',
                   onClick: function () {
                     if (window.__columbinaDeck) window.__columbinaDeck.select(index)
@@ -529,7 +667,22 @@ window.__ModuleLoader__.load({
                   h('span', { style: { fontSize: '13px' } }, track.title),
                   h('span', { style: { fontSize: '9px', letterSpacing: '.2em', color: 'rgba(159,216,245,.65)', fontFamily: 'ui-monospace, monospace' } }, track.latin || track.subtitle || ''),
                 ),
-                active && h('span', { style: { marginLeft: 'auto', fontSize: '10px', letterSpacing: '.16em', color: 'rgba(203,182,238,.85)' } }, deckPlaying ? 'PLAYING' : 'SELECTED'),
+                h(
+                  'span',
+                  {
+                    style: {
+                      marginLeft: 'auto',
+                      fontSize: '9px',
+                      letterSpacing: '.14em',
+                      color: track.local === true ? 'rgba(159,216,245,.9)' : 'rgba(227,154,192,.85)',
+                      border: '1px solid ' + (track.local === true ? 'rgba(159,216,245,.35)' : 'rgba(227,154,192,.35)'),
+                      borderRadius: '999px',
+                      padding: '2px 7px',
+                    },
+                  },
+                  track.local === true ? t('deck.local') : t('deck.absent'),
+                ),
+                active && h('span', { style: { marginLeft: '8px', fontSize: '9px', letterSpacing: '.16em', color: 'rgba(203,182,238,.85)' } }, deckPlaying ? 'PLAYING' : 'SELECTED'),
               )
             }),
           ),
@@ -568,6 +721,30 @@ window.__ModuleLoader__.load({
             h('span', { style: { ...chip, marginLeft: 'auto' } }, h('span', { style: { ...dot, background: deckPlaying ? 'var(--dsw-alias-state-success-primary)' : 'var(--dsw-alias-label-dimmed)' } }), deckHint),
           ),
           h('p', { style: hint }, t('deck.note')),
+          h(
+            'div',
+            { style: { display: 'flex', alignItems: 'center', gap: '9px', marginTop: '10px', flexWrap: 'wrap' } },
+            h('span', { style: { ...hint, margin: 0 } }, t('deck.folder')),
+            h(
+              'code',
+              {
+                style: {
+                  fontSize: '10.5px',
+                  color: 'rgba(159,216,245,.85)',
+                  background: 'rgba(159,216,245,.08)',
+                  padding: '3px 7px',
+                  borderRadius: '6px',
+                  fontFamily: 'ui-monospace, monospace',
+                },
+              },
+              BGM_DIR,
+            ),
+            h(
+              'button',
+              { type: 'button', style: { ...button, padding: '4px 10px', fontSize: '11px' }, onClick: copyFolder },
+              folderCopied ? t('deck.copied') : t('deck.copy'),
+            ),
+          ),
         ),
         h(
           'section',
@@ -577,7 +754,6 @@ window.__ModuleLoader__.load({
             'div',
             { style: actions },
             h('button', { type: 'button', style: status.state.loading ? buttonDisabled : button, onClick: status.reload, disabled: status.state.loading }, t('action.refresh')),
-            h('button', { type: 'button', style: button, onClick: replay }, t('action.replay')),
             h('button', { type: 'button', style: button, onClick: copy }, t('action.copy')),
             copied && h('span', { style: hint }, t('action.copied')),
           ),

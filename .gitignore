@@ -24,9 +24,6 @@ dist/
 # Local-only audition material (copyrighted excerpt, never published)
 preview/audio/
 
-# Local lullaby library (user's own copies — never committed)
-dsh-theme-columbina/assets/bgm/
-
 # Local test home and screenshots
 .dshhome/
 .preview/
