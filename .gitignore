@@ -27,6 +27,8 @@ preview/audio/
 # Local test home and screenshots
 .dshhome/
 .preview/
+.runtime/
+.research-test/
 
 # Secrets and local environment — never commit real keys
 .env

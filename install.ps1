@@ -27,6 +27,10 @@ Write-Host '== Moonlit Cradle hub (sidebar entry) ==' -ForegroundColor Cyan
 & (Join-Path $root 'dsh-plugin-columbina\install.ps1') -Profile $Profile -DshHome $DshHome
 
 Write-Host ''
+Write-Host '== Columbina voice (original clips) ==' -ForegroundColor Cyan
+& (Join-Path $root 'dsh-plugin-columbina-voice\install.ps1') -Profile $Profile -DshHome $DshHome
+
+Write-Host ''
 Write-Host 'Done. Fully quit and reopen DSH once so the Client declarations reload.' -ForegroundColor Cyan
 Write-Host 'If the sidebar does not show 月下摇篮 after the restart, check:' -ForegroundColor Cyan
 Write-Host '  <DshHome>\profiles\<Profile>\cordis.patch.yml' -ForegroundColor Cyan

@@ -23,6 +23,7 @@ INCLUDE = [
     "install.ps1",
     "uninstall.ps1",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE",
     "ASSET-LICENSE.md",
     "NOTICE.md",
@@ -37,6 +38,7 @@ INCLUDE = [
     "dsh-theme-columbina",
     "dsh-plugin-columbina",
     "dsh-plugin-columbina-persona",
+    "dsh-plugin-columbina-voice",
 ]
 
 SKIP = {"__pycache__", "node_modules", ".git", "dist"}
@@ -61,6 +63,8 @@ def main() -> None:
                 if not file.is_file():
                     continue
                 if any(part in SKIP for part in file.parts):
+                    continue
+                if file.name.startswith('.dsh-ops-update-') or file.name.endswith('.lock'):
                     continue
                 bundle.write(file, file.relative_to(ROOT).as_posix())
     digest = hashlib.sha256(archive.read_bytes()).hexdigest()

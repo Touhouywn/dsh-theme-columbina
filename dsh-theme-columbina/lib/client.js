@@ -250,9 +250,9 @@ window.__ModuleLoader__.load({
         '<div class="co-ring"></div>',
         '<div class="co-brand"><b>COLUMBINA</b><i>THE DAMSELLETTE · THIRD SEAT</i></div>',
         '<div class="co-lyrics">',
-        '<div class="co-line">今晚的月亮，很轻。</div>',
-        '<div class="co-line">轻得像一句没说完的话。</div>',
-        '<div class="co-line">那就先闭上眼吧…</div>',
+        '<div class="co-line" style="opacity:0;transform:translateY(8px)">今晚的月亮，很轻。</div>',
+        '<div class="co-line" style="opacity:0;transform:translateY(8px)">轻得像一句没说完的话。</div>',
+        '<div class="co-line" style="opacity:0;transform:translateY(8px)">那就先闭上眼吧…</div>',
         '</div>',
         '<div class="co-title">',
         '<div class="co-kicker">WELCOME TO</div>',
@@ -268,9 +268,25 @@ window.__ModuleLoader__.load({
       document.documentElement.appendChild(root)
       if (root.getBoundingClientRect().width < window.innerWidth * 0.9) document.body.appendChild(root)
 
+      /**
+       * Style one node inside the overlay.
+       *
+       * The transition is applied *after* a forced layout: setting `opacity: 0`
+       * and `transition: opacity …` in the same assignment makes the browser
+       * animate from the element's initial value (1) down to 0, which flashed
+       * every "later" caption for a second at the start of the opening.
+       */
       var css = function (selector, text) {
         var node = root.querySelector(selector)
-        if (node !== null) node.style.cssText = text
+        if (node === null) return null
+        var transition = ''
+        var base = text.replace(/transition\s*:\s*([^;]+);?/g, function (_, value) {
+          transition = value
+          return ''
+        })
+        node.style.cssText = base
+        node.getBoundingClientRect()
+        if (transition !== '') node.style.transition = transition
         return node
       }
 
@@ -331,7 +347,13 @@ window.__ModuleLoader__.load({
           'font-size:clamp(15px,1.25vw,19px);letter-spacing:.14em;color:rgba(233,238,255,.9);' +
           'text-shadow:0 2px 26px rgba(3,6,13,.9)',
       )
-      css('.co-line', 'opacity:0;transform:translateY(8px);transition:opacity 1.1s ease-out,transform 1.1s ease-out')
+      // Every line has to start hidden: `css()` only reaches the first match,
+      // which left the later lyrics on screen from the first frame.
+      var lyricNodes = root.querySelectorAll('.co-line')
+      for (var lyricIndex = 0; lyricIndex < lyricNodes.length; lyricIndex += 1) {
+        lyricNodes[lyricIndex].style.cssText =
+          'opacity:0;transform:translateY(8px);transition:opacity 1.1s ease-out,transform 1.1s ease-out'
+      }
       var title = css(
         '.co-title',
         'position:absolute;left:8vw;top:50%;transform:translateY(-46%);opacity:0;' +

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "哥伦比娅语音",
+    "description": "把回复念出来：接本机 GPT-SoVITS，没有模型时回落到 Windows 语音。"
+  }
+}

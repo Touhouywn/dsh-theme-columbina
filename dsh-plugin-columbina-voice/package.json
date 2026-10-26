@@ -1,0 +1,39 @@
+{
+  "name": "dsh-plugin-columbina-voice",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Columbina voice: plays original full-voice clips for the assistant's replies, using curated intent templates and low-confidence retrieval. No TTS.",
+  "license": "MIT",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "assets/catalog.json",
+    "assets/templates.json",
+    "assets/VOICE-BANK.md",
+    "assets/clips/*.ogg",
+    "locale/*.json",
+    "README.md",
+    "install.ps1",
+    "uninstall.ps1"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.3"
+  }
+}

@@ -2,6 +2,8 @@
 
 > 「少女」的月夜与摇篮曲，做成 **DeepSeek Harness Web GUI** 可以直接安装的深色主题：月下立绘、玻璃侧栏、电影式开屏、三首可切换的摇篮曲，以及一个可开关的哥伦比娅人格。
 
+当前版本：**1.1.0**。这一版把哥伦比娅语音做成了原声切片库：C′ 手写意图序列 + D 低置信度检索，不合成新词。
+
 ![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-0.2.1--rc.3%2B-cbb6ee?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Web-9fd8f5?style=flat-square)
 ![Code license](https://img.shields.io/badge/code-MIT-cbb6ee?style=flat-square)
@@ -13,13 +15,14 @@
 
 一个从零写的 DSH 主题包，不是把别处的 CSS 搬过来：配色走 DSH 自己的 `--dsw-*` 设计变量，开屏与播放器是声明在 `dsh.client` 里的客户端插件，配乐、图标、开屏影片全部由仓库里的脚本从原始素材生成。
 
-仓库里有三个包：
+仓库里有四个包：
 
 | 目录 | 作用 |
 | --- | --- |
 | `dsh-theme-columbina/` | 主题本体：月夜配色、月下立绘、玻璃侧栏、电影式开屏、摇篮曲播放器 |
 | `dsh-plugin-columbina/` | 可选的左侧栏「月下摇篮」入口：状态、三首曲子的播放面板、语气开关、重播开屏 |
 | `dsh-plugin-columbina-persona/` | 对话语气：可开关的系统提示段，让回复带上「少女」的口吻 |
+| `dsh-plugin-columbina-voice/` | 原声语音：481 段完整切片 + C′ 意图序列 + D 相似度兜底，不调用 TTS |
 
 ## 特性
 
@@ -29,6 +32,7 @@
 - **电影式开屏**：15 秒壁纸影片作底，一弯月牙里开出一扇圆窗，三句短词落下，9.15 秒圆窗涨满全屏；原创八音盒配乐，点击或任意键跳过，每个页面会话只播一次。
 - **摇篮曲播放器**：右下角常驻的小月亮按钮，展开是「月之摇篮曲」面板——三首曲子任选、开关背景音乐、调音量；选择记在本地。
 - **对话人格**：可开关的系统提示段，短句、省略号、偶尔用哼唱代替回答；命令、路径、代码、报错仍然精确。
+- **原声语音**：右下角 ♪ 按钮；481 段原声切片，C′ 意图模板优先，D 相似度检索兜底；代码/命令/低置信度保持静默，只留文字。
 - **标题栏侧栏开关**：外壳自带的 Ctrl+B 按钮会压在月徽上，主题把它换成左上角一枚银紫小按钮（和桑多涅主题同位置），点击转发给外壳，`Ctrl+B` 照常可用。
 - **深色专用**：启用期间钉住 `body[data-ds-dark-theme]`，禁用后立刻回到 DSH 原生外观。
 
@@ -87,6 +91,7 @@ pwsh -File .\install.ps1
 pwsh -File .\dsh-theme-columbina\install.ps1          # 主题
 pwsh -File .\dsh-plugin-columbina\install.ps1         # 侧栏入口
 pwsh -File .\dsh-plugin-columbina-persona\install.ps1 # 语气
+pwsh -File .\dsh-plugin-columbina-voice\install.ps1   # 原声语音
 ```
 
 安装脚本会：复制到 `%USERPROFILE%\.dsh\{themes,plugins}\...`、在 profile 的 `node_modules` 里建 junction、往 `cordis.patch.yml` 追加一条 `insert` row（先备份），并清理 `package.json` / patch 的 UTF-8 BOM（DSH 启动时对 BOM 是 fatal）。
@@ -100,6 +105,7 @@ http://127.0.0.1:<GUI端口>/theme-columbina/status
 http://127.0.0.1:<GUI端口>/theme-columbina/music/deck
 http://127.0.0.1:<GUI端口>/columbina-hub/status
 http://127.0.0.1:<GUI端口>/columbina-persona/status
+http://127.0.0.1:<GUI端口>/columbina-voice/status
 ```
 
 `/theme-columbina/status` 返回 `theme: "columbina-lullaby"`、样式表命中次数，以及页面回传的实况（深色属性、框架、`centerCol`/`sidebarCol`、开屏、播放器、窗口尺寸）。
@@ -107,8 +113,8 @@ http://127.0.0.1:<GUI端口>/columbina-persona/status
 ### 卸载
 
 ```powershell
-pwsh -File .\uninstall.ps1           # 移除三条 row 和 junction，文件保留
-pwsh -File .\uninstall.ps1 -Purge    # 连同 ~/.dsh 下的三个包一起删
+pwsh -File .\uninstall.ps1           # 移除四条 row 和 junction，文件保留
+pwsh -File .\uninstall.ps1 -Purge    # 连同 ~/.dsh 下的四个包一起删
 ```
 
 ## 自定义
@@ -155,7 +161,8 @@ CSS 与 JSON 资源带 `no-cache` + ETag，改完刷新页面（Ctrl+R）即可�
 │   ├── tools/audit-tokens.mjs  # 比对 token 名是否真实存在
 │   └── install.ps1 / uninstall.ps1 / README.md / NOTICE.md / LICENSE ...
 ├── dsh-plugin-columbina/       # 侧栏入口（状态 + 摇篮曲面板 + 语气开关）
-└── dsh-plugin-columbina-persona/  # 系统提示段 + POST /enabled
+├── dsh-plugin-columbina-persona/  # 系统提示段 + POST /enabled
+└── dsh-plugin-columbina-voice/  # 原声切片库 + C′ 意图 + D 检索
 ```
 
 ## 工作原理
@@ -191,6 +198,7 @@ DSH 桌面端的主窗口不是用 `http://127.0.0.1:<port>/` 加载的，而是
 - `dsh-theme-columbina/assets/` 里的角色图、开屏影片与衍生素材：**不属于 MIT**，来自你提供的插画与 Wallpaper Engine 创意工坊素材，权利归原权利人。
 - 开屏配乐（月茧）：`tools/build-score.py` 用 numpy 从零合成，随代码以 MIT 发布。
 - 主界面三首《新月的摇篮曲》：版权归 HOYO-MiX / 权利人所有，**不属于 MIT**；仓库按使用者提供的文件原样收录，若权利人要求会移除。
+- 原声语音库：`dsh-plugin-columbina-voice/assets/clips/` 的 481 段切片来自使用者提供的全语音素材与 Bilibili 参考 `BV1fQzSBMEbs`（CV：杨梦露），权利归原权利人，**不属于 MIT**。
 - 逐文件来源、SHA-256 与转换说明见 [dsh-theme-columbina/PROVENANCE.json](dsh-theme-columbina/PROVENANCE.json)，权利说明见 [ASSET-LICENSE.md](ASSET-LICENSE.md) 与 [NOTICE.md](NOTICE.md)。
 
 非官方同人主题，与 HoYoverse / COGNOSPHERE、DeepSeek 均无隶属或背书关系。
@@ -203,8 +211,8 @@ DSH 桌面端的主窗口不是用 `http://127.0.0.1:<port>/` 加载的，而是
 
 ## English
 
-A moonlit night-blue theme for the **DeepSeek Harness Web GUI**, built from scratch against DSH's own design tokens: character artwork on the canvas, a frosted sidebar, a 17-second cinematic opening (crescent window over the supplied film, original score), a three-track lullaby deck, a themed title-bar toggle, and a toggleable Columbina persona.
+A moonlit night-blue theme for the **DeepSeek Harness Web GUI**, built from scratch against DSH's own design tokens: character artwork on the canvas, a frosted sidebar, a 17-second cinematic opening (crescent window over the supplied film, original score), a three-track lullaby deck, a themed title-bar toggle, a toggleable Columbina persona, and an original-clip voice bank (C′ intent sequences + D retrieval, no TTS).
 
 - Requires DSH `0.2.1-rc.3+`; install with `pwsh -File .\install.ps1`, then fully restart DSH.
-- Code and the synthesized score are MIT. Character artwork and the opening film are **not** MIT; the three lullabies are not redistributed.
+- Code and the synthesized score are MIT. Character artwork, the opening film, the lullabies and the voice-bank clips are **not** MIT.
 - Unofficial fan project; not affiliated with HoYoverse/COGNOSPHERE or DeepSeek.

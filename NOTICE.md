@@ -19,6 +19,12 @@ DeepSeek Harness Web GUI.
   theme's user (an illustration and a Wallpaper Engine workshop item). They are
   not MIT and are not licensed for redistribution; see
   [ASSET-LICENSE.md](ASSET-LICENSE.md).
+- The original-voice clip bank under
+  `dsh-plugin-columbina-voice/assets/clips/` is cut from the user-supplied
+  full-voice material and the Bilibili reference `BV1fQzSBMEbs` (CV: 杨梦露).
+  The performances remain with the original rights holders; the clips are not
+  MIT and are included for this personal fan project. They will be removed on
+  request from the rights holder.
 
 If you are a rights holder and want something removed, open an issue and it
 will be taken down.

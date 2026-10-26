@@ -1,0 +1,7 @@
+- insert:
+    - id: columbina-voice
+      name: dsh-plugin-columbina-voice
+      config:
+        mode: clips
+        threshold: 0.32
+        maxClips: 3

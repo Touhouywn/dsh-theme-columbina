@@ -68,4 +68,11 @@ if ($Purge) {
 }
 
 Write-Host ''
+Write-Host '== Columbina voice ==' -ForegroundColor Cyan
+$voiceUninstall = Join-Path $root 'dsh-plugin-columbina-voice\uninstall.ps1'
+if (Test-Path -LiteralPath $voiceUninstall) {
+  & $voiceUninstall -Profile $Profile -DshHome $DshHome -Purge:$Purge
+}
+
+Write-Host ''
 Write-Host 'Done. Fully quit and reopen DSH to unload the Client halves.' -ForegroundColor Cyan

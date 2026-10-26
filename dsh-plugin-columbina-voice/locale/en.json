@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Columbina voice",
+    "description": "Reads replies aloud through a local GPT-SoVITS server, falling back to Windows speech."
+  }
+}
