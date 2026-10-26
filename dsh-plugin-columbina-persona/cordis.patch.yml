@@ -1,0 +1,5 @@
+- insert:
+    - id: columbina-persona
+      name: dsh-plugin-columbina-persona
+      config:
+        enabled: true

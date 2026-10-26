@@ -1,0 +1,42 @@
+{
+  "name": "dsh-theme-columbina",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Columbina · Moonlit Cradle — a cinematic night-blue theme for the DeepSeek Harness Web GUI.",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./assets/icon.png",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "files": [
+    "lib",
+    "theme",
+    "assets",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "README.md",
+    "NOTICE.md",
+    "LICENSE",
+    "ASSET-LICENSE.md",
+    "PROVENANCE.json",
+    "install.ps1",
+    "uninstall.ps1"
+  ],
+  "engines": {
+    "dsh": ">=0.2.1-rc.3"
+  }
+}
