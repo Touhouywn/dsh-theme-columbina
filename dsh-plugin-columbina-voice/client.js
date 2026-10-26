@@ -167,8 +167,9 @@ window.__ModuleLoader__.load({
         if (!state.enabled) return
         var text = latestParagraph()
         if (text === '' || text === lastSpoken) return
-        if (timer !== null) clearTimeout(timer)
+        if (timer !== null) return
         timer = setTimeout(function () {
+          timer = null
           speak(latestParagraph())
         }, 1400)
       }, 900)
@@ -215,6 +216,10 @@ window.__ModuleLoader__.load({
           lastSpoken = ''
           select({ intent: 'enable' })
         } else {
+          if (timer !== null) {
+            clearTimeout(timer)
+            timer = null
+          }
           stopAudio()
         }
       })

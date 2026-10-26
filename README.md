@@ -2,7 +2,7 @@
 
 > 「少女」的月夜与摇篮曲，做成 **DeepSeek Harness Web GUI** 可以直接安装的深色主题：月下立绘、玻璃侧栏、电影式开屏、三首可切换的摇篮曲，以及一个可开关的哥伦比娅人格。
 
-当前版本：**1.1.0**。这一版把哥伦比娅语音做成了原声切片库：C′ 手写意图序列 + D 低置信度检索，不合成新词。
+当前版本：**1.1.1**。这一版把哥伦比娅语音做成了原声切片库：C′ 手写意图序列 + D 低置信度检索，不合成新词；1.1.1 修复了正文防抖定时器被反复重置的问题。
 
 ![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-0.2.1--rc.3%2B-cbb6ee?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Web-9fd8f5?style=flat-square)
