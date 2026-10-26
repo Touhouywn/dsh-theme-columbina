@@ -25,6 +25,9 @@ html { color-scheme: dark; }
 html body[data-ds-dark-theme] {
   /* Marker the page-side self-check reads: proves this sheet applied. */
   --columbina-theme: on;
+  /* How much glass the sidebar gets. 0 turns the blur off entirely; a 4K
+     window pays for this twice over, so it is a tunable, not a constant. */
+  --columbina-sidebar-blur: 8px;
 
   /* --- canvas ----------------------------------------------------------- */
   /* Transparent on purpose: the artwork is painted on the document canvas and
@@ -247,11 +250,11 @@ html body[data-ds-dark-theme] code {
 /* Sidebar: night glass with a hairline silver-lilac edge. */
 html body[data-ds-dark-theme] [class*="sidebarCol"] {
   background:
-    linear-gradient(180deg, rgba(8, 13, 27, 0.82), rgba(5, 9, 19, 0.78));
+    linear-gradient(180deg, rgba(8, 13, 27, 0.9), rgba(5, 9, 19, 0.86));
   border-right: 1px solid rgba(203, 182, 238, 0.22);
   box-shadow: inset -14px 0 30px -22px rgba(0, 0, 0, 0.95);
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
-  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(var(--columbina-sidebar-blur)) saturate(112%);
+  backdrop-filter: blur(var(--columbina-sidebar-blur)) saturate(112%);
 }
 
 /* --------------------------------------------------------------------------

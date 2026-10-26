@@ -710,8 +710,8 @@ window.__ModuleLoader__.load({
       pill.title = '月之摇篮曲'
       pill.style.cssText =
         'pointer-events:auto;display:flex;align-items:center;gap:9px;height:38px;padding:0 14px 0 11px;' +
-        'border-radius:999px;border:1px solid rgba(203,182,238,.34);background:rgba(9,14,29,.78);' +
-        'color:#dfe6ff;cursor:pointer;backdrop-filter:blur(12px) saturate(120%);' +
+        'border-radius:999px;border:1px solid rgba(203,182,238,.34);background:rgba(9,14,29,.94);' +
+        'color:#dfe6ff;cursor:pointer;' +
         'box-shadow:0 10px 30px rgba(2,5,12,.45),inset 0 1px 0 rgba(233,238,255,.08);' +
         'font-size:11.5px;letter-spacing:.06em;transition:border-color .2s ease,background .2s ease'
       var pillIcon = document.createElement('span')
@@ -731,8 +731,8 @@ window.__ModuleLoader__.load({
       var panel = document.createElement('div')
       panel.style.cssText =
         'pointer-events:auto;display:none;width:296px;padding:16px 16px 14px;border-radius:16px;' +
-        'border:1px solid rgba(203,182,238,.26);background:linear-gradient(180deg,rgba(13,20,38,.96),rgba(8,13,26,.97));' +
-        'box-shadow:0 22px 60px rgba(2,5,12,.6);backdrop-filter:blur(18px) saturate(125%);color:#e9eeff'
+        'border:1px solid rgba(203,182,238,.26);background:linear-gradient(180deg,rgba(13,20,38,.985),rgba(8,13,26,.99));' +
+        'box-shadow:0 22px 60px rgba(2,5,12,.6);color:#e9eeff'
 
       var head = document.createElement('div')
       head.style.cssText = 'display:flex;align-items:center;justify-content:space-between;margin-bottom:12px'
