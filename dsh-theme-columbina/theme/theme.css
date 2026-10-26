@@ -414,7 +414,18 @@ html body[data-ds-dark-theme] [class*="projectRow"] [class*="folder"] > * {
 }
 
 /* --------------------------------------------------------------------------
-   5. Lullaby player (the floating deck in lib/client.js)
+   5. Title-bar sidebar toggle
+   The stock Ctrl+B control sits half over the brand mark in the Windows title
+   bar and paints its focus ring on top of the moon badge. Hide the button; the
+   Ctrl+B shortcut still toggles the sidebar, and the shell keeps its state.
+   -------------------------------------------------------------------------- */
+html body[data-ds-dark-theme] button[aria-label="收起侧边栏"],
+html body[data-ds-dark-theme] button[aria-label="展开侧边栏"] {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Lullaby player (the floating deck in lib/client.js)
    The element is created on <html>, outside React's tree, and styled inline;
    only hover/state rules live here.
    -------------------------------------------------------------------------- */

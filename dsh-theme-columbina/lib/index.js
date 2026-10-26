@@ -15,6 +15,7 @@
  *
  * There is no model-facing surface: no tool, no prompt section, no request.
  */
+import { existsSync } from 'node:fs'
 import { stat, readFile } from 'node:fs/promises'
 import { Readable } from 'node:stream'
 import { join, resolve } from 'node:path'
@@ -41,21 +42,27 @@ const TRACKS = [
     title: '新月的摇篮曲（其一）：伴月同眠',
     subtitle: 'Lullaby of the New Moon · I',
     latin: 'Somnias a Luna',
+    file: '01-somnias-a-luna.mp3',
   },
   {
     id: '2756018754',
-    title: '新月的摇篮曲（其二）：献给月亮的笑靥',
+    title: '新月的摇篮曲（其二）：宵晖下的笑颜',
     subtitle: 'Lullaby of the New Moon · II',
     latin: 'Lucens ut risus',
+    file: '02-lucens-ut-risus.mp3',
   },
   {
     id: '2756018755',
-    title: '新月的摇篮曲（其三）：落花成英',
+    title: '新月的摇篮曲（其三）：眉间落英',
     subtitle: 'Lullaby of the New Moon · III',
     latin: 'Petala ceciderunt',
+    file: '03-petala-ceciderunt.mp3',
   },
 ]
 const TRACK_IDS = new Set(TRACKS.map((track) => track.id))
+
+/** Where a local copy of the deck lives, if the user has one. Never in git. */
+const LOCAL_DIR = join(PLUGIN_ROOT, 'assets', 'bgm')
 
 /** Public path → file on disk. An explicit allow-list, so no request can walk out of the package. */
 const FILES = new Map([
@@ -136,10 +143,78 @@ function serveStatus(res) {
     hits: { ...HITS },
     reportCount,
     lastReport,
-    music: { tracks: TRACKS.length, ids: [...TRACK_IDS] },
+    music: { tracks: TRACKS.length, ids: [...TRACK_IDS], local: deck().filter((track) => track.local).length },
   })
   res.writeHead(200, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' })
   res.end(body)
+}
+
+/**
+ * Send one file with ETag and Range support.
+ * @param file - absolute path on disk.
+ * @param type - response content type.
+ * @param req - incoming request (read for `if-none-match` and `range`).
+ * @param res - response to write.
+ */
+async function sendFile(file, type, req, res) {
+  let info
+  try {
+    info = await stat(file)
+  } catch {
+    res.writeHead(404, { 'cache-control': 'no-store' })
+    res.end()
+    return
+  }
+  const etag = `"${Math.trunc(info.mtimeMs).toString(36)}-${info.size.toString(36)}"`
+  if (req.headers['if-none-match'] === etag) {
+    res.writeHead(304, { etag, 'cache-control': 'no-cache' })
+    res.end()
+    return
+  }
+  const body = await readFile(file)
+  const size = body.byteLength
+
+  // Range support: Chromium asks for `bytes=0-` before it streams media.
+  const range = req.headers.range
+  if (typeof range === 'string' && range.startsWith('bytes=')) {
+    const [rawStart, rawEnd] = range.slice(6).split('-')
+    let start = rawStart === '' ? size - Number(rawEnd) : Number(rawStart)
+    let end = rawStart === '' || rawEnd === '' || rawEnd === undefined ? size - 1 : Number(rawEnd)
+    if (Number.isFinite(start) && Number.isFinite(end) && start >= 0 && start <= end && start < size) {
+      end = Math.min(end, size - 1)
+      const chunk = body.subarray(start, end + 1)
+      res.writeHead(206, {
+        'content-type': type,
+        'content-length': String(chunk.byteLength),
+        'content-range': `bytes ${start}-${end}/${size}`,
+        'accept-ranges': 'bytes',
+        'cache-control': 'no-cache',
+        etag,
+      })
+      res.end(req.method === 'HEAD' ? undefined : chunk)
+      return
+    }
+    res.writeHead(416, { 'content-range': `bytes */${size}`, 'cache-control': 'no-cache' })
+    res.end()
+    return
+  }
+
+  res.writeHead(200, {
+    'content-type': type,
+    'content-length': String(size),
+    'accept-ranges': 'bytes',
+    'cache-control': 'no-cache',
+    etag,
+  })
+  res.end(req.method === 'HEAD' ? undefined : body)
+}
+
+/**
+ * Describe the deck: ids, titles and whether a local copy exists.
+ * @returns the track list with a `local` flag per entry.
+ */
+function deck() {
+  return TRACKS.map((track) => ({ ...track, local: existsSync(join(LOCAL_DIR, track.file)) }))
 }
 
 /**
@@ -165,56 +240,7 @@ async function serveAsset(pathname, req, res) {
     return
   }
   if (HITS[key] !== undefined) HITS[key] += 1
-  let info
-  try {
-    info = await stat(entry.file)
-  } catch {
-    res.writeHead(404, { 'cache-control': 'no-store' })
-    res.end()
-    return
-  }
-  const etag = `"${Math.trunc(info.mtimeMs).toString(36)}-${info.size.toString(36)}"`
-  if (req.headers['if-none-match'] === etag) {
-    res.writeHead(304, { etag, 'cache-control': 'no-cache' })
-    res.end()
-    return
-  }
-  const body = await readFile(entry.file)
-  const size = body.byteLength
-
-  // Range support: Chromium asks for `bytes=0-` before it streams media.
-  const range = req.headers.range
-  if (typeof range === 'string' && range.startsWith('bytes=')) {
-    const [rawStart, rawEnd] = range.slice(6).split('-')
-    let start = rawStart === '' ? size - Number(rawEnd) : Number(rawStart)
-    let end = rawStart === '' || rawEnd === '' || rawEnd === undefined ? size - 1 : Number(rawEnd)
-    if (Number.isFinite(start) && Number.isFinite(end) && start >= 0 && start <= end && start < size) {
-      end = Math.min(end, size - 1)
-      const chunk = body.subarray(start, end + 1)
-      res.writeHead(206, {
-        'content-type': entry.type,
-        'content-length': String(chunk.byteLength),
-        'content-range': `bytes ${start}-${end}/${size}`,
-        'accept-ranges': 'bytes',
-        'cache-control': 'no-cache',
-        etag,
-      })
-      res.end(req.method === 'HEAD' ? undefined : chunk)
-      return
-    }
-    res.writeHead(416, { 'content-range': `bytes */${size}`, 'cache-control': 'no-cache' })
-    res.end()
-    return
-  }
-
-  res.writeHead(200, {
-    'content-type': entry.type,
-    'content-length': String(size),
-    'accept-ranges': 'bytes',
-    'cache-control': 'no-cache',
-    etag,
-  })
-  res.end(req.method === 'HEAD' ? undefined : body)
+  await sendFile(entry.file, entry.type, req, res)
 }
 
 /**
@@ -339,9 +365,20 @@ export function apply(ctx, config = {}) {
               await streamMusic(req, res, searchParams.get('id') ?? '')
               return
             }
+            if (music && pathname === `${ROUTE}/music/local`) {
+              const id = searchParams.get('id') ?? ''
+              const track = TRACKS.find((entry) => entry.id === id)
+              if (track === undefined) {
+                res.writeHead(403, { 'cache-control': 'no-store' })
+                res.end()
+                return
+              }
+              await sendFile(join(LOCAL_DIR, track.file), 'audio/mpeg', req, res)
+              return
+            }
             if (music && pathname === `${ROUTE}/music/deck`) {
               res.writeHead(200, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' })
-              res.end(JSON.stringify({ tracks: TRACKS, stream: `${ROUTE}/music/stream` }))
+              res.end(JSON.stringify({ tracks: deck(), stream: `${ROUTE}/music/stream`, local: `${ROUTE}/music/local` }))
               return
             }
             await serveAsset(pathname, req, res)

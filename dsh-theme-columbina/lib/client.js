@@ -207,50 +207,33 @@ window.__ModuleLoader__.load({
       root.id = OPENING_ID
       root.style.cssText =
         'position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:2147483000;overflow:hidden;background:#04070f;' +
-        'opacity:1;transition:opacity .9s ease-out,transform .9s ease-out;' +
-        'font-family:var(--dsw-font-family,"Segoe UI",sans-serif);color:#e9eeff;user-select:none'
+        'opacity:1;transition:opacity 1s ease-out;font-family:var(--dsw-font-family,"Segoe UI",sans-serif);' +
+        'color:#e9eeff;user-select:none'
       root.innerHTML = [
         '<img class="co-plate" alt="" decoding="async">',
-        '<video class="co-film" muted playsinline preload="auto"></video>',
+        '<div class="co-iris"><video class="co-film" muted playsinline preload="auto"></video></div>',
+        '<div class="co-moon"></div>',
         '<div class="co-veil"></div>',
-        '<div class="co-veil-b"></div>',
-        '<div class="co-grain"></div>',
-        '<svg class="co-ring" viewBox="0 0 400 400" aria-hidden="true">',
-        '<circle cx="200" cy="200" r="188" fill="none" stroke="rgba(203,182,238,.20)" stroke-width="1" stroke-dasharray="1 8"/>',
-        '<circle cx="200" cy="200" r="158" fill="none" stroke="rgba(159,216,245,.28)" stroke-width="1" stroke-dasharray="92 200"/>',
-        '<circle cx="200" cy="200" r="120" fill="none" stroke="rgba(233,238,255,.14)" stroke-width="1"/>',
+        '<svg class="co-crescent" viewBox="0 0 100 100" aria-hidden="true">',
+        '<path d="M64 8a42 42 0 1 0 0 84 33 33 0 1 1 0-84Z" fill="none" stroke="#e9eeff" stroke-width="1.6" stroke-linejoin="round"/>',
         '</svg>',
-        '<div class="co-num">Ⅲ</div>',
-        '<div class="co-brand"><b>COLUMBINA</b><i>THE DAMSELLETTE · SEAT III</i></div>',
-        '<div class="co-clock"><b>00:00</b><i>ELAPSED</i></div>',
-        '<div class="co-log">',
-        '<div class="co-logline"><span>›</span> 月相校准 · 霜月</div>',
-        '<div class="co-logline"><span>›</span> 载入摇篮曲 · 三章</div>',
-        '<div class="co-logline"><span>›</span> 月影折射 · 第七幕</div>',
-        '<div class="co-logline"><span>›</span> 权限确认 · 第三席</div>',
+        '<div class="co-ring"></div>',
+        '<div class="co-brand"><b>COLUMBINA</b><i>THE DAMSELLETTE · THIRD SEAT</i></div>',
+        '<div class="co-lyrics">',
+        '<div class="co-line">今晚的月亮，很轻。</div>',
+        '<div class="co-line">轻得像一句没说完的话。</div>',
+        '<div class="co-line">那就先闭上眼吧…</div>',
         '</div>',
-        '<div class="co-center">',
-        '<div class="co-kicker">LULLABY PROTOCOL</div>',
-        '<div class="co-headline">摇篮曲起</div>',
-        '<div class="co-sub">A SONG BEFORE SLEEP</div>',
-        '</div>',
-        '<div class="co-progress"><div class="co-progress-fill"></div></div>',
-        '<div class="co-pct">000</div>',
-        '<div class="co-diag">MOONLIGHT LATTICE · NOD-KRAI · SEAT III</div>',
-        '<div class="co-credit">SCORE · ORIGINAL · MIT</div>',
-        '<div class="co-sign">',
-        '<div class="co-wordmark">COLUMBINA</div>',
+        '<div class="co-title">',
+        '<div class="co-kicker">WELCOME TO</div>',
+        '<div class="co-headline">月下摇篮</div>',
         '<div class="co-tagline">月光作幕，歌声为枕</div>',
-        '<div class="co-subtitle">MOONLIT CRADLE</div>',
+        '<div class="co-sub">MOONLIT CRADLE · COLUMBINA</div>',
         '</div>',
         '<div class="co-flash"></div>',
         '<div class="co-sound">♪ 点击启用声音</div>',
         '<div class="co-skip">点击 / 任意键 跳过</div>',
         '<audio class="co-score" preload="auto"></audio>',
-        '<div class="co-c co-c-tl"></div>',
-        '<div class="co-c co-c-tr"></div>',
-        '<div class="co-c co-c-bl"></div>',
-        '<div class="co-c co-c-br"></div>',
       ].join('')
       document.documentElement.appendChild(root)
       if (root.getBoundingClientRect().width < window.innerWidth * 0.9) document.body.appendChild(root)
@@ -261,151 +244,108 @@ window.__ModuleLoader__.load({
         return node
       }
 
+      var width = root.clientWidth || window.innerWidth
+      var height = root.clientHeight || window.innerHeight
+      // The window of light opens over the character: her face sits slightly
+      // right of centre in the supplied film.
+      var centerX = width * 0.66
+      var centerY = height * 0.37
+      var holdRadius = Math.min(width, height) * 0.29
+      var fullRadius = Math.hypot(Math.max(centerX, width - centerX), Math.max(centerY, height - centerY)) * 1.1
+
       var plate = css(
         '.co-plate',
-        'position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:62% 42%;' +
-          'opacity:0;transform:scale(1.08);filter:brightness(.7) saturate(.95);' +
-          'transition:opacity 1.8s ease-out,transform 20s cubic-bezier(.16,.42,.2,1),filter 1.6s ease-out',
+        'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 42%;' +
+          'opacity:.18;transform:scale(1.06);filter:brightness(.6) saturate(.9)',
       )
+      var iris = css('.co-iris', 'position:absolute;inset:0;pointer-events:none')
       var film = css(
         '.co-film',
-        'position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:62% 42%;' +
-          'opacity:0;filter:brightness(.72) saturate(.92) hue-rotate(-4deg);transition:opacity 2.2s ease-out,filter 1.4s ease-out',
+        'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 42%;' +
+          'opacity:1;filter:brightness(.74) saturate(.94)',
+      )
+      var moon = css(
+        '.co-moon',
+        'position:absolute;left:' + centerX + 'px;top:' + centerY + 'px;width:2px;height:2px;border-radius:50%;' +
+          'transform:translate(-50%,-50%);pointer-events:none;opacity:0;' +
+          'background:radial-gradient(circle,rgba(159,216,245,.5) 0%,rgba(203,182,238,.22) 42%,rgba(7,11,24,0) 72%)',
       )
       var veil = css(
         '.co-veil',
-        'position:absolute;inset:0;background:radial-gradient(120% 90% at 62% 44%,rgba(4,7,15,.05) 0%,rgba(4,7,15,.55) 52%,#04070f 100%),' +
-          'linear-gradient(180deg,rgba(3,6,13,.92) 0%,rgba(3,6,13,.28) 38%,rgba(3,6,13,.9) 100%);' +
-          'transition:opacity 1.4s ease-out',
+        'position:absolute;inset:0;pointer-events:none;opacity:.62;transition:opacity 1.4s ease-out;' +
+          'background:radial-gradient(120% 90% at 66% 37%,rgba(4,7,15,0) 0%,rgba(4,7,15,.42) 46%,rgba(4,7,15,.92) 100%),' +
+          'linear-gradient(180deg,rgba(3,6,13,.86) 0%,rgba(3,6,13,.2) 34%,rgba(3,6,13,.24) 72%,rgba(3,6,13,.86) 100%)',
       )
-      var veilB = css(
-        '.co-veil-b',
-        'position:absolute;inset:0;opacity:0;background:radial-gradient(64% 54% at 62% 42%,rgba(140,190,240,.16) 0%,rgba(4,7,15,0) 62%),' +
-          'linear-gradient(180deg,rgba(4,7,15,.42) 0%,rgba(4,7,15,.02) 42%,rgba(4,7,15,.86) 100%);transition:opacity 1.4s ease-out',
-      )
-      css(
-        '.co-grain',
-        'position:absolute;inset:0;pointer-events:none;opacity:.38;mix-blend-mode:overlay;' +
-          'background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0px,rgba(255,255,255,.03) 1px,transparent 1px,transparent 3px)',
+      var crescent = css(
+        '.co-crescent',
+        'position:absolute;left:' + centerX + 'px;top:' + centerY + 'px;width:' + Math.round(holdRadius * 1.15) + 'px;' +
+          'height:' + Math.round(holdRadius * 1.15) + 'px;transform:translate(-50%,-50%);opacity:0;' +
+          'filter:drop-shadow(0 0 18px rgba(159,216,245,.55));transition:opacity .9s ease-out;will-change:opacity',
       )
       var ring = css(
         '.co-ring',
-        'position:absolute;left:50%;top:44%;width:min(64vh,560px);height:min(64vh,560px);' +
-          'transform:translate(-50%,-50%) scale(1.3);opacity:0;transition:opacity 1.8s ease-out,transform 16s cubic-bezier(.16,.42,.2,1)',
-      )
-      css(
-        '.co-num',
-        'position:absolute;right:-1vw;top:46%;transform:translateY(-50%);font-size:32vh;line-height:.8;font-weight:200;' +
-          'letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(203,182,238,.16);opacity:.6;font-family:ui-monospace,monospace',
+        'position:absolute;left:' + centerX + 'px;top:' + centerY + 'px;width:2px;height:2px;border-radius:50%;' +
+          'transform:translate(-50%,-50%);pointer-events:none;opacity:0;' +
+          'border:1px solid rgba(203,182,238,.42);box-shadow:0 0 26px rgba(159,216,245,.28),inset 0 0 40px rgba(159,216,245,.18)',
       )
       var brand = css(
         '.co-brand',
-        'position:absolute;left:34px;top:calc(24px + env(safe-area-inset-top));opacity:0;transition:opacity 1s ease-out;font-family:ui-monospace,monospace',
+        'position:absolute;left:34px;top:calc(26px + env(safe-area-inset-top));opacity:0;transition:opacity 1.2s ease-out;' +
+          'font-family:ui-monospace,monospace',
       )
       css('.co-brand b', 'display:block;font-size:13px;letter-spacing:.46em;color:rgba(233,238,255,.9);font-weight:500')
-      css('.co-brand i', 'display:block;margin-top:7px;font-size:8px;letter-spacing:.32em;color:rgba(203,182,238,.6);font-style:normal')
-      var clock = css(
-        '.co-clock',
-        'position:absolute;right:34px;top:calc(22px + env(safe-area-inset-top));text-align:right;font-family:ui-monospace,monospace;opacity:0;transition:opacity 1s ease-out',
-      )
-      var clockNum = css(
-        '.co-clock b',
-        'display:block;font-size:26px;letter-spacing:.08em;color:rgba(233,238,255,.88);font-variant-numeric:tabular-nums;font-weight:300',
-      )
-      css('.co-clock i', 'display:block;font-size:8px;letter-spacing:.3em;color:rgba(203,182,238,.55);font-style:normal;margin-top:4px')
+      css('.co-brand i', 'display:block;margin-top:7px;font-size:8px;letter-spacing:.3em;color:rgba(203,182,238,.6);font-style:normal')
       css(
-        '.co-log',
-        'position:absolute;left:7.5vw;bottom:calc(30px + env(safe-area-inset-bottom));font-family:ui-monospace,monospace;' +
-          'font-size:10px;letter-spacing:.14em;color:rgba(233,238,255,.52);line-height:2.1',
+        '.co-lyrics',
+        'position:absolute;left:8vw;bottom:calc(16vh + env(safe-area-inset-bottom));display:grid;gap:10px;' +
+          'font-size:clamp(15px,1.25vw,19px);letter-spacing:.14em;color:rgba(233,238,255,.9);' +
+          'text-shadow:0 2px 26px rgba(3,6,13,.9)',
       )
-      css('.co-logline', 'opacity:0;transform:translateX(-8px);transition:opacity .6s ease-out,transform .6s ease-out')
-      css('.co-logline span', 'color:#cbb6ee;margin-right:8px')
-      css(
-        '.co-center',
-        'position:absolute;left:7.5vw;top:50%;transform:translateY(-50%);width:min(46vw,720px);text-align:left',
+      css('.co-line', 'opacity:0;transform:translateY(8px);transition:opacity 1.1s ease-out,transform 1.1s ease-out')
+      var title = css(
+        '.co-title',
+        'position:absolute;left:8vw;top:50%;transform:translateY(-46%);opacity:0;' +
+          'transition:opacity 1.4s ease-out,transform 1.6s cubic-bezier(.16,.42,.2,1);max-width:70vw',
       )
       var kicker = css(
         '.co-kicker',
-        'font-size:9px;letter-spacing:.6em;text-indent:.6em;color:rgba(203,182,238,.8);margin-bottom:22px;font-family:ui-monospace,monospace',
-      )
-      var headline = css(
-        '.co-headline',
-        'font-size:clamp(38px,4.6vw,70px);font-weight:200;letter-spacing:.14em;color:#f2f6ff;' +
-          'text-shadow:0 0 44px rgba(159,216,245,.3),0 2px 30px rgba(0,0,0,.6);line-height:1.1;' +
-          'transition:opacity .34s ease-out,transform .34s ease-out;opacity:1;transform:translateY(0)',
-      )
-      var sub = css(
-        '.co-sub',
-        'margin-top:14px;font-size:9px;letter-spacing:.38em;color:rgba(233,238,255,.44);font-family:ui-monospace,monospace',
-      )
-      var progress = css(
-        '.co-progress',
-        'position:absolute;left:7.5vw;bottom:calc(18vh + env(safe-area-inset-bottom));width:min(34vw,400px);height:1px;' +
-          'background:rgba(203,182,238,.18);opacity:0;transition:opacity .9s ease-out',
-      )
-      var progressFill = css(
-        '.co-progress-fill',
-        'height:100%;width:0%;background:linear-gradient(90deg,rgba(203,182,238,.35),#cbb6ee,#eaf3ff);' +
-          'box-shadow:0 0 12px rgba(203,182,238,.6);transition:width .9s cubic-bezier(.2,.7,.2,1)',
-      )
-      var pct = css(
-        '.co-pct',
-        'position:absolute;left:calc(7.5vw + min(34vw,400px) + 14px);bottom:calc(18vh + env(safe-area-inset-bottom) - 9px);' +
-          'font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.18em;color:rgba(203,182,238,.75);' +
-          'opacity:0;transition:opacity .9s ease-out;font-variant-numeric:tabular-nums',
+        'font-size:9px;letter-spacing:.62em;text-indent:.62em;color:rgba(203,182,238,.85);margin-bottom:20px;' +
+          'font-family:ui-monospace,monospace',
       )
       css(
-        '.co-credit',
-        'position:absolute;right:34px;bottom:calc(14px + env(safe-area-inset-bottom));font-family:ui-monospace,monospace;' +
-          'font-size:7px;letter-spacing:.18em;color:rgba(203,182,238,.26)',
-      )
-      var diag = css(
-        '.co-diag',
-        'position:absolute;right:34px;bottom:calc(30px + env(safe-area-inset-bottom));font-family:ui-monospace,monospace;' +
-          'font-size:8px;letter-spacing:.22em;color:rgba(203,182,238,.34);opacity:0;transition:opacity .9s ease-out',
-      )
-      var sign = css(
-        '.co-sign',
-        'position:absolute;left:50%;bottom:calc(7vh + env(safe-area-inset-bottom));transform:translateX(-50%);' +
-          'display:grid;justify-items:center;gap:10px;opacity:0;visibility:hidden;transition:opacity 1.2s ease-out;text-align:center',
-      )
-      var wordmark = css(
-        '.co-wordmark',
-        'font-size:clamp(20px,2.1vw,32px);letter-spacing:.5em;text-indent:.5em;font-weight:300;color:#f4f8ff;' +
-          'text-shadow:0 0 24px rgba(159,216,245,.5),0 0 60px rgba(203,182,238,.35);font-family:ui-monospace,monospace',
+        '.co-headline',
+        'font-size:clamp(44px,5.4vw,82px);font-weight:200;letter-spacing:.2em;text-indent:.2em;color:#f4f8ff;line-height:1.08;' +
+          'text-shadow:0 0 52px rgba(159,216,245,.42),0 0 120px rgba(203,182,238,.28),0 2px 30px rgba(0,0,0,.55)',
       )
       var tagline = css(
         '.co-tagline',
-        'font-size:14px;letter-spacing:.44em;text-indent:.44em;color:#dfe6ff;text-shadow:0 0 18px rgba(159,216,245,.4);opacity:.6',
+        'margin-top:20px;font-size:14px;letter-spacing:.44em;text-indent:.44em;color:#dfe6ff;opacity:0;' +
+          'transition:opacity 1.2s ease-out;text-shadow:0 0 18px rgba(159,216,245,.45)',
       )
       var subtitle = css(
-        '.co-subtitle',
-        'font-size:8px;letter-spacing:.52em;text-indent:.52em;color:rgba(203,182,238,.6);font-family:ui-monospace,monospace;opacity:.7',
+        '.co-sub',
+        'margin-top:14px;font-size:8px;letter-spacing:.5em;text-indent:.5em;color:rgba(159,216,245,.72);opacity:0;' +
+          'transition:opacity 1.2s ease-out;font-family:ui-monospace,monospace',
       )
       var flash = css(
         '.co-flash',
         'position:absolute;inset:0;pointer-events:none;opacity:0;' +
-          'background:radial-gradient(circle at 62% 44%,rgba(240,247,255,.9) 0%,rgba(159,216,245,.42) 26%,rgba(203,182,238,0) 64%)',
+          'background:radial-gradient(circle at 66% 37%,rgba(244,249,255,.95) 0%,rgba(159,216,245,.45) 24%,rgba(203,182,238,0) 62%)',
       )
       var sound = css(
         '.co-sound',
-        'position:absolute;left:7.5vw;bottom:calc(18vh + 52px + env(safe-area-inset-bottom));padding:7px 12px;' +
-          'border:1px solid rgba(203,182,238,.36);background:rgba(7,11,24,.55);color:rgba(233,238,255,.82);' +
-          'font-family:ui-monospace,monospace;font-size:9px;letter-spacing:.18em;opacity:0;transition:opacity .4s ease-out;' +
+        'position:absolute;left:34px;bottom:calc(28px + env(safe-area-inset-bottom));padding:7px 12px;' +
+          'border:1px solid rgba(203,182,238,.36);background:rgba(7,11,24,.5);color:rgba(233,238,255,.82);' +
+          'font-family:ui-monospace,monospace;font-size:9px;letter-spacing:.18em;opacity:0;transition:opacity .5s ease-out;' +
           'cursor:pointer;pointer-events:auto;backdrop-filter:blur(6px)',
       )
       css(
         '.co-skip',
-        'position:absolute;right:34px;bottom:calc(56px + env(safe-area-inset-bottom));font-family:ui-monospace,monospace;' +
-          'font-size:9px;letter-spacing:.18em;color:rgba(233,238,255,.3)',
+        'position:absolute;right:34px;bottom:calc(28px + env(safe-area-inset-bottom));padding:6px 11px;border-radius:999px;' +
+          'background:rgba(4,7,15,.42);backdrop-filter:blur(6px);font-family:ui-monospace,monospace;' +
+          'font-size:9px;letter-spacing:.18em;color:rgba(233,238,255,.52)',
       )
       css('.co-score', 'display:none')
-      var corners = 'position:absolute;width:26px;height:26px;border-color:rgba(203,182,238,.3);border-style:solid;border-width:0;' +
-        'opacity:0;transition:opacity 1.1s ease-out'
-      var tl = css('.co-c-tl', corners + ';left:20px;top:calc(18px + env(safe-area-inset-top));border-left-width:1px;border-top-width:1px')
-      var tr = css('.co-c-tr', corners + ';right:20px;top:calc(18px + env(safe-area-inset-top));border-right-width:1px;border-top-width:1px')
-      var bl = css('.co-c-bl', corners + ';left:20px;bottom:calc(18px + env(safe-area-inset-bottom));border-left-width:1px;border-bottom-width:1px')
-      var br = css('.co-c-br', corners + ';right:20px;bottom:calc(18px + env(safe-area-inset-bottom));border-right-width:1px;border-bottom-width:1px')
 
       var score = root.querySelector('.co-score')
       if (score !== null) {
@@ -440,45 +380,16 @@ window.__ModuleLoader__.load({
         film.src = OPENING_VIDEO
       }
 
-      var logs = root.querySelectorAll('.co-logline')
+      var lines = root.querySelectorAll('.co-line')
       var timers = []
-      var clockTimer = null
-      var startedAt = 0
       var finished = false
       var audioStarted = false
+      var startedAt = 0
+      var impactAt = 0
+      var frame = 0
 
       var at = function (delay, callback) {
         timers.push(setTimeout(callback, delay))
-      }
-      var showLog = function (index) {
-        if (logs[index] === undefined) return
-        logs[index].style.opacity = '1'
-        logs[index].style.transform = 'translateX(0)'
-      }
-      var setProgress = function (value) {
-        if (progressFill !== null) progressFill.style.width = value + '%'
-        if (pct !== null) pct.textContent = String(value).padStart(3, '0')
-      }
-      var glitch = function () {
-        if (headline === null) return
-        headline.style.textShadow =
-          '2px 0 rgba(203,182,238,.55),-2px 0 rgba(159,216,245,.45),0 0 44px rgba(159,216,245,.3)'
-        setTimeout(function () {
-          if (headline !== null) headline.style.textShadow = '0 0 44px rgba(159,216,245,.3),0 2px 30px rgba(0,0,0,.6)'
-        }, 170)
-      }
-      var setHeadline = function (text, caption) {
-        if (headline === null) return
-        headline.style.opacity = '0'
-        headline.style.transform = 'translateY(10px)'
-        setTimeout(function () {
-          if (finished || headline === null) return
-          headline.textContent = text
-          if (sub !== null && caption !== undefined) sub.textContent = caption
-          headline.style.opacity = '1'
-          headline.style.transform = 'translateY(0)'
-          glitch()
-        }, 180)
       }
       var pulse = function () {
         if (flash === null) return
@@ -486,27 +397,16 @@ window.__ModuleLoader__.load({
         flash.style.opacity = '.95'
         requestAnimationFrame(function () {
           if (flash === null) return
-          flash.style.transition = 'opacity 1.2s ease-out'
+          flash.style.transition = 'opacity 1.3s ease-out'
           flash.style.opacity = '0'
         })
       }
-      var reveal = function () {
-        if (film !== null) film.style.opacity = '1'
-        if (plate !== null) plate.style.opacity = '.22'
-        if (veil !== null) veil.style.opacity = '.2'
-        if (veilB !== null) veilB.style.opacity = '1'
-        if (ring !== null) {
-          ring.style.opacity = '.5'
-          ring.style.transform = 'translate(-50%,-50%) scale(1)'
+      var showLine = function (index) {
+        for (var i = 0; i < lines.length; i += 1) {
+          var on = i === index
+          lines[i].style.opacity = on ? '1' : '0'
+          lines[i].style.transform = on ? 'translateY(0)' : 'translateY(8px)'
         }
-        if (sign !== null) {
-          sign.style.visibility = 'visible'
-          sign.style.opacity = '1'
-        }
-        pulse()
-        setProgress(100)
-        setHeadline('月下摇篮', 'MOONLIT CRADLE')
-        if (kicker !== null) kicker.textContent = 'WELCOME TO'
       }
       var tryScore = function () {
         if (score === null || audioStarted) return
@@ -523,17 +423,49 @@ window.__ModuleLoader__.load({
             })
         }
       }
-      var updateClock = function () {
-        if (clockNum === null || startedAt === 0) return
-        var seconds = Math.min(99, Math.floor((performance.now() - startedAt) / 1000))
-        clockNum.textContent = '00:' + String(seconds).padStart(2, '0')
+
+      /** Paint one frame of the opening iris. */
+      var drawIris = function () {
+        if (finished) return
+        var elapsed = (performance.now() - startedAt) / 1000
+        var radius = 0
+        if (elapsed >= 3.4) {
+          var grow = Math.min(1, (elapsed - 3.4) / 5.2)
+          radius = holdRadius * (1 - Math.pow(1 - grow, 3))
+        }
+        if (impactAt > 0) {
+          var burst = Math.min(1, (performance.now() - impactAt) / 780)
+          radius = holdRadius + (fullRadius - holdRadius) * (1 - Math.pow(1 - burst, 3))
+          if (burst >= 1) {
+            film.style.maskImage = 'none'
+            film.style.webkitMaskImage = 'none'
+            ring.style.opacity = '0'
+            moon.style.opacity = '0'
+            frame = 0
+            return
+          }
+        }
+        // A radial mask on the video itself: a wrapper with `overflow:hidden`
+        // and a big radius gets rasterised as a squircle when the layer is
+        // promoted, while a mask is applied to the video surface exactly.
+        var edge = Math.max(0, radius - 1.5).toFixed(1)
+        var gradient =
+          'radial-gradient(circle ' + radius.toFixed(1) + 'px at ' + centerX.toFixed(1) + 'px ' + centerY.toFixed(1) + 'px,' +
+          '#000 0,' + '#000 ' + edge + 'px,transparent ' + radius.toFixed(1) + 'px)'
+        film.style.maskImage = gradient
+        film.style.webkitMaskImage = gradient
+        ring.style.width = ring.style.height = Math.max(2, radius * 2).toFixed(0) + 'px'
+        ring.style.opacity = radius > 6 ? '0.55' : '0'
+        moon.style.width = moon.style.height = Math.max(2, radius * 2.8).toFixed(0) + 'px'
+        moon.style.opacity = radius > 4 ? String(Math.min(0.9, 0.25 + (radius / holdRadius) * 0.55)) : '0'
+        frame = requestAnimationFrame(drawIris)
       }
 
       var finish = function () {
         if (finished) return
         finished = true
         for (var index = 0; index < timers.length; index += 1) clearTimeout(timers[index])
-        if (clockTimer !== null) clearInterval(clockTimer)
+        if (frame !== 0) cancelAnimationFrame(frame)
         root.removeEventListener('click', onSkip)
         document.removeEventListener('keydown', onKey, true)
         if (score !== null) {
@@ -554,20 +486,19 @@ window.__ModuleLoader__.load({
             // Releasing the film is best-effort.
           }
         }
-        root.style.transition = 'opacity .9s ease-out,transform .9s ease-out'
+        root.style.transition = 'opacity 1s ease-out'
         root.style.opacity = '0'
-        root.style.transform = 'scale(1.03)'
         root.setAttribute('data-leaving', '')
         document.documentElement.dataset.columbinaOpening = 'done'
         setTimeout(function () {
           root.remove()
-        }, 950)
+        }, 1050)
       }
       var onSkip = function () {
         finish()
       }
-      var onKey = function (event) {
-        if (event.key !== undefined) finish()
+      var onKey = function () {
+        finish()
       }
       root.addEventListener('click', onSkip)
       document.addEventListener('keydown', onKey, true)
@@ -578,96 +509,98 @@ window.__ModuleLoader__.load({
         })
       }
 
+      var impact = function () {
+        if (finished) return
+        impactAt = performance.now()
+        if (veil !== null) veil.style.opacity = '.16'
+        if (film !== null) film.style.filter = 'brightness(.98) saturate(1.02)'
+        if (crescent !== null) crescent.style.opacity = '0'
+        if (ring !== null) ring.style.opacity = '0'
+        if (title !== null) {
+          title.style.opacity = '1'
+          title.style.transform = 'translateY(-50%)'
+        }
+        pulse()
+        if (frame === 0) frame = requestAnimationFrame(drawIris)
+      }
+
       var startTimeline = function () {
         if (finished) return
         startedAt = performance.now()
-        clockTimer = setInterval(updateClock, 200)
         document.documentElement.dataset.columbinaOpening = 'playing'
-        at(140, function () {
+        at(500, function () {
           if (brand !== null) brand.style.opacity = '1'
-          if (clock !== null) clock.style.opacity = '1'
-          if (diag !== null) diag.style.opacity = '1'
-          if (tl !== null) tl.style.opacity = '1'
-          if (tr !== null) tr.style.opacity = '1'
-          if (bl !== null) bl.style.opacity = '1'
-          if (br !== null) br.style.opacity = '1'
-          if (progress !== null) progress.style.opacity = '1'
-          if (pct !== null) pct.style.opacity = '1'
         })
-        at(520, function () {
-          tryScore()
-        })
-        at(600, function () {
-          if (film === null) return
-          film.style.opacity = '.5'
-          var played = film.play()
-          if (played && typeof played.catch === 'function') played.catch(function () {})
+        at(700, function () {
+          if (crescent === null) return
+          crescent.style.opacity = '1'
+          var path = crescent.querySelector('path')
+          if (path !== null) {
+            try {
+              var length = path.getTotalLength()
+              path.style.strokeDasharray = length + ' ' + length
+              path.style.strokeDashoffset = String(length)
+              path.getBoundingClientRect()
+              path.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(.3,.6,.2,1) .05s'
+              path.style.strokeDashoffset = '0'
+            } catch (error) {
+              // No geometry API: the stroke appears already drawn.
+            }
+          }
         })
         at(900, function () {
-          if (plate !== null) plate.style.opacity = '.55'
+          if (film === null) return
+          var played = film.play()
+          if (played && typeof played.catch === 'function') played.catch(function () {})
+          if (frame === 0) frame = requestAnimationFrame(drawIris)
         })
-        at(1400, function () {
-          showLog(0)
-          setProgress(9)
+        at(520, tryScore)
+        at(1200, function () {
+          showLine(0)
         })
-        at(2600, function () {
-          setHeadline('摇篮曲起', 'A SONG BEFORE SLEEP')
+        at(4000, function () {
+          showLine(1)
         })
-        at(3800, function () {
-          showLog(1)
-          setProgress(28)
-        })
-        at(5200, function () {
-          setHeadline('梦境同步', 'DREAM SYNC')
-          setProgress(46)
-        })
-        at(6600, function () {
-          showLog(2)
-          setProgress(62)
-        })
-        at(7600, function () {
-          setHeadline('权限确认', 'ACCESS CHECK')
-          setProgress(78)
+        at(6200, function () {
+          showLine(2)
         })
         at(8600, function () {
-          showLog(3)
-          setProgress(90)
+          showLine(-1)
         })
-        at(9150, reveal)
-        at(10900, function () {
-          if (kicker !== null) kicker.textContent = 'WELCOME TO'
-          setHeadline('月下摇篮', 'THE THIRD SEAT')
+        at(2400, function () {
+          if (crescent !== null) crescent.style.opacity = '0'
         })
-        at(12400, function () {
+        at(9150, impact)
+        at(10600, function () {
           if (tagline !== null) tagline.style.opacity = '1'
+        })
+        at(11800, function () {
           if (subtitle !== null) subtitle.style.opacity = '1'
-          if (diag !== null) diag.textContent = 'ACCESS GRANTED · THE DAMSELLETTE · COLUMBINA'
         })
-        at(14800, function () {
-          if (diag !== null) diag.textContent = 'LULLABY ACTIVE · GOOD NIGHT'
-        })
-        at(15300, function () {
+        at(15100, function () {
           root.style.opacity = '0'
-          root.style.transform = 'scale(1.03)'
         })
-        at(16300, finish)
+        at(16200, finish)
 
         if (reduce) {
           for (var index = 0; index < timers.length; index += 1) clearTimeout(timers[index])
           timers.length = 0
-          if (clockTimer !== null) clearInterval(clockTimer)
-          if (brand !== null) brand.style.opacity = '1'
-          if (clock !== null) clock.style.opacity = '1'
-          if (progress !== null) progress.style.opacity = '1'
-          if (pct !== null) pct.style.opacity = '1'
-          reveal()
-          if (kicker !== null) kicker.textContent = 'WELCOME TO'
-          if (headline !== null) {
-            headline.textContent = '月下摇篮'
-            headline.style.opacity = '1'
-            headline.style.transform = 'translateY(0)'
+          if (film !== null) {
+            film.style.maskImage = 'none'
+            film.style.webkitMaskImage = 'none'
+            film.style.filter = 'brightness(.95)'
+            var played = film.play()
+            if (played && typeof played.catch === 'function') played.catch(function () {})
           }
-          setTimeout(finish, 3400)
+          if (veil !== null) veil.style.opacity = '.2'
+          if (brand !== null) brand.style.opacity = '1'
+          if (title !== null) {
+            title.style.opacity = '1'
+            title.style.transform = 'translateY(-50%)'
+          }
+          if (tagline !== null) tagline.style.opacity = '1'
+          if (subtitle !== null) subtitle.style.opacity = '1'
+          setTimeout(finish, 3800)
         }
       }
 
@@ -681,9 +614,9 @@ window.__ModuleLoader__.load({
        the persisted choice, and the floating panel.
        ================================================================== */
     var FALLBACK_TRACKS = [
-      { id: '2756019215', title: '新月的摇篮曲（其一）：伴月同眠', latin: 'Somnias a Luna' },
-      { id: '2756018754', title: '新月的摇篮曲（其二）：献给月亮的笑靥', latin: 'Lucens ut risus' },
-      { id: '2756018755', title: '新月的摇篮曲（其三）：落花成英', latin: 'Petala ceciderunt' },
+      { id: '2756019215', title: '新月的摇篮曲（其一）：伴月同眠', latin: 'Somnias a Luna', local: false },
+      { id: '2756018754', title: '新月的摇篮曲（其二）：宵晖下的笑颜', latin: 'Lucens ut risus', local: false },
+      { id: '2756018755', title: '新月的摇篮曲（其三）：眉间落英', latin: 'Petala ceciderunt', local: false },
     ]
 
     /** Read the persisted deck state. */
@@ -845,7 +778,7 @@ window.__ModuleLoader__.load({
 
       var hint = document.createElement('div')
       hint.style.cssText = 'margin-top:10px;font-size:9.5px;line-height:1.7;color:rgba(152,162,194,.8)'
-      hint.textContent = '曲目来自网易云音乐，由本机代理实时播放，不随主题仓库分发。'
+      hint.textContent = '优先播放本机 bgm 文件夹里的文件；没有本地文件时由本机代理网易云实时播放。音频都不随仓库分发。'
       panel.appendChild(hint)
 
       root.appendChild(panel)
@@ -860,6 +793,7 @@ window.__ModuleLoader__.load({
             playing: !audio.paused && started,
             blocked: blocked,
             failed: failed,
+            source: usingStream === false && tracks[state.track] && tracks[state.track].local === true ? 'local' : 'stream',
             tracks: tracks.slice(),
           }
         },
@@ -878,6 +812,7 @@ window.__ModuleLoader__.load({
         select: function (index) {
           if (index < 0 || index >= tracks.length) return state.track
           state.track = index
+          usingStream = false
           writeState(state)
           if (state.enabled) attempt(true)
           paint()
@@ -904,15 +839,21 @@ window.__ModuleLoader__.load({
       }
       window.__columbinaDeck = api
 
-      var srcFor = function (index) {
-        return '/theme-columbina/music/stream?id=' + encodeURIComponent(tracks[index].id)
+      var usingStream = false
+      var srcFor = function (index, stream) {
+        var track = tracks[index]
+        if (stream !== true && track.local === true) {
+          return '/theme-columbina/music/local?id=' + encodeURIComponent(track.id)
+        }
+        return '/theme-columbina/music/stream?id=' + encodeURIComponent(track.id)
       }
 
-      /** Fade the element out, swap the source, then fade back in. */
+      /** Swap the source when needed, then let `play()` report the real state. */
       var attempt = function (restart) {
         if (!state.enabled) return
         failed = false
         var target = state.track
+        var url = srcFor(target, usingStream)
         var play = function () {
           var played = audio.play()
           if (played && typeof played.then === 'function') {
@@ -930,9 +871,9 @@ window.__ModuleLoader__.load({
               })
           }
         }
-        if (restart || audio.getAttribute('src') !== srcFor(target)) {
+        if (restart || audio.getAttribute('src') !== url) {
           audio.pause()
-          audio.setAttribute('src', srcFor(target))
+          audio.setAttribute('src', url)
           try {
             audio.load()
           } catch (error) {
@@ -949,6 +890,24 @@ window.__ModuleLoader__.load({
         notify()
       })
       audio.addEventListener('error', function () {
+        // A local copy that is missing or unreadable falls back to the live
+        // stream once; after that the deck reports OFFLINE instead of looping.
+        if (usingStream === false && tracks[state.track].local === true) {
+          usingStream = true
+          failed = false
+          audio.pause()
+          audio.setAttribute('src', srcFor(state.track, true))
+          try {
+            audio.load()
+          } catch (error) {
+            // Best effort; the next error settles as failed.
+          }
+          var retried = audio.play()
+          if (retried && typeof retried.catch === 'function') retried.catch(function () {})
+          paint()
+          notify()
+          return
+        }
         failed = true
         started = false
         paint()
@@ -1024,6 +983,28 @@ window.__ModuleLoader__.load({
       if (state.enabled) setTimeout(function () {
         if (document.getElementById(OPENING_ID) === null) attempt()
       }, 900)
+
+      // Ask the Host whether local copies exist; until this answers, the deck
+      // streams from NetEase, which is always available when the network is.
+      fetch('/theme-columbina/music/deck', { cache: 'no-store' })
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (data) {
+          if (data === null || !Array.isArray(data.tracks)) return
+          for (var index = 0; index < tracks.length && index < data.tracks.length; index += 1) {
+            var entry = data.tracks[index]
+            if (entry.id !== tracks[index].id) continue
+            tracks[index].local = entry.local === true
+            if (typeof entry.title === 'string') tracks[index].title = entry.title
+            if (typeof entry.latin === 'string') tracks[index].latin = entry.latin
+          }
+          paint()
+          notify()
+        })
+        .catch(function () {
+          // No deck description: keep streaming.
+        })
 
       paint()
       notify()

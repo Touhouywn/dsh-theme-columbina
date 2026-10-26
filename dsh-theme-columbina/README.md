@@ -45,32 +45,44 @@ http://127.0.0.1:<GUI端口>/theme-columbina/status
 http://127.0.0.1:<GUI端口>/theme-columbina/music/deck
 ```
 
-`/status` 返回 `theme: "columbina-lullaby"`、样式表命中次数和页面回传的实况。`/music/deck` 返回三首曲目的 id 与曲名（不含音频）。
+`/status` 返回 `theme: "columbina-lullaby"`、样式表命中次数和页面回传的实况。`/music/deck` 返回三首曲目的 id、曲名与 `local`（本机是否已有该曲文件；不含音频）。
 
 ## 开屏节奏
 
+不是 HUD，也不是进度条。整段只做一件事：让月亮把画面打开。
+
 | 时间 | 画面 |
 | --- | --- |
-| 0–0.6s | 黑场；`COLUMBINA / THE DAMSELLETTE · SEAT III`、时钟、四角描边出现 |
-| 0.6–1.4s | 壁纸影片淡入作底；HUD 依次显示「月相校准 / 载入摇篮曲 / 月影折射 / 权限确认」 |
-| 1.4–9.1s | 进度与文案推进：摇篮曲起 → 梦境同步 → 权限确认；月光环缓慢收拢 |
-| 9.15s | 命中：影片提亮 + 银白闪光 + 「月下摇篮」+ 进度 100% |
-| 10.9s | `WELCOME TO` |
-| 12.4s | 「月光作幕，歌声为枕」、`ACCESS GRANTED · THE DAMSELLETTE` |
-| 15.3s | 整层淡出，交出工作界面 |
+| 0–0.7s | 黑场，`COLUMBINA / THE DAMSELLETTE · THIRD SEAT` 浮出 |
+| 0.7–1.9s | 一弯新月在人物所在的位置被逐笔描出 |
+| 1.2–3.4s | 「今晚的月亮，很轻。」「轻得像一句没说完的话。」一句一句落下 |
+| 3.4–8.6s | 月牙里开出一扇圆窗，壁纸影片在其中缓缓透出，边缘是一条细银环 |
+| 8.6–9.15s | 呼吸停一拍；最后一句「那就先闭上眼吧…」淡出 |
+| 9.15s | 圆窗涨满全屏：银白闪光、影片提亮、「月下摇篮」落在左侧 |
+| 10.6s | 「月光作幕，歌声为枕」 |
+| 11.8s | `MOONLIT CRADLE · COLUMBINA` |
+| 15.1s | 整层淡出，交出工作界面 |
 
 点击 / `Esc` / `Enter` / 空格跳过，22 秒硬兜底。地址带 `#opening` 可强制重播。
+
+圆窗用的是加在 `<video>` 上的径向遮罩，不是容器的 `overflow` 圆角：后者在视频层被提升成合成层时会渲染成圆角方形。
 
 开屏配乐是 `assets/opening-score.m4a`（八音盒摇篮曲，原创，MIT）；同时附带 `opening-score-starfall.m4a`（钢片琴变奏）。想换默认曲目，把 `localStorage['columbina-opening-score']` 设为 `starfall` 即可，缺文件时会自动回退。
 
 ## 摇篮曲播放器
 
-三首曲子**不在仓库里**。播放器把 `<audio>` 指向本机 Host 的 `/theme-columbina/music/stream?id=<songId>`，Host 再用固定白名单去网易云解析公开播放地址并把字节流转发过来：
+三首曲子**不在仓库里**。播放器优先读本机 `assets/bgm/` 下的同名文件；没有本地文件时，才把 `<audio>` 指向本机 Host 的 `/theme-columbina/music/stream?id=<songId>`，由 Host 用固定白名单去网易云解析公开播放地址并把字节流转发过来：
 
-- 仓库里只有曲目 id 和三首曲名，公开仓库不包含任何受版权保护的音频；
+- 仓库里只有曲目 id 和三首曲名，公开仓库不包含任何受版权保护的音频（`assets/bgm/` 在 `.gitignore` 里）；
 - 浏览器拿不到外链（CDN 拒绝外来 Referer），所以必须经过 Host 代理；
 - 只有 `lib/index.js` 里 `TRACKS` 白名单中的 id 会被代理，不能当开放代理用；
-- 离线或接口变动时返回 502，播放器显示 `OFFLINE`，不报错、不卡界面。
+- 本地文件缺失/读不出会自动回退到在线流；两边都不行才显示 `OFFLINE`，不报错、不卡界面。
+
+加歌：把文件按 `TRACKS` 里的 `file` 名放进 `assets/bgm/`（安装后是 `%USERPROFILE%\.dsh\themes\columbina\assets\bgm\`），刷新页面即可；`/theme-columbina/music/deck` 会回报 `local: true`。
+
+## 标题栏
+
+Ctrl+B 的侧栏开关按钮会压在月徽上，主题把它隐藏了（`button[aria-label="收起侧边栏"] / [aria-label="展开侧边栏"]`）；快捷键 `Ctrl+B` 照常可用，外壳仍然自己管状态。
 
 ## 自定义
 
