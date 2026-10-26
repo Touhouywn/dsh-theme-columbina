@@ -196,7 +196,7 @@ html {
   background-image:
     /* A single even veil: keeps the picture readable as atmosphere instead of
        competing with the conversation underneath it. */
-    linear-gradient(rgba(7, 11, 24, 0.34), rgba(7, 11, 24, 0.34)),
+    linear-gradient(rgba(7, 11, 24, 0.2), rgba(7, 11, 24, 0.2)),
     /* Moon halo behind the character, upper right. */
     radial-gradient(52% 46% at 78% 22%, rgba(159, 216, 245, 0.2), transparent 70%),
     /* The legibility scrim: solid under the sidebar, nearly clear over the art. */
@@ -204,16 +204,16 @@ html {
       90deg,
       #070b18 0%,
       #070b18 12%,
-      rgba(7, 11, 24, 0.94) 22%,
-      rgba(7, 11, 24, 0.8) 31%,
-      rgba(7, 11, 24, 0.62) 42%,
-      rgba(7, 11, 24, 0.44) 55%,
-      rgba(7, 11, 24, 0.3) 70%,
-      rgba(7, 11, 24, 0.22) 86%,
-      rgba(7, 11, 24, 0.18) 100%
+      rgba(7, 11, 24, 0.9) 22%,
+      rgba(7, 11, 24, 0.7) 31%,
+      rgba(7, 11, 24, 0.5) 42%,
+      rgba(7, 11, 24, 0.32) 55%,
+      rgba(7, 11, 24, 0.2) 70%,
+      rgba(7, 11, 24, 0.12) 86%,
+      rgba(7, 11, 24, 0.08) 100%
     ),
     /* A touch of night at the top and bottom, so the window has a frame. */
-    linear-gradient(180deg, rgba(7, 11, 24, 0.5) 0%, rgba(7, 11, 24, 0.12) 22%, rgba(7, 11, 24, 0.14) 64%, rgba(7, 11, 24, 0.66) 100%),
+    linear-gradient(180deg, rgba(7, 11, 24, 0.38) 0%, rgba(7, 11, 24, 0.06) 22%, rgba(7, 11, 24, 0.08) 64%, rgba(7, 11, 24, 0.52) 100%),
     url("/theme-columbina/background.webp");
   background-repeat: no-repeat;
   background-size: cover, cover, cover, cover, 106% auto;
@@ -226,11 +226,11 @@ html {
 html body[data-ds-dark-theme] [class*="centerCol"] {
   background:
     radial-gradient(62% 64% at 38% 44%,
-      rgba(7, 11, 24, 0.72) 0%,
-      rgba(7, 11, 24, 0.6) 44%,
-      rgba(7, 11, 24, 0.28) 76%,
-      rgba(7, 11, 24, 0.06) 100%),
-    linear-gradient(180deg, rgba(7, 11, 24, 0.28), rgba(7, 11, 24, 0.06) 40%, rgba(7, 11, 24, 0.2) 82%, rgba(7, 11, 24, 0.42));
+      rgba(7, 11, 24, 0.58) 0%,
+      rgba(7, 11, 24, 0.46) 44%,
+      rgba(7, 11, 24, 0.2) 76%,
+      rgba(7, 11, 24, 0.04) 100%),
+    linear-gradient(180deg, rgba(7, 11, 24, 0.2), rgba(7, 11, 24, 0.04) 40%, rgba(7, 11, 24, 0.14) 82%, rgba(7, 11, 24, 0.32));
 }
 
 html body[data-ds-dark-theme] [class*="rightbarCol"] {

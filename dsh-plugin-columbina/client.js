@@ -144,6 +144,12 @@ window.__ModuleLoader__.load({
       maxWidth: '980px',
       margin: '0 auto',
       boxSizing: 'border-box',
+      // The `main` slot renders straight into `centerCol`, which is
+      // `overflow: hidden`; without its own scroller the page is clipped at the
+      // fold and nothing below it can be reached.
+      height: '100%',
+      overflowY: 'auto',
+      overscrollBehavior: 'contain',
       color: 'var(--dsw-alias-label-primary)',
       fontFamily: 'var(--dsw-font-family, system-ui, -apple-system, "Segoe UI", sans-serif)',
     }

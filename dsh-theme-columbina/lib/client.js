@@ -953,7 +953,16 @@ window.__ModuleLoader__.load({
         event.stopPropagation()
         var open = panel.style.display !== 'none'
         panel.style.display = open ? 'none' : 'block'
-        if (!open && state.enabled && audio.paused) attempt()
+        if (open) return
+        // Opening the deck is a play request: if the deck was muted (the choice
+        // is persisted), turn it back on and start the track in this gesture.
+        if (!state.enabled) {
+          state.enabled = true
+          writeState(state)
+          paint()
+          notify()
+        }
+        if (audio.paused) attempt()
       })
       close.addEventListener('click', function (event) {
         event.stopPropagation()
