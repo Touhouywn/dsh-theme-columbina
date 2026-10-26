@@ -9,7 +9,10 @@
       "duration": 2.03,
       "sourceStart": 3.25,
       "sourceEnd": 6.99,
-      "tags": []
+      "tags": [],
+      "asrText": "他們要去哪裡",
+      "asrScore": 0.44,
+      "usable": false
     },
     {
       "id": "c0002",
@@ -18,7 +21,10 @@
       "duration": 2.63,
       "sourceStart": 6.99,
       "sourceEnd": 10.81,
-      "tags": []
+      "tags": [],
+      "asrText": "剛才好像提到了魔女",
+      "asrScore": 0.881,
+      "usable": true
     },
     {
       "id": "c0003",
@@ -27,7 +33,10 @@
       "duration": 2.49,
       "sourceStart": 10.81,
       "sourceEnd": 15.89,
-      "tags": []
+      "tags": [],
+      "asrText": "还有名字",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0004",
@@ -36,7 +45,10 @@
       "duration": 3.7,
       "sourceStart": 15.89,
       "sourceEnd": 21.06,
-      "tags": []
+      "tags": [],
+      "asrText": "诶?他们在和眼前这位女士对话?",
+      "asrScore": 0.838,
+      "usable": true
     },
     {
       "id": "c0005",
@@ -45,7 +57,10 @@
       "duration": 4.54,
       "sourceStart": 21.06,
       "sourceEnd": 25.99,
-      "tags": []
+      "tags": [],
+      "asrText": "可是看來這位魔女",
+      "asrScore": 0.643,
+      "usable": true
     },
     {
       "id": "c0006",
@@ -54,7 +69,10 @@
       "duration": 2.17,
       "sourceStart": 25.99,
       "sourceEnd": 29.98,
-      "tags": []
+      "tags": [],
+      "asrText": "有着某种特殊的对话方式",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0007",
@@ -65,7 +83,10 @@
       "sourceEnd": 32.94,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "是在說和月亮有關的話題嗎?",
+      "asrScore": 0.452,
+      "usable": true
     },
     {
       "id": "c0008",
@@ -76,7 +97,10 @@
       "sourceEnd": 44.69,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "滴上去吧",
+      "asrScore": 0.7,
+      "usable": true
     },
     {
       "id": "c0009",
@@ -85,7 +109,10 @@
       "duration": 1.45,
       "sourceStart": 45.25,
       "sourceEnd": 47.25,
-      "tags": []
+      "tags": [],
+      "asrText": "如果有事能我能做",
+      "asrScore": 0.587,
+      "usable": true
     },
     {
       "id": "c0010",
@@ -94,7 +121,10 @@
       "duration": 1.3,
       "sourceStart": 47.25,
       "sourceEnd": 50.67,
-      "tags": []
+      "tags": [],
+      "asrText": "拉伍玛这么说",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0011",
@@ -105,7 +135,10 @@
       "sourceEnd": 52.17,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "也没错",
+      "asrScore": 0.133,
+      "usable": false
     },
     {
       "id": "c0012",
@@ -114,7 +147,10 @@
       "duration": 2.8,
       "sourceStart": 52.17,
       "sourceEnd": 55.67,
-      "tags": []
+      "tags": [],
+      "asrText": "人們帶著期待呼喚庫塔爾的時候",
+      "asrScore": 0.804,
+      "usable": true
     },
     {
       "id": "c0013",
@@ -123,7 +159,10 @@
       "duration": 1.03,
       "sourceStart": 55.67,
       "sourceEnd": 57.62,
-      "tags": []
+      "tags": [],
+      "asrText": "對我來說",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0014",
@@ -132,7 +171,10 @@
       "duration": 1.63,
       "sourceStart": 57.62,
       "sourceEnd": 60.12,
-      "tags": []
+      "tags": [],
+      "asrText": "就像在互换另一个人",
+      "asrScore": 0.611,
+      "usable": true
     },
     {
       "id": "c0015",
@@ -141,7 +183,10 @@
       "duration": 0.72,
       "sourceStart": 60.12,
       "sourceEnd": 61.94,
-      "tags": []
+      "tags": [],
+      "asrText": "变化",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0016",
@@ -152,7 +197,10 @@
       "sourceEnd": 62.94,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "我嗎",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0017",
@@ -161,7 +209,10 @@
       "duration": 6.83,
       "sourceStart": 62.94,
       "sourceEnd": 72.75,
-      "tags": []
+      "tags": [],
+      "asrText": "是這件事",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0018",
@@ -172,7 +223,10 @@
       "sourceEnd": 74.25,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "現在的我",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0019",
@@ -181,7 +235,10 @@
       "duration": 1.95,
       "sourceStart": 74.25,
       "sourceEnd": 76.84,
-      "tags": []
+      "tags": [],
+      "asrText": "也無法給予你們昏黛呀",
+      "asrScore": 0.72,
+      "usable": true
     },
     {
       "id": "c0020",
@@ -192,7 +249,10 @@
       "sourceEnd": 81.27,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "我只是以為",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0021",
@@ -201,7 +261,10 @@
       "duration": 1.72,
       "sourceStart": 81.27,
       "sourceEnd": 83.87,
-      "tags": []
+      "tags": [],
+      "asrText": "被赋予容身之俗",
+      "asrScore": 0.586,
+      "usable": true
     },
     {
       "id": "c0022",
@@ -210,7 +273,10 @@
       "duration": 2.13,
       "sourceStart": 83.87,
       "sourceEnd": 87.0,
-      "tags": []
+      "tags": [],
+      "asrText": "总需要我们付出些代价",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0023",
@@ -219,7 +285,10 @@
       "duration": 3.68,
       "sourceStart": 87.0,
       "sourceEnd": 91.5,
-      "tags": []
+      "tags": [],
+      "asrText": "我不过是在静静等待着那个代价的降临办",
+      "asrScore": 0.904,
+      "usable": true
     },
     {
       "id": "c0024",
@@ -228,7 +297,10 @@
       "duration": 1.27,
       "sourceStart": 91.5,
       "sourceEnd": 93.36,
-      "tags": []
+      "tags": [],
+      "asrText": "但是一直以来",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0025",
@@ -237,7 +309,10 @@
       "duration": 1.33,
       "sourceStart": 93.36,
       "sourceEnd": 95.42,
-      "tags": []
+      "tags": [],
+      "asrText": "你都做得很好",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0026",
@@ -246,7 +321,10 @@
       "duration": 1.51,
       "sourceStart": 95.42,
       "sourceEnd": 97.62,
-      "tags": []
+      "tags": [],
+      "asrText": "是非常认真的人",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0027",
@@ -255,7 +333,10 @@
       "duration": 2.83,
       "sourceStart": 97.62,
       "sourceEnd": 101.28,
-      "tags": []
+      "tags": [],
+      "asrText": "三多年 爱来寻末",
+      "asrScore": 0.057,
+      "usable": false
     },
     {
       "id": "c0028",
@@ -264,7 +345,10 @@
       "duration": 3.34,
       "sourceStart": 101.28,
       "sourceEnd": 106.37,
-      "tags": []
+      "tags": [],
+      "asrText": "嗯 又是我听不到的对话",
+      "asrScore": 0.965,
+      "usable": true
     },
     {
       "id": "c0029",
@@ -273,7 +357,10 @@
       "duration": 2.46,
       "sourceStart": 106.37,
       "sourceEnd": 109.8,
-      "tags": []
+      "tags": [],
+      "asrText": "诶?苦笑?",
+      "asrScore": 0.567,
+      "usable": true
     },
     {
       "id": "c0030",
@@ -285,7 +372,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "这是为什么",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0031",
@@ -294,7 +384,10 @@
       "duration": 2.64,
       "sourceStart": 111.49,
       "sourceEnd": 117.98,
-      "tags": []
+      "tags": [],
+      "asrText": "他们真的这么想",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0032",
@@ -303,7 +396,10 @@
       "duration": 0.82,
       "sourceStart": 117.98,
       "sourceEnd": 120.4,
-      "tags": []
+      "tags": [],
+      "asrText": "Golubia",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0033",
@@ -312,7 +408,10 @@
       "duration": 1.51,
       "sourceStart": 120.4,
       "sourceEnd": 122.86,
-      "tags": []
+      "tags": [],
+      "asrText": "这是于人众的代号",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0034",
@@ -321,7 +420,10 @@
       "duration": 2.62,
       "sourceStart": 122.86,
       "sourceEnd": 126.38,
-      "tags": []
+      "tags": [],
+      "asrText": "他也出現在了我誕生時記得的歌",
+      "asrScore": 0.462,
+      "usable": true
     },
     {
       "id": "c0035",
@@ -332,7 +434,10 @@
       "sourceEnd": 130.35,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "但真的只是如此嗎",
+      "asrScore": 0.864,
+      "usable": true
     },
     {
       "id": "c0036",
@@ -343,7 +448,10 @@
       "sourceEnd": 135.8,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "我到底是怎麼看待自己的名字",
+      "asrScore": 0.849,
+      "usable": true
     },
     {
       "id": "c0037",
@@ -354,7 +462,10 @@
       "sourceEnd": 140.27,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "有谁 现在能用这个名字呼唤我一次",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0038",
@@ -363,7 +474,10 @@
       "duration": 6.55,
       "sourceStart": 140.27,
       "sourceEnd": 149.81,
-      "tags": []
+      "tags": [],
+      "asrText": "阿雷勤諾,等會他們要出發了,需要走進這山門。",
+      "asrScore": 0.35,
+      "usable": false
     },
     {
       "id": "c0039",
@@ -374,7 +488,10 @@
       "sourceEnd": 180.51,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "我…還能截止到齊悅之煙",
+      "asrScore": 0.833,
+      "usable": true
     },
     {
       "id": "c0040",
@@ -383,7 +500,10 @@
       "duration": 3.51,
       "sourceStart": 180.51,
       "sourceEnd": 188.12,
-      "tags": []
+      "tags": [],
+      "asrText": "已經連動的力氣也沒有",
+      "asrScore": 0.932,
+      "usable": true
     },
     {
       "id": "c0041",
@@ -392,7 +512,10 @@
       "duration": 1.51,
       "sourceStart": 188.12,
       "sourceEnd": 191.18,
-      "tags": []
+      "tags": [],
+      "asrText": "意识也快飘走",
+      "asrScore": 0.281,
+      "usable": false
     },
     {
       "id": "c0042",
@@ -403,7 +526,10 @@
       "sourceEnd": 194.14,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "他们出来了吗",
+      "asrScore": 0.2,
+      "usable": false
     },
     {
       "id": "c0043",
@@ -412,7 +538,10 @@
       "duration": 3.4,
       "sourceStart": 194.14,
       "sourceEnd": 204.06,
-      "tags": []
+      "tags": [],
+      "asrText": "最後還想再見你",
+      "asrScore": 0.762,
+      "usable": true
     },
     {
       "id": "c0044",
@@ -423,7 +552,10 @@
       "sourceEnd": 206.82,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "还是没感受",
+      "asrScore": 0.067,
+      "usable": false
     },
     {
       "id": "c0045",
@@ -434,7 +566,10 @@
       "sourceEnd": 224.21,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "哼哼哼哼哼哼",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0046",
@@ -443,7 +578,10 @@
       "duration": 1.08,
       "sourceStart": 224.21,
       "sourceEnd": 232.64,
-      "tags": []
+      "tags": [],
+      "asrText": "在找我",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0047",
@@ -454,7 +592,10 @@
       "sourceEnd": 233.64,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "我喜歡",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0048",
@@ -463,7 +604,10 @@
       "duration": 4.14,
       "sourceStart": 233.64,
       "sourceEnd": 239.23,
-      "tags": []
+      "tags": [],
+      "asrText": "今後也這麼呼喚我吧",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0049",
@@ -472,7 +616,10 @@
       "duration": 1.52,
       "sourceStart": 239.23,
       "sourceEnd": 241.18,
-      "tags": []
+      "tags": [],
+      "asrText": "我的名字是",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0050",
@@ -481,7 +628,10 @@
       "duration": 1.5,
       "sourceStart": 243.01,
       "sourceEnd": 245.21,
-      "tags": []
+      "tags": [],
+      "asrText": "是菩萨来你呀",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0051",
@@ -490,7 +640,10 @@
       "duration": 1.34,
       "sourceStart": 245.21,
       "sourceEnd": 247.21,
-      "tags": []
+      "tags": [],
+      "asrText": "以前從沒想過",
+      "asrScore": 0.32,
+      "usable": false
     },
     {
       "id": "c0052",
@@ -499,7 +652,10 @@
       "duration": 1.95,
       "sourceStart": 247.21,
       "sourceEnd": 249.81,
-      "tags": []
+      "tags": [],
+      "asrText": "哥倫比亞會成為我的真名",
+      "asrScore": 0.435,
+      "usable": false
     },
     {
       "id": "c0053",
@@ -510,7 +666,10 @@
       "sourceEnd": 251.21,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "大家云你",
+      "asrScore": 0.1,
+      "usable": false
     },
     {
       "id": "c0054",
@@ -519,7 +678,10 @@
       "duration": 1.7,
       "sourceStart": 251.21,
       "sourceEnd": 253.61,
-      "tags": []
+      "tags": [],
+      "asrText": "以其他朋友們相遇後",
+      "asrScore": 0.567,
+      "usable": true
     },
     {
       "id": "c0055",
@@ -528,7 +690,10 @@
       "duration": 1.68,
       "sourceStart": 253.61,
       "sourceEnd": 255.81,
-      "tags": []
+      "tags": [],
+      "asrText": "這個名字所代表的意義",
+      "asrScore": 0.68,
+      "usable": true
     },
     {
       "id": "c0056",
@@ -539,7 +704,10 @@
       "sourceEnd": 258.26,
       "tags": [
         "soft"
-      ]
+      ],
+      "asrText": "似乎慢慢发生了变化",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0057",
@@ -548,7 +716,10 @@
       "duration": 1.83,
       "sourceStart": 258.26,
       "sourceEnd": 260.86,
-      "tags": []
+      "tags": [],
+      "asrText": "他从一个与人众的代号",
+      "asrScore": 0.827,
+      "usable": true
     },
     {
       "id": "c0058",
@@ -557,7 +728,10 @@
       "duration": 1.8,
       "sourceStart": 260.86,
       "sourceEnd": 264.67,
-      "tags": []
+      "tags": [],
+      "asrText": "变成了朋友们考中的我",
+      "asrScore": 0.827,
+      "usable": true
     },
     {
       "id": "c0059",
@@ -569,7 +743,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "怎麼了?",
+      "asrScore": 0.267,
+      "usable": false
     },
     {
       "id": "c0060",
@@ -580,7 +757,10 @@
       "sourceEnd": 269.41,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "你怎么不说话",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0061",
@@ -591,7 +771,10 @@
       "sourceEnd": 271.35,
       "tags": [
         "thanks"
-      ]
+      ],
+      "asrText": "謝謝你",
+      "asrScore": 0.2,
+      "usable": false
     },
     {
       "id": "c0062",
@@ -603,7 +786,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "其他人呢?",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0063",
@@ -614,7 +800,10 @@
       "sourceEnd": 276.57,
       "tags": [
         "thanks"
-      ]
+      ],
+      "asrText": "好的,我也想好好感谢他们",
+      "asrScore": 0.836,
+      "usable": true
     },
     {
       "id": "c0064",
@@ -623,7 +812,10 @@
       "duration": 1.81,
       "sourceStart": 277.58,
       "sourceEnd": 279.62,
-      "tags": []
+      "tags": [],
+      "asrText": "他們也為我做了很多時",
+      "asrScore": 0.507,
+      "usable": true
     },
     {
       "id": "c0065",
@@ -634,7 +826,10 @@
       "sourceEnd": 282.16,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "無論是找我的名字",
+      "asrScore": 0.729,
+      "usable": true
     },
     {
       "id": "c0066",
@@ -643,7 +838,10 @@
       "duration": 2.14,
       "sourceStart": 282.67,
       "sourceEnd": 285.03,
-      "tags": []
+      "tags": [],
+      "asrText": "还是进入那个古老的遗迹",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0067",
@@ -654,7 +852,10 @@
       "sourceEnd": 289.09,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "嗯 在还能支撑自己意识的时候",
+      "asrScore": 0.869,
+      "usable": true
     },
     {
       "id": "c0068",
@@ -663,7 +864,10 @@
       "duration": 1.73,
       "sourceStart": 289.65,
       "sourceEnd": 291.57,
-      "tags": []
+      "tags": [],
+      "asrText": "我一直都跟在你們後面",
+      "asrScore": 0.72,
+      "usable": true
     },
     {
       "id": "c0069",
@@ -675,7 +879,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "還記得嗎?",
+      "asrScore": 0.1,
+      "usable": false
     },
     {
       "id": "c0070",
@@ -686,7 +893,10 @@
       "sourceEnd": 295.78,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "在那下阵的时候",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0071",
@@ -697,7 +907,10 @@
       "sourceEnd": 297.62,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "你回過頭",
+      "asrScore": 0.4,
+      "usable": false
     },
     {
       "id": "c0072",
@@ -706,7 +919,10 @@
       "duration": 1.72,
       "sourceStart": 298.34,
       "sourceEnd": 300.22,
-      "tags": []
+      "tags": [],
+      "asrText": "叫了我一聲哥倫比亞",
+      "asrScore": 0.492,
+      "usable": true
     },
     {
       "id": "c0073",
@@ -717,7 +933,10 @@
       "sourceEnd": 301.79,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "走吧",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0074",
@@ -728,7 +947,10 @@
       "sourceEnd": 303.87,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "別讓大家久等了",
+      "asrScore": 0.429,
+      "usable": false
     },
     {
       "id": "c0075",
@@ -737,7 +959,10 @@
       "duration": 2.34,
       "sourceStart": 318.95,
       "sourceEnd": 322.24,
-      "tags": []
+      "tags": [],
+      "asrText": "謝謝你們,我的朋友",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0076",
@@ -746,7 +971,10 @@
       "duration": 3.36,
       "sourceStart": 322.24,
       "sourceEnd": 326.27,
-      "tags": []
+      "tags": [],
+      "asrText": "多亏你们 我才得到了自己的名字",
+      "asrScore": 0.758,
+      "usable": true
     },
     {
       "id": "c0077",
@@ -755,7 +983,10 @@
       "duration": 5.94,
       "sourceStart": 326.27,
       "sourceEnd": 332.42,
-      "tags": []
+      "tags": [],
+      "asrText": "沒錯,意味,嗯,還可言聲違。",
+      "asrScore": 0.894,
+      "usable": true
     },
     {
       "id": "c0078",
@@ -764,7 +995,10 @@
       "duration": 3.23,
       "sourceStart": 332.42,
       "sourceEnd": 335.83,
-      "tags": []
+      "tags": [],
+      "asrText": "誕生於此世界之下",
+      "asrScore": 0.791,
+      "usable": true
     },
     {
       "id": "c0079",
@@ -773,7 +1007,10 @@
       "duration": 1.84,
       "sourceStart": 335.83,
       "sourceEnd": 337.83,
-      "tags": []
+      "tags": [],
+      "asrText": "原來你就是妮可女士",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0080",
@@ -782,7 +1019,10 @@
       "duration": 4.43,
       "sourceStart": 337.83,
       "sourceEnd": 342.18,
-      "tags": []
+      "tags": [],
+      "asrText": "謝謝你幫助大家幫我尋到的名字",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0081",
@@ -791,7 +1031,10 @@
       "duration": 1.89,
       "sourceStart": 342.18,
       "sourceEnd": 345.89,
-      "tags": []
+      "tags": [],
+      "asrText": "我終於能聽到你的聲音了",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0082",
@@ -802,7 +1045,10 @@
       "sourceEnd": 351.26,
       "tags": [
         "thanks"
-      ]
+      ],
+      "asrText": "謝謝你們的禮物我很喜歡",
+      "asrScore": 0.39,
+      "usable": false
     },
     {
       "id": "c0083",
@@ -811,7 +1057,10 @@
       "duration": 6.36,
       "sourceStart": 362.21,
       "sourceEnd": 371.34,
-      "tags": []
+      "tags": [],
+      "asrText": "嗯 我從沒想過 最近有一天能夠如此無懼無受的",
+      "asrScore": 0.439,
+      "usable": false
     },
     {
       "id": "c0084",
@@ -820,7 +1069,10 @@
       "duration": 2.22,
       "sourceStart": 371.34,
       "sourceEnd": 374.34,
-      "tags": []
+      "tags": [],
+      "asrText": "和大家一起享受齊悅之夜",
+      "asrScore": 0.747,
+      "usable": true
     },
     {
       "id": "c0085",
@@ -829,7 +1081,10 @@
       "duration": 5.33,
       "sourceStart": 374.34,
       "sourceEnd": 380.4,
-      "tags": []
+      "tags": [],
+      "asrText": "現在我看得出了這也是種關係好的表現吧",
+      "asrScore": 0.565,
+      "usable": true
     },
     {
       "id": "c0086",
@@ -841,7 +1096,10 @@
       "tags": [
         "thanks",
         "ack"
-      ]
+      ],
+      "asrText": "嗯,謝謝你們的關心,我沒事了。",
+      "asrScore": 0.364,
+      "usable": false
     },
     {
       "id": "c0087",
@@ -852,7 +1110,10 @@
       "sourceEnd": 418.96,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "真可爱",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0088",
@@ -861,7 +1122,10 @@
       "duration": 1.45,
       "sourceStart": 418.96,
       "sourceEnd": 424.54,
-      "tags": []
+      "tags": [],
+      "asrText": "这边是双御之子",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0089",
@@ -870,7 +1134,10 @@
       "duration": 1.2,
       "sourceStart": 424.54,
       "sourceEnd": 426.76,
-      "tags": []
+      "tags": [],
+      "asrText": "很熟悉的感覺",
+      "asrScore": 0.813,
+      "usable": true
     },
     {
       "id": "c0090",
@@ -881,7 +1148,10 @@
       "sourceEnd": 428.42,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "只不過",
+      "asrScore": 0.567,
+      "usable": true
     },
     {
       "id": "c0091",
@@ -892,7 +1162,10 @@
       "sourceEnd": 430.92,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "大家看起來比平時更愉快呢",
+      "asrScore": 0.715,
+      "usable": true
     },
     {
       "id": "c0092",
@@ -903,7 +1176,10 @@
       "sourceEnd": 436.49,
       "tags": [
         "greeting"
-      ]
+      ],
+      "asrText": "你好",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0093",
@@ -914,7 +1190,10 @@
       "sourceEnd": 437.49,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "飛靈絲",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0094",
@@ -925,7 +1204,10 @@
       "sourceEnd": 438.99,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "我没靠看",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0095",
@@ -936,7 +1218,10 @@
       "sourceEnd": 440.49,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "套的是感受",
+      "asrScore": 0.77,
+      "usable": true
     },
     {
       "id": "c0096",
@@ -945,7 +1230,10 @@
       "duration": 1.58,
       "sourceStart": 440.49,
       "sourceEnd": 443.16,
-      "tags": []
+      "tags": [],
+      "asrText": "周围的越举力波动",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0097",
@@ -954,7 +1242,10 @@
       "duration": 1.81,
       "sourceStart": 443.16,
       "sourceEnd": 445.16,
-      "tags": []
+      "tags": [],
+      "asrText": "我都感受得到",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0098",
@@ -965,7 +1256,10 @@
       "sourceEnd": 448.01,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "拜托你了",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0099",
@@ -976,7 +1270,10 @@
       "sourceEnd": 452.59,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "關於那些我心中存在的動物呢",
+      "asrScore": 0.708,
+      "usable": true
     },
     {
       "id": "c0100",
@@ -985,7 +1282,10 @@
       "duration": 1.43,
       "sourceStart": 452.59,
       "sourceEnd": 454.62,
-      "tags": []
+      "tags": [],
+      "asrText": "拿着糖雕的孩子们",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0101",
@@ -994,7 +1294,10 @@
       "duration": 1.78,
       "sourceStart": 454.62,
       "sourceEnd": 456.62,
-      "tags": []
+      "tags": [],
+      "asrText": "真的都在討論這一刻",
+      "asrScore": 0.226,
+      "usable": false
     },
     {
       "id": "c0102",
@@ -1005,7 +1308,10 @@
       "sourceEnd": 473.89,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "嗯,月光吧,不要錢只要光顧就好。",
+      "asrScore": 0.727,
+      "usable": true
     },
     {
       "id": "c0103",
@@ -1016,7 +1322,10 @@
       "sourceEnd": 481.48,
       "tags": [
         "thanks"
-      ]
+      ],
+      "asrText": "謝謝你,真的一樣是...我也想聽派蒙的",
+      "asrScore": 0.24,
+      "usable": false
     },
     {
       "id": "c0104",
@@ -1027,7 +1336,10 @@
       "sourceEnd": 484.88,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "嗯好吧",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0105",
@@ -1038,7 +1350,10 @@
       "sourceEnd": 555.52,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "那歐馬會責怪我嗎?",
+      "asrScore": 0.729,
+      "usable": true
     },
     {
       "id": "c0106",
@@ -1047,7 +1362,10 @@
       "duration": 1.4,
       "sourceStart": 556.02,
       "sourceEnd": 557.82,
-      "tags": []
+      "tags": [],
+      "asrText": "在你的內心深處",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0107",
@@ -1058,7 +1376,10 @@
       "sourceEnd": 559.98,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "我能回到月亮上去",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0108",
@@ -1067,7 +1388,10 @@
       "duration": 1.86,
       "sourceStart": 559.98,
       "sourceEnd": 561.88,
-      "tags": []
+      "tags": [],
+      "asrText": "是成梦了大家的幫助",
+      "asrScore": 0.806,
+      "usable": true
     },
     {
       "id": "c0109",
@@ -1076,7 +1400,10 @@
       "duration": 2.48,
       "sourceStart": 562.63,
       "sourceEnd": 565.43,
-      "tags": []
+      "tags": [],
+      "asrText": "但我似乎沒有再為大家多做什麼",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0110",
@@ -1088,7 +1415,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "那作為踴躍師呢?",
+      "asrScore": 0.743,
+      "usable": true
     },
     {
       "id": "c0111",
@@ -1099,7 +1429,10 @@
       "sourceEnd": 569.73,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "謝謝你能這麼說",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0112",
@@ -1110,7 +1443,10 @@
       "sourceEnd": 570.83,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "拉姆姆",
+      "asrScore": 0.133,
+      "usable": false
     },
     {
       "id": "c0113",
@@ -1121,7 +1457,10 @@
       "sourceEnd": 575.87,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "我會想念你的",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0114",
@@ -1132,7 +1471,10 @@
       "sourceEnd": 579.41,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "想念每一個人",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0115",
@@ -1143,7 +1485,10 @@
       "sourceEnd": 581.84,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "我也會再想想辦法",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0116",
@@ -1152,7 +1497,10 @@
       "duration": 1.73,
       "sourceStart": 582.4,
       "sourceEnd": 584.3,
-      "tags": []
+      "tags": [],
+      "asrText": "看看能否用什么方式",
+      "asrScore": 0.8,
+      "usable": true
     },
     {
       "id": "c0117",
@@ -1163,7 +1511,10 @@
       "sourceEnd": 585.9,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "传达我的言语",
+      "asrScore": 0.44,
+      "usable": false
     },
     {
       "id": "c0118",
@@ -1172,7 +1523,10 @@
       "duration": 1.48,
       "sourceStart": 587.68,
       "sourceEnd": 589.68,
-      "tags": []
+      "tags": [],
+      "asrText": "會不會有點難記",
+      "asrScore": 0.133,
+      "usable": false
     },
     {
       "id": "c0119",
@@ -1183,7 +1537,10 @@
       "sourceEnd": 592.38,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "是因為相信我嗎?",
+      "asrScore": 0.586,
+      "usable": true
     },
     {
       "id": "c0120",
@@ -1194,7 +1551,10 @@
       "sourceEnd": 594.96,
       "tags": [
         "thanks"
-      ]
+      ],
+      "asrText": "谢谢 南",
+      "asrScore": 0.8,
+      "usable": true
     },
     {
       "id": "c0121",
@@ -1203,7 +1563,10 @@
       "duration": 1.97,
       "sourceStart": 594.96,
       "sourceEnd": 598.34,
-      "tags": []
+      "tags": [],
+      "asrText": "请帮我把这个愿望也挂上",
+      "asrScore": 0.884,
+      "usable": true
     },
     {
       "id": "c0122",
@@ -1212,7 +1575,10 @@
       "duration": 1.7,
       "sourceStart": 598.34,
       "sourceEnd": 600.7,
-      "tags": []
+      "tags": [],
+      "asrText": "希望越下世界的人們",
+      "asrScore": 0.686,
+      "usable": true
     },
     {
       "id": "c0123",
@@ -1221,7 +1587,10 @@
       "duration": 2.47,
       "sourceStart": 600.7,
       "sourceEnd": 604.21,
-      "tags": []
+      "tags": [],
+      "asrText": "我們都能行到自己的歸宿",
+      "asrScore": 0.578,
+      "usable": true
     },
     {
       "id": "c0124",
@@ -1230,7 +1599,10 @@
       "duration": 3.35,
       "sourceStart": 604.21,
       "sourceEnd": 608.21,
-      "tags": []
+      "tags": [],
+      "asrText": "希望將來能和朋友們再次相見",
+      "asrScore": 0.577,
+      "usable": true
     },
     {
       "id": "c0125",
@@ -1239,7 +1611,10 @@
       "duration": 2.14,
       "sourceStart": 608.21,
       "sourceEnd": 610.34,
-      "tags": []
+      "tags": [],
+      "asrText": "兩個願望",
+      "asrScore": 0.1,
+      "usable": false
     },
     {
       "id": "c0126",
@@ -1248,7 +1623,10 @@
       "duration": 1.4,
       "sourceStart": 610.34,
       "sourceEnd": 612.34,
-      "tags": []
+      "tags": [],
+      "asrText": "是不是有些貪心了",
+      "asrScore": 0.771,
+      "usable": true
     },
     {
       "id": "c0127",
@@ -1257,7 +1635,10 @@
       "duration": 2.3,
       "sourceStart": 612.34,
       "sourceEnd": 614.69,
-      "tags": []
+      "tags": [],
+      "asrText": "这是...药",
+      "asrScore": 0.8,
+      "usable": true
     },
     {
       "id": "c0128",
@@ -1268,7 +1649,10 @@
       "sourceEnd": 617.2,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "要不要玩玩看呢",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0129",
@@ -1277,7 +1661,10 @@
       "duration": 2.04,
       "sourceStart": 617.2,
       "sourceEnd": 619.2,
-      "tags": []
+      "tags": [],
+      "asrText": "他想要的似乎是",
+      "asrScore": 0.8,
+      "usable": true
     },
     {
       "id": "c0130",
@@ -1286,7 +1673,10 @@
       "duration": 2.34,
       "sourceStart": 619.2,
       "sourceEnd": 621.76,
-      "tags": []
+      "tags": [],
+      "asrText": "似乎是那个装着齐悅堂的纸盒",
+      "asrScore": 0.751,
+      "usable": true
     },
     {
       "id": "c0131",
@@ -1297,7 +1687,10 @@
       "sourceEnd": 624.42,
       "tags": [
         "greeting"
-      ]
+      ],
+      "asrText": "你好,要客答?",
+      "asrScore": 0.31,
+      "usable": false
     },
     {
       "id": "c0132",
@@ -1308,7 +1701,10 @@
       "sourceEnd": 627.46,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "你也是來玩氣球的嗎?",
+      "asrScore": 0.492,
+      "usable": true
     },
     {
       "id": "c0133",
@@ -1317,7 +1713,10 @@
       "duration": 3.54,
       "sourceStart": 627.46,
       "sourceEnd": 631.5,
-      "tags": []
+      "tags": [],
+      "asrText": "小動物們很少見到這種飄在空中的東西",
+      "asrScore": 0.385,
+      "usable": false
     },
     {
       "id": "c0134",
@@ -1326,7 +1725,10 @@
       "duration": 2.25,
       "sourceStart": 631.5,
       "sourceEnd": 634.54,
-      "tags": []
+      "tags": [],
+      "asrText": "我被他們好奇的聲音吸引過來了",
+      "asrScore": 0.563,
+      "usable": true
     },
     {
       "id": "c0135",
@@ -1335,7 +1737,10 @@
       "duration": 3.03,
       "sourceStart": 634.54,
       "sourceEnd": 638.3,
-      "tags": []
+      "tags": [],
+      "asrText": "我最近剛好學會一種氣球的新玩法",
+      "asrScore": 0.524,
+      "usable": true
     },
     {
       "id": "c0136",
@@ -1344,7 +1749,10 @@
       "duration": 1.67,
       "sourceStart": 638.3,
       "sourceEnd": 640.83,
-      "tags": []
+      "tags": [],
+      "asrText": "想趁这个机会试试",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0137",
@@ -1355,7 +1763,10 @@
       "sourceEnd": 648.55,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "能给我几个还没有冲气的气球吗?",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0138",
@@ -1366,7 +1777,10 @@
       "sourceEnd": 652.42,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "雅科達要一起玩嗎?",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0139",
@@ -1375,7 +1789,10 @@
       "duration": 4.34,
       "sourceStart": 652.42,
       "sourceEnd": 658.19,
-      "tags": []
+      "tags": [],
+      "asrText": "在这里等我一下",
+      "asrScore": 0.586,
+      "usable": true
     },
     {
       "id": "c0140",
@@ -1386,7 +1803,10 @@
       "sourceEnd": 660.19,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "要一起来玩吗?啊",
+      "asrScore": 0.485,
+      "usable": true
     },
     {
       "id": "c0141",
@@ -1395,7 +1815,10 @@
       "duration": 3.02,
       "sourceStart": 660.19,
       "sourceEnd": 663.07,
-      "tags": []
+      "tags": [],
+      "asrText": "阿雷奇諾",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0142",
@@ -1404,7 +1827,10 @@
       "duration": 1.87,
       "sourceStart": 663.07,
       "sourceEnd": 666.85,
-      "tags": []
+      "tags": [],
+      "asrText": "欢迎加入耐夫儿",
+      "asrScore": 0.429,
+      "usable": false
     },
     {
       "id": "c0143",
@@ -1413,7 +1839,10 @@
       "duration": 2.97,
       "sourceStart": 666.85,
       "sourceEnd": 669.71,
-      "tags": []
+      "tags": [],
+      "asrText": "有點滑稽不如",
+      "asrScore": 0.85,
+      "usable": true
     },
     {
       "id": "c0144",
@@ -1422,7 +1851,10 @@
       "duration": 2.87,
       "sourceStart": 669.71,
       "sourceEnd": 672.71,
-      "tags": []
+      "tags": [],
+      "asrText": "不如這次換我去陪茅花那邊吧",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0145",
@@ -1431,7 +1863,10 @@
       "duration": 2.32,
       "sourceStart": 672.71,
       "sourceEnd": 676.29,
-      "tags": []
+      "tags": [],
+      "asrText": "似乎有很多小動物被吸引來了",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0146",
@@ -1440,7 +1875,10 @@
       "duration": 2.17,
       "sourceStart": 676.29,
       "sourceEnd": 680.63,
-      "tags": []
+      "tags": [],
+      "asrText": "先把位置讓給他們吧",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0147",
@@ -1451,7 +1889,10 @@
       "sourceEnd": 683.08,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "这是什么?",
+      "asrScore": 0.4,
+      "usable": false
     },
     {
       "id": "c0148",
@@ -1462,7 +1903,10 @@
       "sourceEnd": 684.08,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "玩一玩",
+      "asrScore": 0.747,
+      "usable": true
     },
     {
       "id": "c0149",
@@ -1471,7 +1915,10 @@
       "duration": 3.42,
       "sourceStart": 684.08,
       "sourceEnd": 689.25,
-      "tags": []
+      "tags": [],
+      "asrText": "同伴",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0150",
@@ -1482,7 +1929,10 @@
       "sourceEnd": 690.25,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "你行者",
+      "asrScore": 0.567,
+      "usable": true
     },
     {
       "id": "c0151",
@@ -1493,7 +1943,10 @@
       "sourceEnd": 693.43,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "能陪我玩那个吗?",
+      "asrScore": 0.686,
+      "usable": true
     },
     {
       "id": "c0152",
@@ -1504,7 +1957,10 @@
       "sourceEnd": 836.56,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "齊悅之夜快樂,杜林、阿茂先生,你們也是來玩這個遊戲的嗎?",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0153",
@@ -1516,7 +1972,10 @@
       "tags": [
         "ack",
         "question"
-      ]
+      ],
+      "asrText": "嗯,你想要的是这个吗?",
+      "asrScore": 0.642,
+      "usable": true
     },
     {
       "id": "c0154",
@@ -1525,7 +1984,10 @@
       "duration": 5.41,
       "sourceStart": 840.26,
       "sourceEnd": 846.26,
-      "tags": []
+      "tags": [],
+      "asrText": "給,收下吧,別客氣,他在你身邊會更開心的。",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0155",
@@ -1534,7 +1996,10 @@
       "duration": 3.6,
       "sourceStart": 846.26,
       "sourceEnd": 850.65,
-      "tags": []
+      "tags": [],
+      "asrText": "齊悅之夜快樂,又一隻會說話的。",
+      "asrScore": 0.869,
+      "usable": true
     },
     {
       "id": "c0156",
@@ -1545,7 +2010,10 @@
       "sourceEnd": 855.29,
       "tags": [
         "greeting"
-      ]
+      ],
+      "asrText": "你好 我是哥倫比亞西坡塞萊尼亞",
+      "asrScore": 0.877,
+      "usable": true
     },
     {
       "id": "c0157",
@@ -1554,7 +2022,10 @@
       "duration": 6.14,
       "sourceStart": 855.29,
       "sourceEnd": 862.54,
-      "tags": []
+      "tags": [],
+      "asrText": "占卜 就像双叶之子以前 问我将来会发生什么意义啊",
+      "asrScore": 0.33,
+      "usable": false
     },
     {
       "id": "c0158",
@@ -1563,7 +2034,10 @@
       "duration": 3.97,
       "sourceStart": 862.54,
       "sourceEnd": 867.43,
-      "tags": []
+      "tags": [],
+      "asrText": "未知的旅途越遇盛排",
+      "asrScore": 0.881,
+      "usable": true
     },
     {
       "id": "c0159",
@@ -1574,7 +2048,10 @@
       "sourceEnd": 874.03,
       "tags": [
         "soft"
-      ]
+      ],
+      "asrText": "我想試試,不如就像你說的,問問事情發展的趨勢吧。",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0160",
@@ -1583,7 +2060,10 @@
       "duration": 1.16,
       "sourceStart": 874.03,
       "sourceEnd": 875.99,
-      "tags": []
+      "tags": [],
+      "asrText": "交给你就好",
+      "asrScore": 0.62,
+      "usable": true
     },
     {
       "id": "c0161",
@@ -1594,7 +2074,10 @@
       "sourceEnd": 880.7,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "嗯?這是…越舉例的波動?",
+      "asrScore": 0.806,
+      "usable": true
     },
     {
       "id": "c0162",
@@ -1603,7 +2086,10 @@
       "duration": 3.6,
       "sourceStart": 880.7,
       "sourceEnd": 884.79,
-      "tags": []
+      "tags": [],
+      "asrText": "啊 不 不用了 就这张吧",
+      "asrScore": 0.55,
+      "usable": true
     },
     {
       "id": "c0163",
@@ -1612,7 +2098,10 @@
       "duration": 5.36,
       "sourceStart": 884.79,
       "sourceEnd": 889.91,
-      "tags": []
+      "tags": [],
+      "asrText": "好吧好月亮我不明白",
+      "asrScore": 0.914,
+      "usable": true
     },
     {
       "id": "c0164",
@@ -1621,7 +2110,10 @@
       "duration": 4.2,
       "sourceStart": 889.91,
       "sourceEnd": 893.91,
-      "tags": []
+      "tags": [],
+      "asrText": "怎麼辦?你以為是說我明明不想當神明?",
+      "asrScore": 0.933,
+      "usable": true
     },
     {
       "id": "c0165",
@@ -1630,7 +2122,10 @@
       "duration": 1.98,
       "sourceStart": 893.91,
       "sourceEnd": 895.91,
-      "tags": []
+      "tags": [],
+      "asrText": "却成为了库塔儿",
+      "asrScore": 0.171,
+      "usable": false
     },
     {
       "id": "c0166",
@@ -1639,7 +2134,10 @@
       "duration": 1.55,
       "sourceStart": 895.91,
       "sourceEnd": 898.17,
-      "tags": []
+      "tags": [],
+      "asrText": "而後又印像碗桂酥",
+      "asrScore": 0.321,
+      "usable": false
     },
     {
       "id": "c0167",
@@ -1648,7 +2146,10 @@
       "duration": 2.2,
       "sourceStart": 898.17,
       "sourceEnd": 900.17,
-      "tags": []
+      "tags": [],
+      "asrText": "一速加入了魚人中",
+      "asrScore": 0.413,
+      "usable": false
     },
     {
       "id": "c0168",
@@ -1659,7 +2160,10 @@
       "sourceEnd": 902.17,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "这代表了什么呢",
+      "asrScore": 0.586,
+      "usable": true
     },
     {
       "id": "c0169",
@@ -1668,7 +2172,10 @@
       "duration": 2.91,
       "sourceStart": 902.17,
       "sourceEnd": 904.84,
-      "tags": []
+      "tags": [],
+      "asrText": "嗯,最近教到了很多",
+      "asrScore": 0.587,
+      "usable": true
     },
     {
       "id": "c0170",
@@ -1677,7 +2184,10 @@
       "duration": 2.22,
       "sourceStart": 904.84,
       "sourceEnd": 906.84,
-      "tags": []
+      "tags": [],
+      "asrText": "多朋友,大家都对我很",
+      "asrScore": 0.543,
+      "usable": true
     },
     {
       "id": "c0171",
@@ -1686,7 +2196,10 @@
       "duration": 2.24,
       "sourceStart": 906.84,
       "sourceEnd": 908.84,
-      "tags": []
+      "tags": [],
+      "asrText": "我很好,我很喜歡她",
+      "asrScore": 0.594,
+      "usable": true
     },
     {
       "id": "c0172",
@@ -1697,7 +2210,10 @@
       "sourceEnd": 912.06,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "他們嗯回到月亮上",
+      "asrScore": 0.804,
+      "usable": true
     },
     {
       "id": "c0173",
@@ -1708,7 +2224,10 @@
       "sourceEnd": 913.26,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "上去",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0174",
@@ -1719,7 +2238,10 @@
       "sourceEnd": 918.26,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "什麼了 什麼了",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0175",
@@ -1728,7 +2250,10 @@
       "duration": 2.24,
       "sourceStart": 918.26,
       "sourceEnd": 920.26,
-      "tags": []
+      "tags": [],
+      "asrText": "了,巴比洛斯女士",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0177",
@@ -1739,7 +2264,10 @@
       "sourceEnd": 923.54,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "一起来",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0178",
@@ -1750,7 +2278,10 @@
       "sourceEnd": 924.54,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "似乎不太命",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0179",
@@ -1761,7 +2292,10 @@
       "sourceEnd": 926.54,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "终结",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0180",
@@ -1772,7 +2306,10 @@
       "sourceEnd": 932.15,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "謝謝你",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0181",
@@ -1781,7 +2318,10 @@
       "duration": 2.13,
       "sourceStart": 932.15,
       "sourceEnd": 934.15,
-      "tags": []
+      "tags": [],
+      "asrText": "給你 巴比洛斯女士",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0182",
@@ -1792,7 +2332,10 @@
       "sourceEnd": 936.15,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "我明白了",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0183",
@@ -1801,7 +2344,10 @@
       "duration": 1.79,
       "sourceStart": 937.92,
       "sourceEnd": 939.92,
-      "tags": []
+      "tags": [],
+      "asrText": "看起来软糊糊的声物",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0184",
@@ -1812,7 +2358,10 @@
       "sourceEnd": 948.18,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "這隻也說話了聽起來很快了,這隻不炸開他們了嗎?",
+      "asrScore": 0.258,
+      "usable": false
     },
     {
       "id": "c0185",
@@ -1823,7 +2372,10 @@
       "sourceEnd": 952.24,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "是想送用我一起做壞事嗎?",
+      "asrScore": 0.747,
+      "usable": true
     },
     {
       "id": "c0186",
@@ -1832,7 +2384,10 @@
       "duration": 3.59,
       "sourceStart": 952.24,
       "sourceEnd": 956.56,
-      "tags": []
+      "tags": [],
+      "asrText": "可是魔女小姐,我并不熟悉多多客。",
+      "asrScore": 0.954,
+      "usable": true
     },
     {
       "id": "c0187",
@@ -1843,7 +2398,10 @@
       "sourceEnd": 959.56,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "嗯,這樣容易想像多了",
+      "asrScore": 0.492,
+      "usable": true
     },
     {
       "id": "c0188",
@@ -1852,7 +2410,10 @@
       "duration": 3.84,
       "sourceStart": 959.56,
       "sourceEnd": 963.56,
-      "tags": []
+      "tags": [],
+      "asrText": "我問了,蹦蹦炸彈沒有越舉力操縱起來自然",
+      "asrScore": 0.451,
+      "usable": true
     },
     {
       "id": "c0189",
@@ -1863,7 +2424,10 @@
       "sourceEnd": 969.78,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "但它有准,无法完全预测会发生什么的乐趣,还不错。",
+      "asrScore": 0.921,
+      "usable": true
     },
     {
       "id": "c0190",
@@ -1875,7 +2439,10 @@
       "tags": [
         "ack",
         "question"
-      ]
+      ],
+      "asrText": "嗯?是這...",
+      "asrScore": 0.08,
+      "usable": false
     },
     {
       "id": "c0191",
@@ -1886,7 +2453,10 @@
       "sourceEnd": 976.1,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "這什麼?好的遇到麻煩了嗎?",
+      "asrScore": 0.495,
+      "usable": true
     },
     {
       "id": "c0192",
@@ -1897,7 +2467,10 @@
       "sourceEnd": 982.49,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "怎麼了?妮可小姐的聲音是直接傳到腦袋裡的",
+      "asrScore": 0.533,
+      "usable": true
     },
     {
       "id": "c0193",
@@ -1908,7 +2481,10 @@
       "sourceEnd": 987.49,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "妮可小姐是想要有人來玩你準備的遊戲嗎?我...",
+      "asrScore": 0.575,
+      "usable": true
     },
     {
       "id": "c0194",
@@ -1920,7 +2496,10 @@
       "tags": [
         "ack",
         "question"
-      ]
+      ],
+      "asrText": "我可以玩玩嗎?儘管不一定保證能拿到獎品",
+      "asrScore": 0.659,
+      "usable": true
     },
     {
       "id": "c0195",
@@ -1933,7 +2512,10 @@
         "ack",
         "soft",
         "question"
-      ]
+      ],
+      "asrText": "嗯 我想试试 命运吗",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0196",
@@ -1945,7 +2527,10 @@
       "tags": [
         "ack",
         "question"
-      ]
+      ],
+      "asrText": "我們現在就可以打開嗎",
+      "asrScore": 0.55,
+      "usable": true
     },
     {
       "id": "c0197",
@@ -1956,7 +2541,10 @@
       "sourceEnd": 1005.06,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "哇 很古典又很可愛的雕塑呢",
+      "asrScore": 0.855,
+      "usable": true
     },
     {
       "id": "c0198",
@@ -1967,7 +2555,10 @@
       "sourceEnd": 1008.08,
       "tags": [
         "thanks"
-      ]
+      ],
+      "asrText": "謝謝你,尼克小姐",
+      "asrScore": 0.3,
+      "usable": false
     },
     {
       "id": "c0199",
@@ -1978,7 +2569,10 @@
       "sourceEnd": 1012.28,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "你客气了",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0200",
@@ -1987,7 +2581,10 @@
       "duration": 1.8,
       "sourceStart": 1014.98,
       "sourceEnd": 1016.94,
-      "tags": []
+      "tags": [],
+      "asrText": "我知道你們為我做了很多",
+      "asrScore": 0.74,
+      "usable": true
     },
     {
       "id": "c0201",
@@ -1998,7 +2595,10 @@
       "sourceEnd": 1019.9,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "我才是一直收到礼物的那个呢",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0202",
@@ -2009,7 +2609,10 @@
       "sourceEnd": 1027.73,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "这是要不要玩玩看呢",
+      "asrScore": 0.96,
+      "usable": true
     },
     {
       "id": "c0203",
@@ -2018,7 +2621,10 @@
       "duration": 2.43,
       "sourceStart": 1028.13,
       "sourceEnd": 1030.73,
-      "tags": []
+      "tags": [],
+      "asrText": "这是游乐项目",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0204",
@@ -2029,7 +2635,10 @@
       "sourceEnd": 1032.29,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "还是研究",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0205",
@@ -2040,7 +2649,10 @@
       "sourceEnd": 1033.93,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "沒關係",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0206",
@@ -2051,7 +2663,10 @@
       "sourceEnd": 1035.85,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "我就這樣沒事的。",
+      "asrScore": 0.429,
+      "usable": false
     },
     {
       "id": "c0207",
@@ -2060,7 +2675,10 @@
       "duration": 2.33,
       "sourceStart": 1038.06,
       "sourceEnd": 1040.54,
-      "tags": []
+      "tags": [],
+      "asrText": "那夏郡的摊位看起来很丰富",
+      "asrScore": 0.77,
+      "usable": true
     },
     {
       "id": "c0208",
@@ -2069,7 +2687,10 @@
       "duration": 4.69,
       "sourceStart": 1082.23,
       "sourceEnd": 1087.23,
-      "tags": []
+      "tags": [],
+      "asrText": "但你之前還請阿里其諾來幫大家找回了我的名字",
+      "asrScore": 0.872,
+      "usable": true
     },
     {
       "id": "c0209",
@@ -2078,7 +2699,10 @@
       "duration": 2.96,
       "sourceStart": 1087.23,
       "sourceEnd": 1091.36,
-      "tags": []
+      "tags": [],
+      "asrText": "是哥倫比亞,希波塞蘭尼亞。",
+      "asrScore": 0.84,
+      "usable": true
     },
     {
       "id": "c0210",
@@ -2087,7 +2711,10 @@
       "duration": 1.58,
       "sourceStart": 1091.36,
       "sourceEnd": 1093.65,
-      "tags": []
+      "tags": [],
+      "asrText": "这是我现在的全民",
+      "asrScore": 0.507,
+      "usable": true
     },
     {
       "id": "c0211",
@@ -2096,7 +2723,10 @@
       "duration": 2.16,
       "sourceStart": 1093.65,
       "sourceEnd": 1096.97,
-      "tags": []
+      "tags": [],
+      "asrText": "我很想你,桑多妮",
+      "asrScore": 0.843,
+      "usable": true
     },
     {
       "id": "c0212",
@@ -2105,7 +2735,10 @@
       "duration": 1.63,
       "sourceStart": 1096.97,
       "sourceEnd": 1099.1,
-      "tags": []
+      "tags": [],
+      "asrText": "在消失的时候就想",
+      "asrScore": 0.779,
+      "usable": true
     },
     {
       "id": "c0213",
@@ -2114,7 +2747,10 @@
       "duration": 4.65,
       "sourceStart": 1099.1,
       "sourceEnd": 1106.04,
-      "tags": []
+      "tags": [],
+      "asrText": "想想好好对你说两句难听的话",
+      "asrScore": 0.286,
+      "usable": false
     },
     {
       "id": "c0214",
@@ -2123,7 +2759,10 @@
       "duration": 1.26,
       "sourceStart": 1106.04,
       "sourceEnd": 1108.2,
-      "tags": []
+      "tags": [],
+      "asrText": "對了,三多年",
+      "asrScore": 0.39,
+      "usable": false
     },
     {
       "id": "c0215",
@@ -2132,7 +2771,10 @@
       "duration": 1.65,
       "sourceStart": 1108.2,
       "sourceEnd": 1110.2,
-      "tags": []
+      "tags": [],
+      "asrText": "我們一起去玩那個吧",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0216",
@@ -2141,7 +2783,10 @@
       "duration": 1.55,
       "sourceStart": 1110.2,
       "sourceEnd": 1112.36,
-      "tags": []
+      "tags": [],
+      "asrText": "好像是踩錯了牙齒",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0217",
@@ -2150,7 +2795,10 @@
       "duration": 2.24,
       "sourceStart": 1112.36,
       "sourceEnd": 1114.36,
-      "tags": []
+      "tags": [],
+      "asrText": "他吃就會被咬住的遊戲",
+      "asrScore": 0.925,
+      "usable": true
     },
     {
       "id": "c0218",
@@ -2159,7 +2807,10 @@
       "duration": 2.09,
       "sourceStart": 1114.36,
       "sourceEnd": 1116.36,
-      "tags": []
+      "tags": [],
+      "asrText": "看起來很好玩",
+      "asrScore": 0.693,
+      "usable": true
     },
     {
       "id": "c0219",
@@ -2170,7 +2821,10 @@
       "sourceEnd": 1121.46,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "你不敢嗎?",
+      "asrScore": 0.7,
+      "usable": true
     },
     {
       "id": "c0220",
@@ -2179,7 +2833,10 @@
       "duration": 2.35,
       "sourceStart": 1121.46,
       "sourceEnd": 1124.1,
-      "tags": []
+      "tags": [],
+      "asrText": "哎呀啊",
+      "asrScore": 0.2,
+      "usable": false
     },
     {
       "id": "c0221",
@@ -2188,7 +2845,10 @@
       "duration": 3.34,
       "sourceStart": 1124.1,
       "sourceEnd": 1128.18,
-      "tags": []
+      "tags": [],
+      "asrText": "啊 差點忘了 桑敦",
+      "asrScore": 0.433,
+      "usable": false
     },
     {
       "id": "c0222",
@@ -2197,7 +2857,10 @@
       "duration": 0.6,
       "sourceStart": 1128.18,
       "sourceEnd": 1131.01,
-      "tags": []
+      "tags": [],
+      "asrText": "多虐",
+      "asrScore": 0.133,
+      "usable": false
     },
     {
       "id": "c0223",
@@ -2206,7 +2869,10 @@
       "duration": 2.12,
       "sourceStart": 1131.01,
       "sourceEnd": 1133.1,
-      "tags": []
+      "tags": [],
+      "asrText": "输了的话,心",
+      "asrScore": 0.914,
+      "usable": true
     },
     {
       "id": "c0224",
@@ -2215,7 +2881,10 @@
       "duration": 1.95,
       "sourceStart": 1133.1,
       "sourceEnd": 1135.1,
-      "tags": []
+      "tags": [],
+      "asrText": "信不信我把你头打包",
+      "asrScore": 0.875,
+      "usable": true
     },
     {
       "id": "c0225",
@@ -2226,7 +2895,10 @@
       "sourceEnd": 1137.58,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "猜哪一顆好呢",
+      "asrScore": 0.373,
+      "usable": false
     },
     {
       "id": "c0226",
@@ -2235,7 +2907,10 @@
       "duration": 1.78,
       "sourceStart": 1137.58,
       "sourceEnd": 1142.76,
-      "tags": []
+      "tags": [],
+      "asrText": "这一颗好像不太妙",
+      "asrScore": 0.862,
+      "usable": true
     },
     {
       "id": "c0227",
@@ -2244,7 +2919,10 @@
       "duration": 1.75,
       "sourceStart": 1142.76,
       "sourceEnd": 1144.76,
-      "tags": []
+      "tags": [],
+      "asrText": "用樂舉例感知道的",
+      "asrScore": 0.643,
+      "usable": true
     },
     {
       "id": "c0228",
@@ -2253,7 +2931,10 @@
       "duration": 1.35,
       "sourceStart": 1144.76,
       "sourceEnd": 1146.76,
-      "tags": []
+      "tags": [],
+      "asrText": "大概不算作弊",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0229",
@@ -2262,7 +2943,10 @@
       "duration": 3.1,
       "sourceStart": 1146.76,
       "sourceEnd": 1150.65,
-      "tags": []
+      "tags": [],
+      "asrText": "換一顆吧",
+      "asrScore": 0.2,
+      "usable": false
     },
     {
       "id": "c0230",
@@ -2273,7 +2957,10 @@
       "sourceEnd": 1151.65,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "到你了",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0231",
@@ -2282,7 +2969,10 @@
       "duration": 2.28,
       "sourceStart": 1152.65,
       "sourceEnd": 1156.99,
-      "tags": []
+      "tags": [],
+      "asrText": "剩下的牙齒越來越少了",
+      "asrScore": 0.644,
+      "usable": true
     },
     {
       "id": "c0232",
@@ -2293,7 +2983,10 @@
       "sourceEnd": 1162.86,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "踩到化牙齿了呢 桑多聶 需要幫忙嗎",
+      "asrScore": 0.593,
+      "usable": false
     },
     {
       "id": "c0233",
@@ -2304,7 +2997,10 @@
       "sourceEnd": 1164.89,
       "tags": [
         "greeting"
-      ]
+      ],
+      "asrText": "你好像卡住了",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0234",
@@ -2315,7 +3011,10 @@
       "sourceEnd": 1169.18,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "好吧 那就按照剛才說的",
+      "asrScore": 0.653,
+      "usable": true
     },
     {
       "id": "c0235",
@@ -2324,7 +3023,10 @@
       "duration": 4.83,
       "sourceStart": 1169.18,
       "sourceEnd": 1174.4,
-      "tags": []
+      "tags": [],
+      "asrText": "說了的話,沒事吧,桑多聶。",
+      "asrScore": 0.507,
+      "usable": false
     },
     {
       "id": "c0236",
@@ -2333,7 +3035,10 @@
       "duration": 3.71,
       "sourceStart": 1174.4,
       "sourceEnd": 1178.4,
-      "tags": []
+      "tags": [],
+      "asrText": "剛才好像咬得很緊你的髮條",
+      "asrScore": 0.594,
+      "usable": true
     },
     {
       "id": "c0237",
@@ -2344,7 +3049,10 @@
       "sourceEnd": 1187.52,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "好吧 那這次我先這一刻",
+      "asrScore": 0.593,
+      "usable": true
     },
     {
       "id": "c0238",
@@ -2355,7 +3063,10 @@
       "sourceEnd": 1192.86,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "嗯,没问题,又输了呢,相多念",
+      "asrScore": 0.699,
+      "usable": false
     },
     {
       "id": "c0239",
@@ -2364,7 +3075,10 @@
       "duration": 2.22,
       "sourceStart": 1224.78,
       "sourceEnd": 1226.78,
-      "tags": []
+      "tags": [],
+      "asrText": "不管在哪裡",
+      "asrScore": 0.77,
+      "usable": true
     },
     {
       "id": "c0240",
@@ -2373,7 +3087,10 @@
       "duration": 2.34,
       "sourceStart": 1226.78,
       "sourceEnd": 1228.88,
-      "tags": []
+      "tags": [],
+      "asrText": "我們都永遠是碰",
+      "asrScore": 0.292,
+      "usable": false
     },
     {
       "id": "c0241",
@@ -2385,7 +3102,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "朋友 對嗎",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0242",
@@ -2394,7 +3114,10 @@
       "duration": 4.64,
       "sourceStart": 1229.88,
       "sourceEnd": 1234.66,
-      "tags": []
+      "tags": [],
+      "asrText": "對嗎?我會想你",
+      "asrScore": 0.373,
+      "usable": false
     },
     {
       "id": "c0243",
@@ -2405,7 +3128,10 @@
       "sourceEnd": 1235.66,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "稍等に",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0244",
@@ -2416,7 +3142,10 @@
       "sourceEnd": 1238.17,
       "tags": [
         "greeting"
-      ]
+      ],
+      "asrText": "",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0245",
@@ -2427,7 +3156,10 @@
       "sourceEnd": 1244.08,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "桑多尼这边再问",
+      "asrScore": 0.309,
+      "usable": false
     },
     {
       "id": "c0246",
@@ -2438,7 +3170,10 @@
       "sourceEnd": 1245.08,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "那玩神嗎?",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0247",
@@ -2449,7 +3184,10 @@
       "sourceEnd": 1248.24,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "嗯?是在叫我嗎?",
+      "asrScore": 0.72,
+      "usable": true
     },
     {
       "id": "c0248",
@@ -2458,7 +3196,10 @@
       "duration": 2.43,
       "sourceStart": 1248.24,
       "sourceEnd": 1250.43,
-      "tags": []
+      "tags": [],
+      "asrText": "嗎? 齊悅之夜快樂",
+      "asrScore": 0.594,
+      "usable": true
     },
     {
       "id": "c0249",
@@ -2469,7 +3210,10 @@
       "sourceEnd": 1251.43,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "冷 月神蛋",
+      "asrScore": 0.4,
+      "usable": false
     },
     {
       "id": "c0250",
@@ -2480,7 +3224,10 @@
       "sourceEnd": 1253.85,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "嗯",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0251",
@@ -2491,7 +3238,10 @@
       "sourceEnd": 1254.85,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "對著",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0252",
@@ -2500,7 +3250,10 @@
       "duration": 2.2,
       "sourceStart": 1255.85,
       "sourceEnd": 1258.97,
-      "tags": []
+      "tags": [],
+      "asrText": "嗯? 選擇搭搭",
+      "asrScore": 0.1,
+      "usable": false
     },
     {
       "id": "c0253",
@@ -2509,7 +3262,10 @@
       "duration": 2.24,
       "sourceStart": 1258.97,
       "sourceEnd": 1260.97,
-      "tags": []
+      "tags": [],
+      "asrText": "阿當只會夥伴進行",
+      "asrScore": 0.15,
+      "usable": false
     },
     {
       "id": "c0254",
@@ -2518,7 +3274,10 @@
       "duration": 4.5,
       "sourceStart": 1262.97,
       "sourceEnd": 1269.28,
-      "tags": []
+      "tags": [],
+      "asrText": "我伴,她和她们都在用其他的眼神看着",
+      "asrScore": 0.981,
+      "usable": true
     },
     {
       "id": "c0255",
@@ -2530,7 +3289,10 @@
       "tags": [
         "ack",
         "question"
-      ]
+      ],
+      "asrText": "你要選誰好了嗎?",
+      "asrScore": 0.133,
+      "usable": false
     },
     {
       "id": "c0256",
@@ -2541,7 +3303,10 @@
       "sourceEnd": 1276.4,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "虽然不明白这还在想表达什么",
+      "asrScore": 0.788,
+      "usable": true
     },
     {
       "id": "c0257",
@@ -2550,7 +3315,10 @@
       "duration": 1.58,
       "sourceStart": 1276.4,
       "sourceEnd": 1278.4,
-      "tags": []
+      "tags": [],
+      "asrText": "但他看上去很高興",
+      "asrScore": 0.643,
+      "usable": true
     },
     {
       "id": "c0258",
@@ -2559,7 +3327,10 @@
       "duration": 1.21,
       "sourceStart": 1278.4,
       "sourceEnd": 1280.72,
-      "tags": []
+      "tags": [],
+      "asrText": "那个蝴蝶节",
+      "asrScore": 0.77,
+      "usable": true
     },
     {
       "id": "c0259",
@@ -2570,7 +3341,10 @@
       "sourceEnd": 1289.9,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "她也对扮演越神感兴趣吗她和他们",
+      "asrScore": 0.9,
+      "usable": true
     },
     {
       "id": "c0260",
@@ -2579,7 +3353,10 @@
       "duration": 2.34,
       "sourceStart": 1289.9,
       "sourceEnd": 1293.41,
-      "tags": []
+      "tags": [],
+      "asrText": "他们都在用期待的眼神看着我",
+      "asrScore": 0.738,
+      "usable": true
     },
     {
       "id": "c0261",
@@ -2588,7 +3365,10 @@
       "duration": 2.99,
       "sourceStart": 1300.98,
       "sourceEnd": 1303.98,
-      "tags": []
+      "tags": [],
+      "asrText": "這孩子是和聖月之子一起來過節的",
+      "asrScore": 0.557,
+      "usable": true
     },
     {
       "id": "c0262",
@@ -2597,7 +3377,10 @@
       "duration": 2.97,
       "sourceStart": 1303.98,
       "sourceEnd": 1307.84,
-      "tags": []
+      "tags": [],
+      "asrText": "想用那对自傲的长脚帮上我的忙",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0263",
@@ -2606,7 +3389,10 @@
       "duration": 2.74,
       "sourceStart": 1307.84,
       "sourceEnd": 1313.56,
-      "tags": []
+      "tags": [],
+      "asrText": "她和她们都在用其他的眼神看着我",
+      "asrScore": 0.889,
+      "usable": true
     },
     {
       "id": "c0264",
@@ -2615,7 +3401,10 @@
       "duration": 2.41,
       "sourceStart": 1313.56,
       "sourceEnd": 1319.89,
-      "tags": []
+      "tags": [],
+      "asrText": "這孩子平日裡住在那下鎮",
+      "asrScore": 0.651,
+      "usable": true
     },
     {
       "id": "c0265",
@@ -2624,7 +3413,10 @@
       "duration": 2.33,
       "sourceStart": 1319.89,
       "sourceEnd": 1322.89,
-      "tags": []
+      "tags": [],
+      "asrText": "喜欢拌着断锤的敲打声入眠",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0266",
@@ -2633,7 +3425,10 @@
       "duration": 2.31,
       "sourceStart": 1322.89,
       "sourceEnd": 1325.98,
-      "tags": []
+      "tags": [],
+      "asrText": "似乎很熟悉现象机关的弱点",
+      "asrScore": 0.858,
+      "usable": true
     },
     {
       "id": "c0267",
@@ -2644,7 +3439,10 @@
       "sourceEnd": 1327.58,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "坐在这里",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0268",
@@ -2655,7 +3453,10 @@
       "sourceEnd": 1329.98,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "難道是什麼稀奇的景象嗎",
+      "asrScore": 0.651,
+      "usable": true
     },
     {
       "id": "c0269",
@@ -2664,7 +3465,10 @@
       "duration": 1.95,
       "sourceStart": 1329.98,
       "sourceEnd": 1332.78,
-      "tags": []
+      "tags": [],
+      "asrText": "如果沒有客人突然來訪",
+      "asrScore": 0.613,
+      "usable": true
     },
     {
       "id": "c0270",
@@ -2673,7 +3477,10 @@
       "duration": 1.44,
       "sourceStart": 1332.78,
       "sourceEnd": 1335.05,
-      "tags": []
+      "tags": [],
+      "asrText": "或許我真的在休息",
+      "asrScore": 0.779,
+      "usable": true
     },
     {
       "id": "c0271",
@@ -2682,7 +3489,10 @@
       "duration": 1.37,
       "sourceStart": 1335.05,
       "sourceEnd": 1337.05,
-      "tags": []
+      "tags": [],
+      "asrText": "我沒覺得這是打擾",
+      "asrScore": 0.286,
+      "usable": false
     },
     {
       "id": "c0272",
@@ -2691,7 +3501,10 @@
       "duration": 1.06,
       "sourceStart": 1337.05,
       "sourceEnd": 1339.17,
-      "tags": []
+      "tags": [],
+      "asrText": "会到这里来的",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0273",
@@ -2700,7 +3513,10 @@
       "duration": 1.09,
       "sourceStart": 1339.17,
       "sourceEnd": 1341.17,
-      "tags": []
+      "tags": [],
+      "asrText": "也只有一能而...",
+      "asrScore": 0.447,
+      "usable": false
     },
     {
       "id": "c0274",
@@ -2709,7 +3525,10 @@
       "duration": 1.04,
       "sourceStart": 1342.17,
       "sourceEnd": 1344.36,
-      "tags": []
+      "tags": [],
+      "asrText": "躺著說話",
+      "asrScore": 0.1,
+      "usable": false
     },
     {
       "id": "c0275",
@@ -2720,7 +3539,10 @@
       "sourceEnd": 1349.57,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "会显得比较冷淡对吗?哦",
+      "asrScore": 0.965,
+      "usable": true
     },
     {
       "id": "c0276",
@@ -2731,7 +3553,10 @@
       "sourceEnd": 1351.18,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "OR",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0277",
@@ -2740,7 +3565,10 @@
       "duration": 1.92,
       "sourceStart": 1351.18,
       "sourceEnd": 1353.18,
-      "tags": []
+      "tags": [],
+      "asrText": "最近偶尔有这样的瞬间",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0278",
@@ -2749,7 +3577,10 @@
       "duration": 1.75,
       "sourceStart": 1353.18,
       "sourceEnd": 1357.01,
-      "tags": []
+      "tags": [],
+      "asrText": "會想起你和你的同伴的",
+      "asrScore": 0.778,
+      "usable": true
     },
     {
       "id": "c0279",
@@ -2758,7 +3589,10 @@
       "duration": 1.68,
       "sourceStart": 1357.01,
       "sourceEnd": 1359.01,
-      "tags": []
+      "tags": [],
+      "asrText": "这种回忆拥有温度",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0280",
@@ -2767,7 +3601,10 @@
       "duration": 0.81,
       "sourceStart": 1359.01,
       "sourceEnd": 1361.68,
-      "tags": []
+      "tags": [],
+      "asrText": "很神奇",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0281",
@@ -2776,7 +3613,10 @@
       "duration": 2.41,
       "sourceStart": 1361.68,
       "sourceEnd": 1364.13,
-      "tags": []
+      "tags": [],
+      "asrText": "那洋洋的在我",
+      "asrScore": 0.133,
+      "usable": false
     },
     {
       "id": "c0282",
@@ -2785,7 +3625,10 @@
       "duration": 2.24,
       "sourceStart": 1364.13,
       "sourceEnd": 1366.13,
-      "tags": []
+      "tags": [],
+      "asrText": "那我過去的記憶中很少",
+      "asrScore": 0.275,
+      "usable": false
     },
     {
       "id": "c0283",
@@ -2794,7 +3637,10 @@
       "duration": 2.27,
       "sourceStart": 1366.13,
       "sourceEnd": 1368.16,
-      "tags": []
+      "tags": [],
+      "asrText": "知道有过这样的片段听",
+      "asrScore": 0.735,
+      "usable": true
     },
     {
       "id": "c0284",
@@ -2803,7 +3649,10 @@
       "duration": 2.16,
       "sourceStart": 1368.16,
       "sourceEnd": 1370.16,
-      "tags": []
+      "tags": [],
+      "asrText": "聽說油子歸香會帶上",
+      "asrScore": 0.067,
+      "usable": false
     },
     {
       "id": "c0285",
@@ -2812,7 +3661,10 @@
       "duration": 1.92,
       "sourceStart": 1370.16,
       "sourceEnd": 1372.16,
-      "tags": []
+      "tags": [],
+      "asrText": "戴上大包小包的紀念品",
+      "asrScore": 0.659,
+      "usable": true
     },
     {
       "id": "c0286",
@@ -2821,7 +3673,10 @@
       "duration": 1.71,
       "sourceStart": 1372.16,
       "sourceEnd": 1375.43,
-      "tags": []
+      "tags": [],
+      "asrText": "按我的行李空蕩蕩",
+      "asrScore": 0.823,
+      "usable": true
     },
     {
       "id": "c0287",
@@ -2830,7 +3685,10 @@
       "duration": 0.87,
       "sourceStart": 1375.43,
       "sourceEnd": 1377.57,
-      "tags": []
+      "tags": [],
+      "asrText": "我愿意为",
+      "asrScore": 0.2,
+      "usable": false
     },
     {
       "id": "c0288",
@@ -2839,7 +3697,10 @@
       "duration": 1.3,
       "sourceStart": 1377.57,
       "sourceEnd": 1379.79,
-      "tags": []
+      "tags": [],
+      "asrText": "會一直空蕩蕩",
+      "asrScore": 0.703,
+      "usable": true
     },
     {
       "id": "c0289",
@@ -2848,7 +3709,10 @@
       "duration": 2.75,
       "sourceStart": 1380.79,
       "sourceEnd": 1384.74,
-      "tags": []
+      "tags": [],
+      "asrText": "我与这颗星球的斥力始终存在",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0290",
@@ -2857,7 +3721,10 @@
       "duration": 1.49,
       "sourceStart": 1384.74,
       "sourceEnd": 1387.06,
-      "tags": []
+      "tags": [],
+      "asrText": "他一直在提醒我",
+      "asrScore": 0.843,
+      "usable": true
     },
     {
       "id": "c0291",
@@ -2866,7 +3733,10 @@
       "duration": 2.12,
       "sourceStart": 1387.06,
       "sourceEnd": 1389.19,
-      "tags": []
+      "tags": [],
+      "asrText": "我...我不属于这里",
+      "asrScore": 0.945,
+      "usable": true
     },
     {
       "id": "c0292",
@@ -2875,7 +3745,10 @@
       "duration": 1.43,
       "sourceStart": 1389.19,
       "sourceEnd": 1391.19,
-      "tags": []
+      "tags": [],
+      "asrText": "留在提瓦特的話",
+      "asrScore": 0.843,
+      "usable": true
     },
     {
       "id": "c0293",
@@ -2884,7 +3757,10 @@
       "duration": 2.88,
       "sourceStart": 1391.19,
       "sourceEnd": 1394.38,
-      "tags": []
+      "tags": [],
+      "asrText": "終有一日我見會我阿姊",
+      "asrScore": 0.39,
+      "usable": false
     },
     {
       "id": "c0294",
@@ -2893,7 +3769,10 @@
       "duration": 2.64,
       "sourceStart": 1394.38,
       "sourceEnd": 1397.73,
-      "tags": []
+      "tags": [],
+      "asrText": "不是变成灰尘或是花朵的氧量",
+      "asrScore": 0.833,
+      "usable": true
     },
     {
       "id": "c0295",
@@ -2902,7 +3781,10 @@
       "duration": 2.63,
       "sourceStart": 1397.73,
       "sourceEnd": 1400.12,
-      "tags": []
+      "tags": [],
+      "asrText": "要 而是不复存在",
+      "asrScore": 0.945,
+      "usable": true
     },
     {
       "id": "c0296",
@@ -2911,7 +3793,10 @@
       "duration": 2.24,
       "sourceStart": 1400.12,
       "sourceEnd": 1402.12,
-      "tags": []
+      "tags": [],
+      "asrText": "在 齊悅之夜快到了",
+      "asrScore": 0.655,
+      "usable": true
     },
     {
       "id": "c0297",
@@ -2920,7 +3805,10 @@
       "duration": 3.72,
       "sourceStart": 1402.12,
       "sourceEnd": 1405.6,
-      "tags": []
+      "tags": [],
+      "asrText": "那是月亮距離提瓦特最近",
+      "asrScore": 0.703,
+      "usable": true
     },
     {
       "id": "c0298",
@@ -2929,7 +3817,10 @@
       "duration": 4.16,
       "sourceStart": 1405.6,
       "sourceEnd": 1409.6,
-      "tags": []
+      "tags": [],
+      "asrText": "近的日子,這片土地的越舉歷會迎來高峰",
+      "asrScore": 0.46,
+      "usable": true
     },
     {
       "id": "c0299",
@@ -2938,7 +3829,10 @@
       "duration": 2.24,
       "sourceStart": 1409.6,
       "sourceEnd": 1411.6,
-      "tags": []
+      "tags": [],
+      "asrText": "我只需把握住這份",
+      "asrScore": 0.655,
+      "usable": true
     },
     {
       "id": "c0300",
@@ -2947,7 +3841,10 @@
       "duration": 3.22,
       "sourceStart": 1411.6,
       "sourceEnd": 1414.6,
-      "tags": []
+      "tags": [],
+      "asrText": "这份潮汐便不需要花费多少力气",
+      "asrScore": 0.891,
+      "usable": true
     },
     {
       "id": "c0301",
@@ -2956,7 +3853,10 @@
       "duration": 2.08,
       "sourceStart": 1414.6,
       "sourceEnd": 1416.6,
-      "tags": []
+      "tags": [],
+      "asrText": "一起如果真是这样",
+      "asrScore": 0.9,
+      "usable": true
     },
     {
       "id": "c0302",
@@ -2965,7 +3865,10 @@
       "duration": 2.19,
       "sourceStart": 1416.6,
       "sourceEnd": 1419.6,
-      "tags": []
+      "tags": [],
+      "asrText": "會賬上那片虛假的天空吧",
+      "asrScore": 0.651,
+      "usable": true
     },
     {
       "id": "c0303",
@@ -2974,7 +3877,10 @@
       "duration": 1.53,
       "sourceStart": 1419.6,
       "sourceEnd": 1421.6,
-      "tags": []
+      "tags": [],
+      "asrText": "会是更加温柔的做法",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0304",
@@ -2983,7 +3889,10 @@
       "duration": 2.52,
       "sourceStart": 1421.6,
       "sourceEnd": 1423.88,
-      "tags": []
+      "tags": [],
+      "asrText": "我发但我喜欢你这个比",
+      "asrScore": 0.85,
+      "usable": true
     },
     {
       "id": "c0305",
@@ -2992,7 +3901,10 @@
       "duration": 2.02,
       "sourceStart": 1423.88,
       "sourceEnd": 1425.88,
-      "tags": []
+      "tags": [],
+      "asrText": "一個比喻很有趣",
+      "asrScore": 0.7,
+      "usable": true
     },
     {
       "id": "c0306",
@@ -3003,7 +3915,10 @@
       "sourceEnd": 1427.33,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "是",
+      "asrScore": 0.2,
+      "usable": false
     },
     {
       "id": "c0307",
@@ -3012,7 +3927,10 @@
       "duration": 3.48,
       "sourceStart": 1427.33,
       "sourceEnd": 1430.59,
-      "tags": []
+      "tags": [],
+      "asrText": "時間只有在幸福的時候會顯得",
+      "asrScore": 0.459,
+      "usable": true
     },
     {
       "id": "c0308",
@@ -3021,7 +3939,10 @@
       "duration": 6.38,
       "sourceStart": 1430.59,
       "sourceEnd": 1436.73,
-      "tags": []
+      "tags": [],
+      "asrText": "那短暂我一直認為我是在這片土地上流了",
+      "asrScore": 0.595,
+      "usable": true
     },
     {
       "id": "c0309",
@@ -3030,7 +3951,10 @@
       "duration": 3.63,
       "sourceStart": 1436.73,
       "sourceEnd": 1440.12,
-      "tags": []
+      "tags": [],
+      "asrText": "無論,而她也從未表示過任何晚戀。",
+      "asrScore": 0.338,
+      "usable": false
     },
     {
       "id": "c0310",
@@ -3039,7 +3963,10 @@
       "duration": 2.24,
       "sourceStart": 1440.12,
       "sourceEnd": 1442.12,
-      "tags": []
+      "tags": [],
+      "asrText": "晚留之意 恨临行情",
+      "asrScore": 0.32,
+      "usable": false
     },
     {
       "id": "c0311",
@@ -3048,7 +3975,10 @@
       "duration": 2.24,
       "sourceStart": 1442.12,
       "sourceEnd": 1444.12,
-      "tags": []
+      "tags": [],
+      "asrText": "金钱 他试图抓住",
+      "asrScore": 0.619,
+      "usable": true
     },
     {
       "id": "c0312",
@@ -3057,7 +3987,10 @@
       "duration": 2.59,
       "sourceStart": 1444.12,
       "sourceEnd": 1446.47,
-      "tags": []
+      "tags": [],
+      "asrText": "拉住我的手就其实我",
+      "asrScore": 0.08,
+      "usable": false
     },
     {
       "id": "c0313",
@@ -3068,7 +4001,10 @@
       "sourceEnd": 1448.56,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "是溫情還是瘋",
+      "asrScore": 0.08,
+      "usable": false
     },
     {
       "id": "c0314",
@@ -3077,7 +4013,10 @@
       "duration": 1.81,
       "sourceStart": 1449.56,
       "sourceEnd": 1451.66,
-      "tags": []
+      "tags": [],
+      "asrText": "嗯 別生氣",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0315",
@@ -3086,7 +4025,10 @@
       "duration": 2.24,
       "sourceStart": 1451.66,
       "sourceEnd": 1453.66,
-      "tags": []
+      "tags": [],
+      "asrText": "旅行者应该很有精",
+      "asrScore": 0.567,
+      "usable": true
     },
     {
       "id": "c0316",
@@ -3095,7 +4037,10 @@
       "duration": 3.36,
       "sourceStart": 1453.66,
       "sourceEnd": 1456.78,
-      "tags": []
+      "tags": [],
+      "asrText": "青煙 原來如此",
+      "asrScore": 0.45,
+      "usable": true
     },
     {
       "id": "c0317",
@@ -3104,7 +4049,10 @@
       "duration": 2.34,
       "sourceStart": 1456.78,
       "sourceEnd": 1458.88,
-      "tags": []
+      "tags": [],
+      "asrText": "此,那我會說",
+      "asrScore": 0.371,
+      "usable": false
     },
     {
       "id": "c0318",
@@ -3113,7 +4061,10 @@
       "duration": 2.27,
       "sourceStart": 1458.88,
       "sourceEnd": 1460.91,
-      "tags": []
+      "tags": [],
+      "asrText": "现在的我虽然很",
+      "asrScore": 0.825,
+      "usable": true
     },
     {
       "id": "c0319",
@@ -3122,7 +4073,10 @@
       "duration": 2.37,
       "sourceStart": 1460.91,
       "sourceEnd": 1463.04,
-      "tags": []
+      "tags": [],
+      "asrText": "很疲憊但我要很",
+      "asrScore": 0.309,
+      "usable": false
     },
     {
       "id": "c0320",
@@ -3133,7 +4087,10 @@
       "sourceEnd": 1465.07,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "很開心你聽不出來",
+      "asrScore": 0.3,
+      "usable": false
     },
     {
       "id": "c0321",
@@ -3142,7 +4099,10 @@
       "duration": 2.59,
       "sourceStart": 1465.07,
       "sourceEnd": 1467.42,
-      "tags": []
+      "tags": [],
+      "asrText": "我以为你",
+      "asrScore": 0.629,
+      "usable": true
     },
     {
       "id": "c0322",
@@ -3153,7 +4113,10 @@
       "sourceEnd": 1468.54,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "那你肯定呢?",
+      "asrScore": 0.643,
+      "usable": true
     },
     {
       "id": "c0323",
@@ -3164,7 +4127,10 @@
       "sourceEnd": 1470.62,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "原来是玩笑",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0324",
@@ -3175,7 +4141,10 @@
       "sourceEnd": 1473.25,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "但这个不太好笑",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0325",
@@ -3186,7 +4155,10 @@
       "sourceEnd": 1475.13,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "你們來找我",
+      "asrScore": 0.39,
+      "usable": false
     },
     {
       "id": "c0326",
@@ -3198,7 +4170,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "是为了那个吗",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0327",
@@ -3209,7 +4184,10 @@
       "sourceEnd": 1479.39,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "把手给我",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0328",
@@ -3221,7 +4199,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "還要把手給我嗎?",
+      "asrScore": 0.429,
+      "usable": false
     },
     {
       "id": "c0329",
@@ -3230,7 +4211,10 @@
       "duration": 1.89,
       "sourceStart": 1485.78,
       "sourceEnd": 1487.7,
-      "tags": []
+      "tags": [],
+      "asrText": "我沒參加過這種活動",
+      "asrScore": 0.133,
+      "usable": false
     },
     {
       "id": "c0330",
@@ -3242,7 +4226,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "我不知道應該怎麼辦",
+      "asrScore": 0.447,
+      "usable": false
     },
     {
       "id": "c0331",
@@ -3251,7 +4238,10 @@
       "duration": 2.29,
       "sourceStart": 1490.83,
       "sourceEnd": 1493.19,
-      "tags": []
+      "tags": [],
+      "asrText": "可是我被他们称为库塔儿",
+      "asrScore": 0.904,
+      "usable": true
     },
     {
       "id": "c0332",
@@ -3260,7 +4250,10 @@
       "duration": 2.11,
       "sourceStart": 1493.75,
       "sourceEnd": 1495.95,
-      "tags": []
+      "tags": [],
+      "asrText": "現在還在被輿論中通緝",
+      "asrScore": 0.2,
+      "usable": false
     },
     {
       "id": "c0333",
@@ -3269,7 +4262,10 @@
       "duration": 2.32,
       "sourceStart": 1496.47,
       "sourceEnd": 1498.95,
-      "tags": []
+      "tags": [],
+      "asrText": "不應該出現在大庭廣眾之下",
+      "asrScore": 0.397,
+      "usable": false
     },
     {
       "id": "c0334",
@@ -3281,7 +4277,10 @@
       "tags": [
         "ack",
         "short"
-      ]
+      ],
+      "asrText": "好吧",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0335",
@@ -3290,7 +4289,10 @@
       "duration": 2.87,
       "sourceStart": 1500.15,
       "sourceEnd": 1503.51,
-      "tags": []
+      "tags": [],
+      "asrText": "既然你这么说,我也不再推辞",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0336",
@@ -3299,7 +4301,10 @@
       "duration": 2.11,
       "sourceStart": 1503.51,
       "sourceEnd": 1507.56,
-      "tags": []
+      "tags": [],
+      "asrText": "在這小故鄉的真容之前",
+      "asrScore": 0.373,
+      "usable": false
     },
     {
       "id": "c0337",
@@ -3308,7 +4313,10 @@
       "duration": 2.02,
       "sourceStart": 1507.56,
       "sourceEnd": 1510.24,
-      "tags": []
+      "tags": [],
+      "asrText": "也應該把這片土地的風景",
+      "asrScore": 0.435,
+      "usable": false
     },
     {
       "id": "c0338",
@@ -3320,7 +4328,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "章竟行李當中呢?",
+      "asrScore": 0.429,
+      "usable": false
     },
     {
       "id": "c0339",
@@ -3329,7 +4340,10 @@
       "duration": 3.02,
       "sourceStart": 1512.04,
       "sourceEnd": 1516.58,
-      "tags": []
+      "tags": [],
+      "asrText": "對了,如果你們見到了拉烏馬",
+      "asrScore": 0.491,
+      "usable": true
     },
     {
       "id": "c0340",
@@ -3340,7 +4354,10 @@
       "sourceEnd": 1518.35,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "请转达它",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0341",
@@ -3349,7 +4366,10 @@
       "duration": 1.17,
       "sourceStart": 1518.35,
       "sourceEnd": 1520.5,
-      "tags": []
+      "tags": [],
+      "asrText": "之前的問題",
+      "asrScore": 0.54,
+      "usable": true
     },
     {
       "id": "c0342",
@@ -3358,7 +4378,10 @@
       "duration": 1.57,
       "sourceStart": 1520.5,
       "sourceEnd": 1522.99,
-      "tags": []
+      "tags": [],
+      "asrText": "我的答案不是同意",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0343",
@@ -3369,7 +4392,10 @@
       "sourceEnd": 1524.59,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "也不是拒绝",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0344",
@@ -3378,7 +4404,10 @@
       "duration": 2.5,
       "sourceStart": 1524.59,
       "sourceEnd": 1527.73,
-      "tags": []
+      "tags": [],
+      "asrText": "而是不需要",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0345",
@@ -3387,7 +4416,10 @@
       "duration": 3.53,
       "sourceStart": 1527.73,
       "sourceEnd": 1534.53,
-      "tags": []
+      "tags": [],
+      "asrText": "而且我也不知道",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0346",
@@ -3396,7 +4428,10 @@
       "duration": 2.73,
       "sourceStart": 1534.53,
       "sourceEnd": 1538.94,
-      "tags": []
+      "tags": [],
+      "asrText": "身體好重",
+      "asrScore": 0.5,
+      "usable": true
     },
     {
       "id": "c0347",
@@ -3405,7 +4440,10 @@
       "duration": 3.0,
       "sourceStart": 1538.94,
       "sourceEnd": 1543.02,
-      "tags": []
+      "tags": [],
+      "asrText": "不對沈重的是",
+      "asrScore": 0.507,
+      "usable": true
     },
     {
       "id": "c0348",
@@ -3416,7 +4454,10 @@
       "sourceEnd": 1544.22,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "硬实",
+      "asrScore": 0.2,
+      "usable": false
     },
     {
       "id": "c0349",
@@ -3425,7 +4466,10 @@
       "duration": 2.32,
       "sourceStart": 1544.22,
       "sourceEnd": 1548.56,
-      "tags": []
+      "tags": [],
+      "asrText": "手腳反倒感覺輕鬆平",
+      "asrScore": 0.044,
+      "usable": false
     },
     {
       "id": "c0350",
@@ -3436,7 +4480,10 @@
       "sourceEnd": 1550.06,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "我只是",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0351",
@@ -3445,7 +4492,10 @@
       "duration": 1.46,
       "sourceStart": 1551.82,
       "sourceEnd": 1554.99,
-      "tags": []
+      "tags": [],
+      "asrText": "就像睡了太久",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0352",
@@ -3454,7 +4504,10 @@
       "duration": 1.48,
       "sourceStart": 1554.99,
       "sourceEnd": 1556.99,
-      "tags": []
+      "tags": [],
+      "asrText": "脑袋晕糊糊的",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0353",
@@ -3463,7 +4516,10 @@
       "duration": 1.31,
       "sourceStart": 1556.99,
       "sourceEnd": 1560.14,
-      "tags": []
+      "tags": [],
+      "asrText": "现在是白天",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0354",
@@ -3474,7 +4530,10 @@
       "sourceEnd": 1561.64,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "还是夜晚",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0355",
@@ -3485,7 +4544,10 @@
       "sourceEnd": 1563.93,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "月亮出来了吗",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0356",
@@ -3494,7 +4556,10 @@
       "duration": 1.35,
       "sourceStart": 1564.93,
       "sourceEnd": 1570.42,
-      "tags": []
+      "tags": [],
+      "asrText": "出去散散步吧",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0357",
@@ -3505,7 +4570,10 @@
       "sourceEnd": 1572.42,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "你也出來散步嗎",
+      "asrScore": 0.586,
+      "usable": true
     },
     {
       "id": "c0358",
@@ -3514,7 +4582,10 @@
       "duration": 2.7,
       "sourceStart": 1572.42,
       "sourceEnd": 1576.98,
-      "tags": []
+      "tags": [],
+      "asrText": "這一天還是到來了",
+      "asrScore": 0.382,
+      "usable": false
     },
     {
       "id": "c0359",
@@ -3523,7 +4594,10 @@
       "duration": 2.72,
       "sourceStart": 1592.15,
       "sourceEnd": 1595.15,
-      "tags": []
+      "tags": [],
+      "asrText": "明明在過不久就是奇月之夜",
+      "asrScore": 0.618,
+      "usable": true
     },
     {
       "id": "c0360",
@@ -3532,7 +4606,10 @@
       "duration": 3.33,
       "sourceStart": 1596.12,
       "sourceEnd": 1599.77,
-      "tags": []
+      "tags": [],
+      "asrText": "再過不久 就能回家",
+      "asrScore": 0.729,
+      "usable": true
     },
     {
       "id": "c0361",
@@ -3543,7 +4620,10 @@
       "sourceEnd": 1607.28,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "死我……這就是我的終點嗎?",
+      "asrScore": 0.489,
+      "usable": true
     },
     {
       "id": "c0362",
@@ -3554,7 +4634,10 @@
       "sourceEnd": 1612.9,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "等我消散之後會回到月亮上去",
+      "asrScore": 0.746,
+      "usable": true
     },
     {
       "id": "c0363",
@@ -3563,7 +4646,10 @@
       "duration": 5.92,
       "sourceStart": 1612.9,
       "sourceEnd": 1621.08,
-      "tags": []
+      "tags": [],
+      "asrText": "还是说真不想就这样结束",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0364",
@@ -3572,7 +4658,10 @@
       "duration": 5.35,
       "sourceStart": 1621.08,
       "sourceEnd": 1629.51,
-      "tags": []
+      "tags": [],
+      "asrText": "嗯 但至少 我仍存在于此",
+      "asrScore": 0.893,
+      "usable": true
     },
     {
       "id": "c0365",
@@ -3581,7 +4670,10 @@
       "duration": 4.93,
       "sourceStart": 1629.51,
       "sourceEnd": 1634.66,
-      "tags": []
+      "tags": [],
+      "asrText": "儘管心體消散但我仍能感受",
+      "asrScore": 0.77,
+      "usable": true
     },
     {
       "id": "c0366",
@@ -3590,7 +4682,10 @@
       "duration": 5.47,
       "sourceStart": 1634.66,
       "sourceEnd": 1641.59,
-      "tags": []
+      "tags": [],
+      "asrText": "很快我就会连维持这份意识的力量都没有",
+      "asrScore": 0.962,
+      "usable": true
     },
     {
       "id": "c0367",
@@ -3599,7 +4694,10 @@
       "duration": 4.93,
       "sourceStart": 1641.59,
       "sourceEnd": 1648.86,
-      "tags": []
+      "tags": [],
+      "asrText": "還不如最後再好好看看這個世界",
+      "asrScore": 0.59,
+      "usable": true
     },
     {
       "id": "c0368",
@@ -3608,7 +4706,10 @@
       "duration": 3.46,
       "sourceStart": 1648.86,
       "sourceEnd": 1654.58,
-      "tags": []
+      "tags": [],
+      "asrText": "這個我帶生的地步",
+      "asrScore": 0.371,
+      "usable": false
     },
     {
       "id": "c0369",
@@ -3617,7 +4718,10 @@
       "duration": 4.31,
       "sourceStart": 1654.58,
       "sourceEnd": 1659.09,
-      "tags": []
+      "tags": [],
+      "asrText": "双眼之方与我刚单身的时候相比",
+      "asrScore": 0.708,
+      "usable": true
     },
     {
       "id": "c0370",
@@ -3626,7 +4730,10 @@
       "duration": 1.29,
       "sourceStart": 1659.09,
       "sourceEnd": 1661.32,
-      "tags": []
+      "tags": [],
+      "asrText": "真的变了好多",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0371",
@@ -3635,7 +4742,10 @@
       "duration": 0.84,
       "sourceStart": 1661.32,
       "sourceEnd": 1663.38,
-      "tags": []
+      "tags": [],
+      "asrText": "和心情",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0372",
@@ -3644,7 +4754,10 @@
       "duration": 2.6,
       "sourceStart": 1663.38,
       "sourceEnd": 1666.38,
-      "tags": []
+      "tags": [],
+      "asrText": "還從沒機會這樣觀察大家的生活",
+      "asrScore": 0.402,
+      "usable": false
     },
     {
       "id": "c0373",
@@ -3653,7 +4766,10 @@
       "duration": 1.68,
       "sourceStart": 1666.38,
       "sourceEnd": 1668.38,
-      "tags": []
+      "tags": [],
+      "asrText": "以前只要我一出現",
+      "asrScore": 0.864,
+      "usable": true
     },
     {
       "id": "c0374",
@@ -3662,7 +4778,10 @@
       "duration": 4.34,
       "sourceStart": 1668.38,
       "sourceEnd": 1672.6,
-      "tags": []
+      "tags": [],
+      "asrText": "所有人就都变成了一副严肃的模样",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0375",
@@ -3671,7 +4790,10 @@
       "duration": 0.92,
       "sourceStart": 1672.6,
       "sourceEnd": 1675.18,
-      "tags": []
+      "tags": [],
+      "asrText": "请蹦蹦的",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0376",
@@ -3680,7 +4802,10 @@
       "duration": 1.26,
       "sourceStart": 1675.18,
       "sourceEnd": 1677.85,
-      "tags": []
+      "tags": [],
+      "asrText": "再多看一会吧",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0377",
@@ -3689,7 +4814,10 @@
       "duration": 2.79,
       "sourceStart": 1677.85,
       "sourceEnd": 1680.85,
-      "tags": []
+      "tags": [],
+      "asrText": "只有弄双月之子眼中闲上的世纪",
+      "asrScore": 0.588,
+      "usable": true
     },
     {
       "id": "c0378",
@@ -3698,7 +4826,10 @@
       "duration": 1.49,
       "sourceStart": 1680.85,
       "sourceEnd": 1683.08,
-      "tags": []
+      "tags": [],
+      "asrText": "是要受到诚恵法的吧",
+      "asrScore": 0.62,
+      "usable": true
     },
     {
       "id": "c0379",
@@ -3707,7 +4838,10 @@
       "duration": 2.15,
       "sourceStart": 1683.08,
       "sourceEnd": 1685.08,
-      "tags": []
+      "tags": [],
+      "asrText": "往氣球裡裝水",
+      "asrScore": 0.2,
+      "usable": false
     },
     {
       "id": "c0380",
@@ -3718,7 +4852,10 @@
       "sourceEnd": 1687.24,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "真的有这么好玩",
+      "asrScore": 0.904,
+      "usable": true
     },
     {
       "id": "c0381",
@@ -3727,7 +4864,10 @@
       "duration": 2.62,
       "sourceStart": 1687.24,
       "sourceEnd": 1689.62,
-      "tags": []
+      "tags": [],
+      "asrText": "晚了 生夜之際的事",
+      "asrScore": 0.114,
+      "usable": false
     },
     {
       "id": "c0382",
@@ -3738,7 +4878,10 @@
       "sourceEnd": 1693.32,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "你的食物倒是一如既往的普送",
+      "asrScore": 0.517,
+      "usable": true
     },
     {
       "id": "c0383",
@@ -3747,7 +4890,10 @@
       "duration": 2.19,
       "sourceStart": 1693.32,
       "sourceEnd": 1696.48,
-      "tags": []
+      "tags": [],
+      "asrText": "欸 將患者吃",
+      "asrScore": 0.08,
+      "usable": false
     },
     {
       "id": "c0384",
@@ -3756,7 +4902,10 @@
       "duration": 3.47,
       "sourceStart": 1696.48,
       "sourceEnd": 1699.89,
-      "tags": []
+      "tags": [],
+      "asrText": "我还没和别人交换过食物",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0385",
@@ -3765,7 +4914,10 @@
       "duration": 1.6,
       "sourceStart": 1699.89,
       "sourceEnd": 1701.89,
-      "tags": []
+      "tags": [],
+      "asrText": "執行官的查會上",
+      "asrScore": 0.429,
+      "usable": false
     },
     {
       "id": "c0386",
@@ -3774,7 +4926,10 @@
       "duration": 2.85,
       "sourceStart": 1701.89,
       "sourceEnd": 1704.89,
-      "tags": []
+      "tags": [],
+      "asrText": "大家似乎也是各吃各的",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0387",
@@ -3783,7 +4938,10 @@
       "duration": 2.56,
       "sourceStart": 1704.89,
       "sourceEnd": 1708.15,
-      "tags": []
+      "tags": [],
+      "asrText": "到初生日之子給我的貢品也是",
+      "asrScore": 0.477,
+      "usable": true
     },
     {
       "id": "c0388",
@@ -3792,7 +4950,10 @@
       "duration": 1.35,
       "sourceStart": 1708.15,
       "sourceEnd": 1710.15,
-      "tags": []
+      "tags": [],
+      "asrText": "就算我吃不下",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0389",
@@ -3801,7 +4962,10 @@
       "duration": 2.77,
       "sourceStart": 1710.15,
       "sourceEnd": 1713.15,
-      "tags": []
+      "tags": [],
+      "asrText": "他们也只会将剩下的部分放在月下",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0390",
@@ -3810,7 +4974,10 @@
       "duration": 1.36,
       "sourceStart": 1713.15,
       "sourceEnd": 1715.15,
-      "tags": []
+      "tags": [],
+      "asrText": "让小动物们雕走",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0391",
@@ -3819,7 +4986,10 @@
       "duration": 3.26,
       "sourceStart": 1715.15,
       "sourceEnd": 1718.94,
-      "tags": []
+      "tags": [],
+      "asrText": "哼 这就是家人吗",
+      "asrScore": 0.77,
+      "usable": true
     },
     {
       "id": "c0392",
@@ -3828,7 +4998,10 @@
       "duration": 2.14,
       "sourceStart": 1732.92,
       "sourceEnd": 1735.88,
-      "tags": []
+      "tags": [],
+      "asrText": "都是我以前在大家身边时",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0393",
@@ -3837,7 +5010,10 @@
       "duration": 1.42,
       "sourceStart": 1735.88,
       "sourceEnd": 1737.88,
-      "tags": []
+      "tags": [],
+      "asrText": "他们不会做的事",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0394",
@@ -3846,7 +5022,10 @@
       "duration": 2.16,
       "sourceStart": 1739.88,
       "sourceEnd": 1742.48,
-      "tags": []
+      "tags": [],
+      "asrText": "似乎这样悄悄在大家身旁",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0395",
@@ -3855,7 +5034,10 @@
       "duration": 1.92,
       "sourceStart": 1742.48,
       "sourceEnd": 1745.08,
-      "tags": []
+      "tags": [],
+      "asrText": "送走最後的時光也不錯",
+      "asrScore": 0.547,
+      "usable": true
     },
     {
       "id": "c0396",
@@ -3864,7 +5046,10 @@
       "duration": 1.09,
       "sourceStart": 1745.08,
       "sourceEnd": 1746.88,
-      "tags": []
+      "tags": [],
+      "asrText": "難得的機會",
+      "asrScore": 0.31,
+      "usable": false
     },
     {
       "id": "c0397",
@@ -3873,7 +5058,10 @@
       "duration": 1.38,
       "sourceStart": 1746.88,
       "sourceEnd": 1748.88,
-      "tags": []
+      "tags": [],
+      "asrText": "去拿下镇看看吧",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0398",
@@ -3884,7 +5072,10 @@
       "sourceEnd": 1753.84,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "現在會不會也在那邊呢",
+      "asrScore": 0.383,
+      "usable": false
     },
     {
       "id": "c0399",
@@ -3893,7 +5084,10 @@
       "duration": 2.34,
       "sourceStart": 1757.15,
       "sourceEnd": 1760.31,
-      "tags": []
+      "tags": [],
+      "asrText": "我还从没这样踏如果拿下针",
+      "asrScore": 0.682,
+      "usable": true
     },
     {
       "id": "c0400",
@@ -3904,7 +5098,10 @@
       "sourceEnd": 1761.71,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "那是",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0401",
@@ -3916,7 +5113,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "吵架了吗",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0402",
@@ -3925,7 +5125,10 @@
       "duration": 1.08,
       "sourceStart": 1763.31,
       "sourceEnd": 1765.2,
-      "tags": []
+      "tags": [],
+      "asrText": "他们是",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0403",
@@ -3936,7 +5139,10 @@
       "sourceEnd": 1786.28,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "啊 桑多涅 原来那时的桑多涅是想和我做朋友吗",
+      "asrScore": 0.624,
+      "usable": false
     },
     {
       "id": "c0404",
@@ -3945,7 +5151,10 @@
       "duration": 4.21,
       "sourceStart": 1786.28,
       "sourceEnd": 1791.51,
-      "tags": []
+      "tags": [],
+      "asrText": "可惜,已經沒機會回他結局難聽的話了。",
+      "asrScore": 0.83,
+      "usable": true
     },
     {
       "id": "c0405",
@@ -3954,7 +5163,10 @@
       "duration": 3.69,
       "sourceStart": 1791.51,
       "sourceEnd": 1798.96,
-      "tags": []
+      "tags": [],
+      "asrText": "惊喜又是個新鮮的慈慧",
+      "asrScore": 0.333,
+      "usable": false
     },
     {
       "id": "c0406",
@@ -3963,7 +5175,10 @@
       "duration": 2.52,
       "sourceStart": 1800.12,
       "sourceEnd": 1804.56,
-      "tags": []
+      "tags": [],
+      "asrText": "她是在看著我說話",
+      "asrScore": 0.507,
+      "usable": true
     },
     {
       "id": "c0407",
@@ -3972,7 +5187,10 @@
       "duration": 2.71,
       "sourceStart": 1804.56,
       "sourceEnd": 1808.24,
-      "tags": []
+      "tags": [],
+      "asrText": "他能看見我?",
+      "asrScore": 0.39,
+      "usable": false
     },
     {
       "id": "c0408",
@@ -3981,7 +5199,10 @@
       "duration": 2.7,
       "sourceStart": 1819.73,
       "sourceEnd": 1822.73,
-      "tags": []
+      "tags": [],
+      "asrText": "哦 现象机关率先改变了阵形",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0409",
@@ -3993,7 +5214,10 @@
       "tags": [
         "question",
         "short"
-      ]
+      ],
+      "asrText": "但这有什么效果呢",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0410",
@@ -4002,7 +5226,10 @@
       "duration": 1.81,
       "sourceStart": 1823.73,
       "sourceEnd": 1825.73,
-      "tags": []
+      "tags": [],
+      "asrText": "不過呢現在還沒人知道",
+      "asrScore": 0.389,
+      "usable": false
     },
     {
       "id": "c0411",
@@ -4011,7 +5238,10 @@
       "duration": 3.26,
       "sourceStart": 1825.73,
       "sourceEnd": 1831.2,
-      "tags": []
+      "tags": [],
+      "asrText": "放心,依你的想法去战斗吧。",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0412",
@@ -4020,7 +5250,10 @@
       "duration": 1.62,
       "sourceStart": 1831.2,
       "sourceEnd": 1833.2,
-      "tags": []
+      "tags": [],
+      "asrText": "主要是这孩子的功劳",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0413",
@@ -4031,7 +5264,10 @@
       "sourceEnd": 1866.95,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "这是要不要玩玩看呢",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0414",
@@ -4042,7 +5278,10 @@
       "sourceEnd": 1870.07,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "是需要幫手嗎?",
+      "asrScore": 0.507,
+      "usable": true
     },
     {
       "id": "c0415",
@@ -4053,7 +5292,10 @@
       "sourceEnd": 1872.07,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "嗯,可以呀。",
+      "asrScore": 0.7,
+      "usable": true
     },
     {
       "id": "c0416",
@@ -4064,7 +5306,10 @@
       "sourceEnd": 1874.07,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "能告訴我要怎麼玩",
+      "asrScore": 0.507,
+      "usable": true
     },
     {
       "id": "c0417",
@@ -4075,7 +5320,10 @@
       "sourceEnd": 1876.2,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "玩嗎?嗯...玩...",
+      "asrScore": 0.08,
+      "usable": false
     },
     {
       "id": "c0418",
@@ -4084,7 +5332,10 @@
       "duration": 1.97,
       "sourceStart": 1876.2,
       "sourceEnd": 1878.2,
-      "tags": []
+      "tags": [],
+      "asrText": "我明白了,分析",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0419",
@@ -4095,7 +5346,10 @@
       "sourceEnd": 1880.68,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "大家會喜歡怎樣的",
+      "asrScore": 0.252,
+      "usable": false
     },
     {
       "id": "c0420",
@@ -4104,7 +5358,10 @@
       "duration": 2.44,
       "sourceStart": 1880.68,
       "sourceEnd": 1883.09,
-      "tags": []
+      "tags": [],
+      "asrText": "那口味呢?好安",
+      "asrScore": 0.2,
+      "usable": false
     },
     {
       "id": "c0421",
@@ -4113,7 +5370,10 @@
       "duration": 1.1,
       "sourceStart": 1883.09,
       "sourceEnd": 1885.09,
-      "tags": []
+      "tags": [],
+      "asrText": "我不太熟悉",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0422",
@@ -4125,7 +5385,10 @@
       "tags": [
         "ack",
         "question"
-      ]
+      ],
+      "asrText": "可以和我介紹一下嗎?",
+      "asrScore": 0.686,
+      "usable": true
     },
     {
       "id": "c0423",
@@ -4134,7 +5397,10 @@
       "duration": 2.31,
       "sourceStart": 1887.09,
       "sourceEnd": 1889.48,
-      "tags": []
+      "tags": [],
+      "asrText": "送給朋友",
+      "asrScore": 0.5,
+      "usable": true
     },
     {
       "id": "c0424",
@@ -4145,7 +5411,10 @@
       "sourceEnd": 1891.8,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "有素饮花口味的吗?",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0425",
@@ -4156,7 +5425,10 @@
       "sourceEnd": 1894.12,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "不合适吗?那……",
+      "asrScore": 0.914,
+      "usable": true
     },
     {
       "id": "c0426",
@@ -4167,7 +5439,10 @@
       "sourceEnd": 1896.5,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "那...月落營呢?",
+      "asrScore": 0.62,
+      "usable": true
     },
     {
       "id": "c0427",
@@ -4179,7 +5454,10 @@
       "tags": [
         "ack",
         "question"
-      ]
+      ],
+      "asrText": "嗯... 撒ないよ",
+      "asrScore": 0.08,
+      "usable": false
     },
     {
       "id": "c0428",
@@ -4190,7 +5468,10 @@
       "sourceEnd": 1904.04,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "io no?",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0429",
@@ -4199,7 +5480,10 @@
       "duration": 1.89,
       "sourceStart": 1910.44,
       "sourceEnd": 1912.44,
-      "tags": []
+      "tags": [],
+      "asrText": "我現在想做的是",
+      "asrScore": 0.743,
+      "usable": true
     },
     {
       "id": "c0430",
@@ -4208,7 +5492,10 @@
       "duration": 0.87,
       "sourceStart": 1918.53,
       "sourceEnd": 1921.36,
-      "tags": []
+      "tags": [],
+      "asrText": "你們說得對",
+      "asrScore": 0.16,
+      "usable": false
     },
     {
       "id": "c0431",
@@ -4219,7 +5506,10 @@
       "sourceEnd": 1922.36,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "我也",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0432",
@@ -4230,7 +5520,10 @@
       "sourceEnd": 1923.36,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "的確還捨不得他",
+      "asrScore": 0.309,
+      "usable": false
     },
     {
       "id": "c0433",
@@ -4239,7 +5532,10 @@
       "duration": 2.34,
       "sourceStart": 1923.36,
       "sourceEnd": 1925.46,
-      "tags": []
+      "tags": [],
+      "asrText": "他就这么结束。好。",
+      "asrScore": 0.77,
+      "usable": true
     },
     {
       "id": "c0434",
@@ -4251,7 +5547,10 @@
       "tags": [
         "thanks",
         "short"
-      ]
+      ],
+      "asrText": "謝謝你們",
+      "asrScore": 0.133,
+      "usable": false
     },
     {
       "id": "c0435",
@@ -4262,7 +5561,10 @@
       "sourceEnd": 1929.46,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "記得還有一些",
+      "asrScore": 0.447,
+      "usable": false
     },
     {
       "id": "c0436",
@@ -4274,7 +5576,10 @@
       "tags": [
         "soft",
         "short"
-      ]
+      ],
+      "asrText": "我想好了",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0437",
@@ -4283,7 +5588,10 @@
       "duration": 1.61,
       "sourceStart": 1932.94,
       "sourceEnd": 1935.0,
-      "tags": []
+      "tags": [],
+      "asrText": "我还从没有在如此深",
+      "asrScore": 0.758,
+      "usable": true
     },
     {
       "id": "c0438",
@@ -4292,7 +5600,10 @@
       "duration": 1.56,
       "sourceStart": 1935.0,
       "sourceEnd": 1937.0,
-      "tags": []
+      "tags": [],
+      "asrText": "熱鬧的奇月之夜裡",
+      "asrScore": 0.269,
+      "usable": false
     },
     {
       "id": "c0439",
@@ -4301,7 +5612,10 @@
       "duration": 2.04,
       "sourceStart": 1937.0,
       "sourceEnd": 1939.0,
-      "tags": []
+      "tags": [],
+      "asrText": "和大家一起玩的这么开心锅",
+      "asrScore": 0.77,
+      "usable": true
     },
     {
       "id": "c0440",
@@ -4310,7 +5624,10 @@
       "duration": 4.99,
       "sourceStart": 1939.0,
       "sourceEnd": 1944.08,
-      "tags": []
+      "tags": [],
+      "asrText": "没找到一处",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0441",
@@ -4319,7 +5636,10 @@
       "duration": 2.22,
       "sourceStart": 1944.08,
       "sourceEnd": 1947.27,
-      "tags": []
+      "tags": [],
+      "asrText": "都有人對我說歡迎回家",
+      "asrScore": 0.547,
+      "usable": true
     },
     {
       "id": "c0442",
@@ -4328,7 +5648,10 @@
       "duration": 1.64,
       "sourceStart": 1947.27,
       "sourceEnd": 1949.27,
-      "tags": []
+      "tags": [],
+      "asrText": "都会遇到认识的朋友",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0443",
@@ -4337,7 +5660,10 @@
       "duration": 6.94,
       "sourceStart": 1949.27,
       "sourceEnd": 1957.36,
-      "tags": []
+      "tags": [],
+      "asrText": "真希望她不只是這一個夜晚。嗯。",
+      "asrScore": 0.699,
+      "usable": true
     },
     {
       "id": "c0444",
@@ -4346,7 +5672,10 @@
       "duration": 6.4,
       "sourceStart": 1957.36,
       "sourceEnd": 1964.34,
-      "tags": []
+      "tags": [],
+      "asrText": "你说的对我...啊...七月之花",
+      "asrScore": 0.894,
+      "usable": true
     },
     {
       "id": "c0445",
@@ -4357,7 +5686,10 @@
       "sourceEnd": 1969.32,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "看来 时间到了呢嗯",
+      "asrScore": 0.954,
+      "usable": true
     },
     {
       "id": "c0446",
@@ -4366,7 +5698,10 @@
       "duration": 3.01,
       "sourceStart": 1969.32,
       "sourceEnd": 1972.36,
-      "tags": []
+      "tags": [],
+      "asrText": "該去你們說的那個一句理,善",
+      "asrScore": 0.26,
+      "usable": false
     },
     {
       "id": "c0447",
@@ -4375,7 +5710,10 @@
       "duration": 2.59,
       "sourceStart": 1972.36,
       "sourceEnd": 1975.45,
-      "tags": []
+      "tags": [],
+      "asrText": "然後回到月亮上去了",
+      "asrScore": 0.806,
+      "usable": true
     },
     {
       "id": "c0448",
@@ -4384,7 +5722,10 @@
       "duration": 1.75,
       "sourceStart": 1975.45,
       "sourceEnd": 1978.41,
-      "tags": []
+      "tags": [],
+      "asrText": "哼 好呀",
+      "asrScore": 0.507,
+      "usable": true
     },
     {
       "id": "c0449",
@@ -4395,7 +5736,10 @@
       "sourceEnd": 1980.92,
       "tags": [
         "thanks"
-      ]
+      ],
+      "asrText": "这是谢谢",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0450",
@@ -4406,7 +5750,10 @@
       "sourceEnd": 1984.01,
       "tags": [
         "thanks"
-      ]
+      ],
+      "asrText": "謝謝大家",
+      "asrScore": 0.467,
+      "usable": true
     },
     {
       "id": "c0451",
@@ -4415,7 +5762,10 @@
       "duration": 6.32,
       "sourceStart": 1984.01,
       "sourceEnd": 1990.77,
-      "tags": []
+      "tags": [],
+      "asrText": "今夜,這個奇月之夜上得到的一切,是會受到過最好的禮物。",
+      "asrScore": 0.929,
+      "usable": true
     },
     {
       "id": "c0452",
@@ -4427,7 +5777,10 @@
       "tags": [
         "soft",
         "question"
-      ]
+      ],
+      "asrText": "拉烏馬 我想到了 還記得嗎",
+      "asrScore": 0.865,
+      "usable": true
     },
     {
       "id": "c0453",
@@ -4436,7 +5789,10 @@
       "duration": 5.62,
       "sourceStart": 1995.95,
       "sourceEnd": 2002.74,
-      "tags": []
+      "tags": [],
+      "asrText": "双月之子以前会用牛奶作为墨水在书页上写下隐藏的文字",
+      "asrScore": 0.588,
+      "usable": true
     },
     {
       "id": "c0454",
@@ -4448,7 +5804,10 @@
       "tags": [
         "ack",
         "soft"
-      ]
+      ],
+      "asrText": "嗯,我想你们的时候,就从月亮上,试着这些月光,写下只有你们才能看到的文字。",
+      "asrScore": 0.606,
+      "usable": true
     },
     {
       "id": "c0455",
@@ -4457,7 +5816,10 @@
       "duration": 4.32,
       "sourceStart": 2012.35,
       "sourceEnd": 2018.34,
-      "tags": []
+      "tags": [],
+      "asrText": "很簡單,只要在月色沖淫的夜晚打開窗戶",
+      "asrScore": 0.521,
+      "usable": true
     },
     {
       "id": "c0456",
@@ -4466,7 +5828,10 @@
       "duration": 2.6,
       "sourceStart": 2018.34,
       "sourceEnd": 2021.34,
-      "tags": []
+      "tags": [],
+      "asrText": "月光自然會流向我寫下的文字",
+      "asrScore": 0.6,
+      "usable": true
     },
     {
       "id": "c0457",
@@ -4475,7 +5840,10 @@
       "duration": 3.38,
       "sourceStart": 2021.34,
       "sourceEnd": 2025.34,
-      "tags": []
+      "tags": [],
+      "asrText": "我會盡量寫在不妨礙大家睡覺的地方",
+      "asrScore": 0.515,
+      "usable": true
     },
     {
       "id": "c0458",
@@ -4484,7 +5852,10 @@
       "duration": 4.9,
       "sourceStart": 2025.34,
       "sourceEnd": 2030.88,
-      "tags": []
+      "tags": [],
+      "asrText": "好 我記下了嗯 我準備好了",
+      "asrScore": 0.418,
+      "usable": false
     },
     {
       "id": "c0459",
@@ -4493,7 +5864,10 @@
       "duration": 2.0,
       "sourceStart": 2030.88,
       "sourceEnd": 2033.45,
-      "tags": []
+      "tags": [],
+      "asrText": "好,出發吧",
+      "asrScore": 0.5,
+      "usable": true
     },
     {
       "id": "c0460",
@@ -4502,7 +5876,10 @@
       "duration": 6.88,
       "sourceStart": 2033.45,
       "sourceEnd": 2040.32,
-      "tags": []
+      "tags": [],
+      "asrText": "马上就要回去",
+      "asrScore": 0.888,
+      "usable": true
     },
     {
       "id": "c0461",
@@ -4513,7 +5890,10 @@
       "sourceEnd": 2043.9,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "月亮上會有什麼",
+      "asrScore": 0.527,
+      "usable": true
     },
     {
       "id": "c0462",
@@ -4524,7 +5904,10 @@
       "sourceEnd": 2048.67,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "真的能給朋友們留下消息嗎?",
+      "asrScore": 0.627,
+      "usable": true
     },
     {
       "id": "c0463",
@@ -4533,7 +5916,10 @@
       "duration": 7.03,
       "sourceStart": 2048.67,
       "sourceEnd": 2057.81,
-      "tags": []
+      "tags": [],
+      "asrText": "月鱗们挪得卡来的动物们以后就见不到了",
+      "asrScore": 0.4,
+      "usable": false
     },
     {
       "id": "c0464",
@@ -4542,7 +5928,10 @@
       "duration": 4.03,
       "sourceStart": 2057.81,
       "sourceEnd": 2062.42,
-      "tags": []
+      "tags": [],
+      "asrText": "下一個契約之夜我會在那",
+      "asrScore": 0.61,
+      "usable": true
     },
     {
       "id": "c0465",
@@ -4551,7 +5940,10 @@
       "duration": 3.32,
       "sourceStart": 2062.42,
       "sourceEnd": 2069.68,
-      "tags": []
+      "tags": [],
+      "asrText": "这里就是海波伯瑞亚时期",
+      "asrScore": 0.42,
+      "usable": false
     },
     {
       "id": "c0466",
@@ -4560,7 +5952,10 @@
       "duration": 4.68,
       "sourceStart": 2069.68,
       "sourceEnd": 2074.68,
-      "tags": []
+      "tags": [],
+      "asrText": "人們與月亮溝通的地方通往月亮的門就會打開",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0467",
@@ -4569,7 +5964,10 @@
       "duration": 4.11,
       "sourceStart": 2074.68,
       "sourceEnd": 2080.04,
-      "tags": []
+      "tags": [],
+      "asrText": "現在的那小鎮應該是最熱鬧的時候吧",
+      "asrScore": 0.827,
+      "usable": true
     },
     {
       "id": "c0468",
@@ -4578,7 +5976,10 @@
       "duration": 5.16,
       "sourceStart": 2080.04,
       "sourceEnd": 2085.79,
-      "tags": []
+      "tags": [],
+      "asrText": "没关系的作为最后一份也是唯一一份行李",
+      "asrScore": 0.604,
+      "usable": true
     },
     {
       "id": "c0469",
@@ -4587,7 +5988,10 @@
       "duration": 5.32,
       "sourceStart": 2085.79,
       "sourceEnd": 2092.24,
-      "tags": []
+      "tags": [],
+      "asrText": "我很滿意,我已經感受到了來自月亮的召喚",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0470",
@@ -4599,7 +6003,10 @@
       "tags": [
         "ack",
         "question"
-      ]
+      ],
+      "asrText": "嗯 我聽著呢 當然 嗯 一定會的",
+      "asrScore": 0.914,
+      "usable": true
     },
     {
       "id": "c0471",
@@ -4608,7 +6015,10 @@
       "duration": 5.93,
       "sourceStart": 2101.33,
       "sourceEnd": 2107.88,
-      "tags": []
+      "tags": [],
+      "asrText": "謝謝你們為我做那麼多也請你們記得月光永遠聯繫著我",
+      "asrScore": 0.987,
+      "usable": true
     },
     {
       "id": "c0472",
@@ -4617,7 +6027,10 @@
       "duration": 0.94,
       "sourceStart": 2107.88,
       "sourceEnd": 2109.78,
-      "tags": []
+      "tags": [],
+      "asrText": "不论日夜",
+      "asrScore": 0.5,
+      "usable": true
     },
     {
       "id": "c0473",
@@ -4626,7 +6039,10 @@
       "duration": 6.38,
       "sourceStart": 2109.78,
       "sourceEnd": 2119.5,
-      "tags": []
+      "tags": [],
+      "asrText": "那麼再見了我的朋友",
+      "asrScore": 0.925,
+      "usable": true
     },
     {
       "id": "c0474",
@@ -4637,7 +6053,10 @@
       "sourceEnd": 2125.05,
       "tags": [
         "ack"
-      ]
+      ],
+      "asrText": "这是我在提瓦特最开心的一晚",
+      "asrScore": 0.919,
+      "usable": true
     },
     {
       "id": "c0475",
@@ -4649,7 +6068,10 @@
       "tags": [
         "error",
         "short"
-      ]
+      ],
+      "asrText": "不行",
+      "asrScore": 1.0,
+      "usable": true
     },
     {
       "id": "c0476",
@@ -4660,7 +6082,10 @@
       "sourceEnd": 2128.27,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "只要我還在",
+      "asrScore": 0.62,
+      "usable": true
     },
     {
       "id": "c0477",
@@ -4671,7 +6096,10 @@
       "sourceEnd": 2129.8,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "暂时有的领事",
+      "asrScore": 0.08,
+      "usable": false
     },
     {
       "id": "c0478",
@@ -4682,7 +6110,10 @@
       "sourceEnd": 2131.4,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "就会为博士作用",
+      "asrScore": 0.743,
+      "usable": true
     },
     {
       "id": "c0479",
@@ -4693,7 +6124,10 @@
       "sourceEnd": 2132.8,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "由父子能这么做了",
+      "asrScore": 0.733,
+      "usable": true
     },
     {
       "id": "c0480",
@@ -4704,7 +6138,10 @@
       "sourceEnd": 2134.2,
       "tags": [
         "short"
-      ]
+      ],
+      "asrText": "正秋",
+      "asrScore": 0.0,
+      "usable": false
     },
     {
       "id": "c0481",
@@ -4715,7 +6152,10 @@
       "sourceEnd": 2136.69,
       "tags": [
         "question"
-      ]
+      ],
+      "asrText": "還是沒能回家呢",
+      "asrScore": 0.586,
+      "usable": true
     }
   ]
 }

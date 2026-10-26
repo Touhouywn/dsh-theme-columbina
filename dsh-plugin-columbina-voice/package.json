@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-columbina-voice",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "type": "module",
   "description": "Columbina voice: plays original full-voice clips for the assistant's replies, using curated intent templates and low-confidence retrieval. No TTS.",

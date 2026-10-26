@@ -2,15 +2,15 @@
   "version": 1,
   "templates": {
     "enable": ["c0415", "c0150"],
-    "ack": ["c0180"],
+    "ack": ["c0104"],
     "soft": ["c0206"],
     "error": ["c0475"],
-    "greeting": ["c0156"],
-    "farewell": ["c0244"],
-    "thanks": ["c0120"],
+    "greeting": ["c0092"],
+    "farewell": ["c0473"],
+    "thanks": ["c0061"],
     "moon": ["c0355"],
     "sleep": ["c0351"],
-    "friend": ["c0240"],
+    "friend": ["c0442"],
     "traveler": ["c0150"]
   }
 }

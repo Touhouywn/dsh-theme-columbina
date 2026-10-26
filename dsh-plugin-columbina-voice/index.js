@@ -139,7 +139,9 @@ function pickRetrieval(bank, sentence, threshold) {
   let best = null
   let bestScore = 0
   for (const clip of bank.clips) {
-    const score = similarity(sentence, clip.text)
+    if (clip.usable === false) continue
+    if (/桑多涅|桑多念|多涅|Sandrone|Marionette/i.test(String(clip.text || '') + ' ' + String(clip.asrText || ''))) continue
+    const score = similarity(sentence, clip.asrText || clip.text)
     if (score > bestScore) {
       bestScore = score
       best = clip
