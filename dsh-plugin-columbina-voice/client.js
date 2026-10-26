@@ -161,6 +161,23 @@ window.__ModuleLoader__.load({
       select({ text: text.slice(0, 280) })
     }
 
+    /** Shared by the floating button and the Moonlit Cradle hub. */
+    function setEnabled(enabled, announce) {
+      state.enabled = !!enabled
+      store(state.enabled)
+      lastSpoken = ''
+      if (timer !== null) {
+        clearTimeout(timer)
+        timer = null
+      }
+      notify()
+      if (state.enabled && announce) {
+        select({ intent: 'enable' })
+      } else if (!state.enabled) {
+        stopAudio()
+      }
+    }
+
     /** Poll the transcript; speak a paragraph once it stops changing. */
     function watch() {
       var timerId = setInterval(function () {
@@ -209,19 +226,7 @@ window.__ModuleLoader__.load({
       button.appendChild(icon)
       button.addEventListener('click', function (event) {
         event.stopPropagation()
-        state.enabled = !state.enabled
-        store(state.enabled)
-        notify()
-        if (state.enabled) {
-          lastSpoken = ''
-          select({ intent: 'enable' })
-        } else {
-          if (timer !== null) {
-            clearTimeout(timer)
-            timer = null
-          }
-          stopAudio()
-        }
+        setEnabled(!state.enabled, true)
       })
       document.documentElement.appendChild(button)
       state.enabled = readStored()
@@ -245,9 +250,15 @@ window.__ModuleLoader__.load({
     function apply(ctx) {
       ctx.effect(
         function () {
+          var onVoiceCommand = function (event) {
+            var detail = event && event.detail ? event.detail : {}
+            setEnabled(detail.enabled === true, true)
+          }
+          window.addEventListener('columbina:voice', onVoiceCommand)
           var disposeButton = mount()
           var disposeWatch = watch()
           return function () {
+            window.removeEventListener('columbina:voice', onVoiceCommand)
             disposeWatch()
             if (typeof disposeButton === 'function') disposeButton()
             stopAudio()

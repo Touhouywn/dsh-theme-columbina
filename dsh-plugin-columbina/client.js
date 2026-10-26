@@ -18,13 +18,16 @@ window.__ModuleLoader__.load({
     const STATUS_URL = '/theme-columbina/status'
     const PERSONA_URL = '/columbina-persona/status'
     const PERSONA_SET_URL = '/columbina-persona/enabled'
+    const VOICE_URL = '/columbina-voice/status'
+    const VOICE_SELECT_URL = '/columbina-voice/select'
+    const VOICE_STORE_KEY = 'columbina-voice-v2'
     const SCORE_KEY = 'columbina-opening-score'
     const BGM_DIR = '%USERPROFILE%\\.dsh\\themes\\columbina\\assets\\bgm'
 
     const zh = {
       panel: '月下摇篮',
       title: '哥伦比娅 · 月下摇篮',
-      subtitle: 'DSH 主题控制台：运行状态、摇篮曲与对话语气。',
+      subtitle: 'DSH 主题控制台：运行状态、摇篮曲、对话语气与原声语音。',
       'status.title': '运行状态',
       'row.route': '主题路由',
       'row.css': '样式表命中',
@@ -34,6 +37,16 @@ window.__ModuleLoader__.load({
       'row.opening': '开屏遮罩',
       'row.player': '播放器',
       'row.persona': '当前人格',
+      'row.voice': '原声语音',
+      'voice.title': '原声语音',
+      'voice.on': '已开启',
+      'voice.off': '已关闭',
+      'voice.missing': '未安装',
+      'voice.count': '原声切片',
+      'voice.threshold': '置信度阈值',
+      'voice.test': '试听语音',
+      'voice.toggle': '切换语音',
+      'voice.hint': '只播原声切片；代码、命令、问题句和低置信度保持静默。',
       'opening.title': '开屏',
       'opening.score': '配乐',
       'opening.replay': '重播开屏',
@@ -80,7 +93,7 @@ window.__ModuleLoader__.load({
     const en = {
       panel: 'Moonlit Cradle',
       title: 'Columbina · Moonlit Cradle',
-      subtitle: 'A console for the DSH theme: status, the lullaby deck and the voice.',
+      subtitle: 'A console for the DSH theme: status, lullabies, the persona and the original voice.',
       'status.title': 'Runtime status',
       'row.route': 'Theme route',
       'row.css': 'Stylesheet hits',
@@ -90,6 +103,16 @@ window.__ModuleLoader__.load({
       'row.opening': 'Opening overlay',
       'row.player': 'Player',
       'row.persona': 'Current voice',
+      'row.voice': 'Original voice',
+      'voice.title': 'Original voice',
+      'voice.on': 'on',
+      'voice.off': 'off',
+      'voice.missing': 'not installed',
+      'voice.count': 'Original clips',
+      'voice.threshold': 'Threshold',
+      'voice.test': 'Preview voice',
+      'voice.toggle': 'Toggle voice',
+      'voice.hint': 'Original clips only; code, commands, questions and weak matches stay silent.',
       'opening.title': 'Opening',
       'opening.score': 'Score',
       'opening.replay': 'Replay opening',
@@ -401,6 +424,89 @@ window.__ModuleLoader__.load({
       return { state: state, setEnabled: setEnabled }
     }
 
+    function readVoiceEnabled() {
+      try {
+        return window.localStorage.getItem(VOICE_STORE_KEY) === '1'
+      } catch (error) {
+        return false
+      }
+    }
+
+    /** Read the clip bank and drive the same localStorage/event as the voice plugin. */
+    function useVoice() {
+      const [state, setState] = React.useState({
+        loading: true,
+        available: false,
+        clips: 0,
+        threshold: 0,
+        enabled: readVoiceEnabled(),
+      })
+      const load = React.useCallback(function () {
+        fetch(VOICE_URL, { cache: 'no-store' })
+          .then(function (response) {
+            if (!response.ok) throw new Error('HTTP ' + response.status)
+            return response.json()
+          })
+          .then(function (data) {
+            setState(function (previous) {
+              return {
+                ...previous,
+                loading: false,
+                available: true,
+                clips: Number(data.clips) || 0,
+                threshold: Number(data.threshold) || 0,
+              }
+            })
+          })
+          .catch(function () {
+            setState(function (previous) {
+              return { ...previous, loading: false, available: false }
+            })
+          })
+      }, [])
+      React.useEffect(function () {
+        load()
+      }, [load])
+
+      const setEnabled = React.useCallback(function (next) {
+        try {
+          window.localStorage.setItem(VOICE_STORE_KEY, next ? '1' : '0')
+        } catch (error) {
+          // Storage unavailable: still tell the mounted voice client.
+        }
+        window.dispatchEvent(new CustomEvent('columbina:voice', { detail: { enabled: next } }))
+        setState(function (previous) {
+          return { ...previous, enabled: next }
+        })
+      }, [])
+
+      const preview = React.useCallback(function () {
+        fetch(VOICE_SELECT_URL, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ text: '今晚的月亮很轻。' }),
+        })
+          .then(function (response) {
+            if (!response.ok) throw new Error('HTTP ' + response.status)
+            return response.json()
+          })
+          .then(function (data) {
+            const clips = Array.isArray(data.clips) ? data.clips : []
+            const play = function (index) {
+              if (index >= clips.length) return
+              const audio = new Audio(clips[index].url)
+              audio.onended = function () { play(index + 1) }
+              audio.onerror = function () { play(index + 1) }
+              audio.play().catch(function () {})
+            }
+            play(0)
+          })
+          .catch(function () {})
+      }, [])
+
+      return { state: state, setEnabled: setEnabled, preview: preview }
+    }
+
     /** Read and write the opening-score preference shared with the theme. */
     function useOpeningScore() {
       const read = function () {
@@ -431,6 +537,7 @@ window.__ModuleLoader__.load({
       const status = useStatus()
       const deck = useDeck()
       const persona = usePersona()
+      const voice = useVoice()
       const opening = useOpeningScore()
       const [copied, setCopied] = React.useState(false)
       const [folderCopied, setFolderCopied] = React.useState(false)
@@ -585,6 +692,56 @@ window.__ModuleLoader__.load({
               t('action.persona'),
             ),
             h('p', { style: hint }, t('persona.hint')),
+          ),
+          h(
+            'section',
+            { style: card },
+            h('h2', { style: cardTitle }, t('voice.title')),
+            h(
+              'div',
+              { style: row },
+              h('span', { style: rowLabel }, t('row.voice')),
+              h(
+                'span',
+                { style: rowValue },
+                voice.state.loading
+                  ? t('state.loading')
+                  : voice.state.available
+                    ? voice.state.enabled ? t('voice.on') : t('voice.off')
+                    : t('voice.missing'),
+              ),
+            ),
+            h(
+              'div',
+              { style: rowLast },
+              h('span', { style: rowLabel }, t('voice.count')),
+              h('span', { style: rowValue }, voice.state.available ? String(voice.state.clips) : '—'),
+            ),
+            h(
+              'div',
+              { style: { ...actions, marginTop: '14px' } },
+              h(
+                'button',
+                {
+                  type: 'button',
+                  style: !voice.state.available || voice.state.loading ? buttonDisabled : button,
+                  onClick: function () { voice.setEnabled(!voice.state.enabled) },
+                  disabled: !voice.state.available || voice.state.loading,
+                },
+                t('voice.toggle'),
+              ),
+              h(
+                'button',
+                {
+                  type: 'button',
+                  style: !voice.state.available || voice.state.loading ? buttonDisabled : { ...button, marginLeft: '8px' },
+                  onClick: voice.preview,
+                  disabled: !voice.state.available || voice.state.loading,
+                },
+                t('voice.test'),
+              ),
+            ),
+            h('p', { style: hint }, t('voice.hint')),
           ),
         ),
         h(

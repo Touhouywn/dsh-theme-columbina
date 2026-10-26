@@ -12,7 +12,7 @@
   2. 没有模板时走 D：字符双字组相似度检索，取最接近的**一段**原声；
   3. 分数低于 `threshold`（默认 0.32），或文本像代码/命令/URL，保持静默，只留文字。
 - 每段最多拼 3 句；不词级剪切，不造新词。
-- 原声库：`assets/catalog.json` + 481 个 `assets/clips/*.ogg`（Opus 40 kbps，约 6 MB）。
+- 原声库：`assets/catalog.json` + 480 个 `assets/clips/*.ogg`（Opus 40 kbps，约 6 MB）。
 
 ## 配置
 

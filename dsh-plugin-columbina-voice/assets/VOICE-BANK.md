@@ -5,15 +5,15 @@ material. It does not call GPT-SoVITS, Windows SAPI, or any cloud TTS.
 
 ## Bank
 
-- `assets/catalog.json` — 481 clips with text, duration, source range and tags.
+- `assets/catalog.json` — 480 clips with text, duration, source range and tags.
 - `assets/clips/*.ogg` — 32 kHz original audio, Opus 40 kbps, mono.
 - `assets/templates.json` — C′ hand-authored intent sequences; D retrieval is
   the low-confidence fallback.
 
 ## Selection
 
-1. Fixed intent (enable, ack, thinking, soft, error, greeting, farewell, thanks,
-   apology) → C′ template, 1–3 whole clips.
+1. Fixed intent (enable, ack, soft, error, greeting, farewell, thanks, moon,
+   sleep, friend, traveler) → C′ template, 1–3 whole clips.
 2. Otherwise split the assistant paragraph into sentences; try a template, then
    character-bigram retrieval.
 3. If the best retrieval score is below `threshold` (default 0.32), or the text

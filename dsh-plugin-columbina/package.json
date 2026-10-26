@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-columbina",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "Moonlit Cradle hub: a left-sidebar page for the Columbina theme — status, lullaby deck, persona toggle, opening replay.",
