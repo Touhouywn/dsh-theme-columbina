@@ -67,7 +67,7 @@ http://127.0.0.1:<GUI端口>/theme-columbina/music/deck
 
 圆窗用的是加在 `<video>` 上的径向遮罩，不是容器的 `overflow` 圆角：后者在视频层被提升成合成层时会渲染成圆角方形。
 
-开屏配乐有三首原创候选：`opening-score.m4a`（月茧，八音盒）、`opening-score-starfall.m4a`（星落，钢片琴）、`opening-score-cradle.m4a`（摇篮，3/4 圆舞）。在侧栏「月下摇篮 → 开屏 → 配乐」里切换，或设 `localStorage['columbina-opening-score']` 为 `moon-cocoon` / `starfall` / `cradle`。
+开屏配乐是 `opening-score.m4a`（月茧，八音盒，原创，MIT），9.15 秒的落点就是圆窗涨满的那一下。
 
 ## 摇篮曲播放器
 

@@ -145,18 +145,10 @@ window.__ModuleLoader__.load({
     var OPENING_VIDEO = '/theme-columbina/opening.mp4'
     var SCORES = {
       'moon-cocoon': '/theme-columbina/opening-score.m4a',
-      starfall: '/theme-columbina/opening-score-starfall.m4a',
-      cradle: '/theme-columbina/opening-score-cradle.m4a',
     }
 
-    /** Read the preferred opening score; defaults to the music-box lullaby. */
+    /** The opening score: the music-box lullaby, the one with the 9.15s hit. */
     function preferredScore() {
-      try {
-        var stored = window.localStorage.getItem(OPENING_SCORE_KEY)
-        if (stored !== null && SCORES[stored] !== undefined) return SCORES[stored]
-      } catch (error) {
-        // Storage unavailable: use the default.
-      }
       return SCORES['moon-cocoon']
     }
 
@@ -387,16 +379,6 @@ window.__ModuleLoader__.load({
 
       var score = root.querySelector('.co-score')
       if (score !== null) {
-        score.addEventListener(
-          'error',
-          function () {
-            if (score.getAttribute('data-fallback') === '1') return
-            score.setAttribute('data-fallback', '1')
-            score.src = SCORES.starfall
-            score.load()
-          },
-          true,
-        )
         score.src = preferredScore()
         score.volume = 0.9
         try {

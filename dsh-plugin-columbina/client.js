@@ -38,7 +38,7 @@ window.__ModuleLoader__.load({
       'opening.score': '配乐',
       'opening.replay': '重播开屏',
       'opening.hint': '重播会重新加载页面，并强制播放一次开屏；地址带 #opening 也可以。',
-      'opening.scoreHint': '换配乐只影响下一次开屏；三份都是仓库里的原创曲。',
+      'opening.scoreHint': '开屏只有这一首配乐，和画面同一根时间轴。',
       'opening.mood': '月茧',
       'opening.alt': '星落',
       'opening.cradle': '摇篮',
@@ -97,7 +97,7 @@ window.__ModuleLoader__.load({
       'opening.score': 'Score',
       'opening.replay': 'Replay opening',
       'opening.hint': 'Replay reloads the page and forces the opening once; #opening works too.',
-      'opening.scoreHint': 'Takes effect on the next opening; all three tracks are original.',
+      'opening.scoreHint': 'One score, cut to the same timeline as the opening.',
       'opening.mood': 'Moon Cocoon',
       'opening.alt': 'Starfall',
       'opening.cradle': 'Cradle',
@@ -600,16 +600,21 @@ window.__ModuleLoader__.load({
           h('p', { style: { ...note, marginBottom: '12px', color: 'var(--dsw-alias-label-tertiary)' } }, t('opening.score')),
           h(
             'div',
-            { style: { display: 'flex', gap: '9px', marginBottom: '14px' } },
-            scoreOption('月茧', 'MUSIC BOX · 9.15s', opening.score === 'moon-cocoon', function () {
-              opening.choose('moon-cocoon')
-            }),
-            scoreOption('星落', 'CELESTA · ARPEGGIO', opening.score === 'starfall', function () {
-              opening.choose('starfall')
-            }),
-            scoreOption('摇篮', 'WALTZ · NO IMPACT', opening.score === 'cradle', function () {
-              opening.choose('cradle')
-            }),
+            {
+              style: {
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                marginBottom: '14px',
+                padding: '10px 12px',
+                border: '1px solid rgba(203,182,238,.42)',
+                borderRadius: '10px',
+                background: 'linear-gradient(90deg, rgba(203,182,238,.16), rgba(159,216,245,.06))',
+              },
+            },
+            h('span', { style: { fontSize: '12.5px' } }, '月茧'),
+            h('span', { style: { fontSize: '9px', letterSpacing: '.08em', opacity: 0.7, fontFamily: 'ui-monospace, monospace' } }, 'MUSIC BOX · IMPACT 9.15s'),
+            h('span', { style: { marginLeft: 'auto', fontSize: '9px', letterSpacing: '.14em', color: 'rgba(159,216,245,.8)' } }, 'DEFAULT'),
           ),
           h(
             'div',

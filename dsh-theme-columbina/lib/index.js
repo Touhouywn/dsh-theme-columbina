@@ -67,8 +67,6 @@ const FILES = new Map([
   ['opening-art.webp', { file: join(PLUGIN_ROOT, 'assets', 'opening-art.webp'), type: 'image/webp' }],
   ['opening.mp4', { file: join(PLUGIN_ROOT, 'assets', 'opening.mp4'), type: 'video/mp4' }],
   ['opening-score.m4a', { file: join(PLUGIN_ROOT, 'assets', 'opening-score.m4a'), type: 'audio/mp4' }],
-  ['opening-score-starfall.m4a', { file: join(PLUGIN_ROOT, 'assets', 'opening-score-starfall.m4a'), type: 'audio/mp4' }],
-  ['opening-score-cradle.m4a', { file: join(PLUGIN_ROOT, 'assets', 'opening-score-cradle.m4a'), type: 'audio/mp4' }],
   ['icon.png', { file: join(PLUGIN_ROOT, 'assets', 'icon.png'), type: 'image/png' }],
 ])
 for (const ornament of ['moon', 'star', 'feather', 'flower', 'bell', 'cradle', 'note']) {
