@@ -12,6 +12,9 @@ cordis.patch.yml.bak*
 node_modules/
 pnpm-lock.yaml
 
+# Voice plugin local backups (never ship inside the package)
+dsh-plugin-columbina-voice/backup/
+
 # Release artifacts
 dist/
 *.zip

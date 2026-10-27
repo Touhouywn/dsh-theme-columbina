@@ -1,16 +1,83 @@
 {
-  "version": 1,
-  "templates": {
-    "enable": ["c0415", "c0150"],
-    "ack": ["c0104"],
-    "soft": ["c0206"],
-    "error": ["c0475"],
-    "greeting": ["c0092"],
-    "farewell": ["c0473"],
-    "thanks": ["c0061"],
-    "moon": ["c0355"],
-    "sleep": ["c0351"],
-    "friend": ["c0442"],
-    "traveler": ["c0150"]
-  }
+ "version": 2,
+ "templates": {
+  "enable": [
+   "c0420",
+   "c0150"
+  ],
+  "ack": [
+   "c0180"
+  ],
+  "error": [
+   "c0475"
+  ],
+  "greeting": [
+   "c1178"
+  ],
+  "farewell": [
+   "c1224"
+  ],
+  "thanks": [
+   "c0120"
+  ],
+  "moon": [
+   "c1529"
+  ],
+  "sleep": [
+   "c1275"
+  ],
+  "friend": [
+   "c1508"
+  ],
+  "traveler": [
+   "c0150"
+  ],
+  "apology": [
+   "c0701"
+  ],
+  "affirm": [
+   "c0420"
+  ],
+  "deny": [
+   "c0475"
+  ],
+  "followup": [
+   "c0241"
+  ],
+  "refuse": [
+   "c0765"
+  ],
+  "unsure": [
+   "c0659"
+  ],
+  "waiting": [
+   "c0460"
+  ],
+  "done": [
+   "c0436"
+  ],
+  "comfort": [
+   "c0669"
+  ],
+  "goodnight": [
+   "c1275"
+  ],
+  "identity": [
+   "c0049"
+  ],
+  "off_topic": [
+   "c0495"
+  ],
+  "praise": [
+   "c1309"
+  ],
+  "criticize": [
+   "c0635"
+  ],
+  "code": [],
+  "fact": [],
+  "soft": [
+   "c0669"
+  ]
+ }
 }

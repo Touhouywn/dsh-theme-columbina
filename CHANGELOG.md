@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0 — 2026-10-27
+
+- 语音库 v2 重建：三条角色语音素材 → 1240 段切片，ASR 校验后发布 **usable 1071 段**（48 kHz Opus 40 kbps，约 17 MB）；旧 480 段库与 11 键模板完整备份（`v2/backup/`、`~/.dsh/backups/`）。
+- 模板扩到 **27 键**（旧 11 键 ∪ F 表 21 意图），按标签自动选段，code/fact 留空走检索。
+- 宿主：L4→L1→L2→L3；双阈值 `thresholdShort 0.45 / thresholdLong 0.42`（实测技术句最高分 0.114）；`maxClips 2`。
+- 客户端：默认开启、首条回复主动念、MutationObserver 监听、新回复打断旧音频；hub 语音卡兼容。
+- voice **0.3.0**，theme **1.2.0**；`/speak` 仍为 410，全程不合成新词。
+
 ## 1.1.3 — 2026-10-26
 
 - 用 Whisper 对 480 段切片逐条复听，按音频实际内容校正 C′ 模板：`ack` → “嗯，好吧”，`farewell` → “那么，再见了，朋友们”，`thanks` → “谢谢你”，`greeting` → “你好”，`friend` → “都会遇到认识的朋友”。

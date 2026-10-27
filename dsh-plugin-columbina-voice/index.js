@@ -21,8 +21,10 @@ const CATALOG_URL = new URL('./assets/catalog.json', import.meta.url)
 const TEMPLATES_URL = new URL('./assets/templates.json', import.meta.url)
 const ASSET_DIR = new URL('./assets/', import.meta.url)
 
-const DEFAULT_THRESHOLD = 0.32
-const DEFAULT_MAX_CLIPS = 3
+const DEFAULT_MODE = 'clips'
+const DEFAULT_THRESHOLD_SHORT = 0.45
+const DEFAULT_THRESHOLD_LONG = 0.42
+const DEFAULT_MAX_CLIPS = 2
 
 let bankPromise = null
 
@@ -76,20 +78,57 @@ function technical(text) {
   return /```|`[^`]+`|https?:\/\/|[A-Za-z]:\\|\/(?:[\w.-]+\/)+|(?:^|\s)(?:cd|npm|pnpm|git|curl|powershell|python|node|ffmpeg|dsh)\s|\{|\}|=>|function\s|<\w+[^>]*>|文件|路径|命令|代码|报错|终端|目录|配置|缓存|删除|安装|运行|执行|端口|进程/i.test(String(text || ''))
 }
 
+/**
+ * 意图匹配：旧 11 键的分支在前，21 表的新分支接在后面（P1.3 合并，不是替换）。
+ * enable 不参与文本匹配，只由 /select intent=enable 触发。
+ */
+const OLD_INTENTS = [
+  ['farewell', /^(晚安|再见|拜拜|回头见)/],
+  ['greeting', /^(你好|早安|早上好|午安|晚上好)/],
+  ['thanks', /^(谢谢|感谢)/],
+  ['error', /失败|报错|错误|无法|不能|做不到|出了点问题|糟糕/],
+  ['ack', /^(嗯|好|可以|知道了|我在|听得到|明白|行)/],
+  ['soft', /别急|慢慢|我在听|不用担心|没事|陪着你/],
+  ['moon', /月亮|月夜|月光|月色|今晚的月/],
+  ['sleep', /睡|梦/],
+  ['friend', /朋友|同伴/],
+  ['traveler', /旅行者/],
+]
+
+const INTENTS = [
+  ['code', /代码|命令|路径|URL|http|pwsh|cmd|netstat|npm|pip|git |配置文件|\.ps1|\.yml|\.json/i],
+  ['greeting', /^(你好|早上好|晚上好|欢迎|你来了|好久不见)/],
+  ['farewell', /再见|拜拜|晚安|告辞/],
+  ['thanks', /谢谢|感谢/],
+  ['apology', /抱歉|对不起/],
+  ['error', /失败|错误|出错|不行|不能|无法/],
+  ['affirm', /好的|可以|没问题|行|当然|是的|没错/],
+  ['deny', /不行|不能|不可以|没有|不要|不/],
+  ['followup', /呢|怎么|为什么|如何/],
+  ['refuse', /拒绝|不能说|不方便|做不到/],
+  ['unsure', /不确定|也许|可能|大概/],
+  ['waiting', /稍等|处理中|正在|马上|等一下/],
+  ['done', /完成|好了|搞定|做完了/],
+  ['comfort', /别急|没事|没关系|慢慢|别担心/],
+  ['goodnight', /晚安|睡了/],
+  ['traveler', /旅行者/],
+  ['identity', /我是谁|你叫什么|哥伦比娅/],
+  ['off_topic', /月亮|做梦|歌/],
+  ['praise', /厉害|漂亮|聪明|好棒/],
+  ['criticize', /批评|不满|太差/],
+  ['fact', /数字|日期/],
+]
+
+const ALL_INTENTS = [...OLD_INTENTS, ...INTENTS]
+
+const SILENT_INTENTS = new Set(['code', 'fact'])
+
 function intentOf(sentence) {
   const s = String(sentence || '').trim()
   if (s.length === 0 || s.length > 60) return ''
-  if (/^(晚安|再见|拜拜|回头见)/.test(s)) return 'farewell'
-  if (/^(你好|早安|早上好|午安|晚上好)/.test(s)) return 'greeting'
-  if (/^(谢谢|感谢)/.test(s)) return 'thanks'
-  if (/^抱歉|^对不起|^不好意思/.test(s)) return ''
-  if (/失败|报错|错误|无法|不能|做不到|出了点问题|糟糕/.test(s)) return 'error'
-  if (/^(嗯|好|可以|知道了|我在|听得到|明白|行)/.test(s)) return 'ack'
-  if (/别急|慢慢|我在听|不用担心|没事|陪着你/.test(s)) return 'soft'
-  if (/月亮|月夜|月光|月色|今晚的月/.test(s)) return 'moon'
-  if (/睡|梦/.test(s)) return 'sleep'
-  if (/朋友|同伴/.test(s)) return 'friend'
-  if (/旅行者/.test(s)) return 'traveler'
+  for (const [name, pattern] of ALL_INTENTS) {
+    if (pattern.test(s)) return name
+  }
   return ''
 }
 
@@ -151,7 +190,7 @@ function pickRetrieval(bank, sentence, threshold) {
   return { clip: publicClip(best), score: bestScore }
 }
 
-function selectFromText(bank, text, threshold, maxClips) {
+function selectFromText(bank, text, limits, maxClips) {
   const clean = String(text || '').replace(/\s+/g, ' ').trim().slice(0, 280)
   if (clean === '') return { mode: 'none', score: 0, clips: [] }
 
@@ -165,15 +204,20 @@ function selectFromText(bank, text, threshold, maxClips) {
   let mode = 'none'
   let bestScore = 0
   for (const sentence of sentences) {
+    // L4：技术句先拦，报错原文里的「失败/不能」不该被念出来
+    if (technical(sentence)) continue
     const intent = intentOf(sentence)
+    // L1：意图命中直接播模板，不打分；code/fact 命中即静默
+    if (SILENT_INTENTS.has(intent)) continue
     let picked = []
     if (intent !== '') {
       picked = resolveTemplate(bank, intent, maxClips - clips.length)
       if (picked.length > 0) mode = 'intent'
     }
+    // L2：按句长分档检索，只用 usable 且名字过滤过的段
     if (picked.length === 0) {
-      if (technical(sentence)) continue
-      if (/怎么|如何|为什么|什么|哪|谁|多少|吗|呢/.test(sentence)) continue
+      const chars = sentence.replace(/\s+/g, '').length
+      const threshold = chars <= 12 ? limits.short : limits.long
       const found = pickRetrieval(bank, sentence, threshold)
       bestScore = Math.max(bestScore, found.score)
       if (found.clip !== null) {
@@ -196,8 +240,14 @@ function sendJson(res, status, payload) {
 }
 
 export function apply(ctx, config = {}) {
-  const threshold = Number.isFinite(Number(config?.threshold)) ? Number(config.threshold) : DEFAULT_THRESHOLD
-  const maxClips = Number.isFinite(Number(config?.maxClips)) ? Math.max(1, Math.min(3, Number(config.maxClips))) : DEFAULT_MAX_CLIPS
+  const mode = typeof config?.mode === 'string' ? config.mode : DEFAULT_MODE
+  const thresholdShort = Number.isFinite(Number(config?.thresholdShort))
+    ? Number(config.thresholdShort) : DEFAULT_THRESHOLD_SHORT
+  const thresholdLong = Number.isFinite(Number(config?.thresholdLong))
+    ? Number(config.thresholdLong) : DEFAULT_THRESHOLD_LONG
+  const maxClips = Number.isFinite(Number(config?.maxClips))
+    ? Math.max(1, Math.min(3, Number(config.maxClips))) : DEFAULT_MAX_CLIPS
+  const limits = { short: thresholdShort, long: thresholdLong }
 
   ctx.effect(() => ctx.webServer.register({
     kind: 'prefix',
@@ -209,9 +259,10 @@ export function apply(ctx, config = {}) {
       if (url.pathname === `${ROUTE}/status` && req.method === 'GET') {
         sendJson(res, 200, {
           plugin: 'columbina-voice',
-          mode: 'clips',
+          mode,
           clips: bank.clips.length,
-          threshold,
+          thresholdShort,
+          thresholdLong,
           maxClips,
         })
         return
@@ -231,7 +282,7 @@ export function apply(ctx, config = {}) {
           return
         }
         const text = typeof body?.text === 'string' ? body.text : ''
-        sendJson(res, 200, selectFromText(bank, text, threshold, maxClips))
+        sendJson(res, 200, selectFromText(bank, text, limits, maxClips))
         return
       }
 

@@ -1,9 +1,9 @@
 /**
  * Columbina · voice — browser half, original-clip edition.
  *
- * Watches the last assistant paragraph, asks the host for the closest original
- * clip sequence (C′ templates first, D retrieval below), and plays it. When the
- * bank has no confident match, it stays silent; the text remains.
+ * Watches the transcript, asks the host for a whole-clip sequence (C′ templates
+ * first, D retrieval below), and plays it. Silent when the bank has nothing
+ * confident; the text stays on screen. This build never calls /speak.
  */
 window.__ModuleLoader__.load({
   id: 'dsh-plugin-columbina-voice',
@@ -13,11 +13,17 @@ window.__ModuleLoader__.load({
     var SELECT_URL = '/columbina-voice/select'
     var STATUS_URL = '/columbina-voice/status'
 
-    var state = { enabled: false, speaking: false, mode: 'clips', clips: 0 }
+    var STABLE_MS = 1200 // 正文停这么久才念
+    var POLL_MS = 900 // 找不到容器时的兜底轮询
+    var MAX_CLIPS = 2 // 每回复最多两段
+
+    var state = { enabled: true, speaking: false, mode: 'clips', clips: 0 }
     var listeners = []
     var lastSpoken = ''
+    var firstSpoken = false
     var timer = null
     var audio = null
+    var queue = []
     var playToken = 0
 
     function notify() {
@@ -35,11 +41,14 @@ window.__ModuleLoader__.load({
       return { enabled: state.enabled, speaking: state.speaking, mode: state.mode, clips: state.clips }
     }
 
+    /** 没有记录时默认开启。 */
     function readStored() {
       try {
-        return window.localStorage.getItem(STORE_KEY) === '1'
+        var raw = window.localStorage.getItem(STORE_KEY)
+        if (raw === null || raw === undefined) return true
+        return raw === '1'
       } catch (error) {
-        return false
+        return true
       }
     }
 
@@ -65,9 +74,13 @@ window.__ModuleLoader__.load({
         .trim()
     }
 
+    function centerCol() {
+      return document.querySelector('[class*="centerCol"]')
+    }
+
     /** The last assistant paragraph on screen, or an empty string. */
     function latestParagraph() {
-      var transcript = document.querySelector('[class*="centerCol"]')
+      var transcript = centerCol()
       if (transcript === null) return ''
       var blocks = transcript.querySelectorAll('[class*="markdown"]')
       if (blocks.length === 0) return ''
@@ -83,8 +96,10 @@ window.__ModuleLoader__.load({
       return clean(clone.textContent)
     }
 
+    /** 全局 token：新序列 +1，旧的 onended 一看 token 不符就把队列丢掉。 */
     function stopAudio() {
       playToken += 1
+      queue = []
       if (audio !== null) {
         try {
           audio.pause()
@@ -101,31 +116,41 @@ window.__ModuleLoader__.load({
       }
     }
 
-    /** Play 1–3 whole original clips in order. */
+    /** Play 1–2 whole original clips in order. */
     function playClips(clips) {
       stopAudio()
       if (!state.enabled || !Array.isArray(clips) || clips.length === 0) return
+      playToken += 1
       var token = playToken
-      var index = 0
+      queue = clips.slice(0, MAX_CLIPS)
       state.speaking = true
       state.mode = 'clips'
       notify()
 
       function next() {
-        if (token !== playToken || !state.enabled || index >= clips.length) {
-          if (token === playToken) {
-            state.speaking = false
-            notify()
-          }
+        if (token !== playToken || !state.enabled) {
+          queue = []
           return
         }
-        var clip = clips[index]
-        index += 1
+        var clip = queue.shift()
+        if (clip === undefined) {
+          state.speaking = false
+          notify()
+          return
+        }
         var element = new Audio(clip.url)
         audio = element
-        element.onended = next
-        element.onerror = next
-        element.play().catch(next)
+        element.onended = function () {
+          if (token !== playToken) {
+            queue = []
+            state.speaking = false
+            notify()
+            return
+          }
+          next()
+        }
+        element.onerror = element.onended
+        element.play().catch(element.onended)
       }
 
       next()
@@ -155,10 +180,62 @@ window.__ModuleLoader__.load({
         })
     }
 
-    function speak(text) {
-      if (!state.enabled || text === '' || text === lastSpoken) return
+    /** 正文稳定后念一次；本会话第一条不等点击。 */
+    function speakStable() {
+      if (!state.enabled) return
+      var text = latestParagraph()
+      if (text === '' || text === lastSpoken) return
       lastSpoken = text
+      firstSpoken = true
       select({ text: text.slice(0, 280) })
+    }
+
+    function schedule() {
+      if (!state.enabled) return
+      if (timer !== null) clearTimeout(timer)
+      timer = setTimeout(function () {
+        timer = null
+        speakStable()
+      }, STABLE_MS)
+    }
+
+    /** 新正文一出现就先闭嘴，再等它稳定下来念新的。 */
+    function onMutate() {
+      if (!state.enabled) return
+      var text = latestParagraph()
+      if (state.speaking && text !== '' && text !== lastSpoken) stopAudio()
+      schedule()
+    }
+
+    function attachObserver() {
+      var target = centerCol()
+      if (target === null) return null
+      var observer = new MutationObserver(function () {
+        onMutate()
+      })
+      observer.observe(target, { childList: true, subtree: true, characterData: true })
+      return observer
+    }
+
+    /** MutationObserver 为主，容器还没出来时用 900ms 轮询兜底。 */
+    function watch() {
+      var observer = attachObserver()
+      var pollId = setInterval(function () {
+        if (observer !== null) return
+        var found = attachObserver()
+        if (found !== null) {
+          observer = found
+          clearInterval(pollId)
+          schedule()
+        }
+      }, POLL_MS)
+      // 首屏已经有正文时不会有 mutation，主动排一次
+      schedule()
+      return function () {
+        if (observer !== null) observer.disconnect()
+        clearInterval(pollId)
+        if (timer !== null) clearTimeout(timer)
+      }
     }
 
     /** Shared by the floating button and the Moonlit Cradle hub. */
@@ -175,24 +252,6 @@ window.__ModuleLoader__.load({
         select({ intent: 'enable' })
       } else if (!state.enabled) {
         stopAudio()
-      }
-    }
-
-    /** Poll the transcript; speak a paragraph once it stops changing. */
-    function watch() {
-      var timerId = setInterval(function () {
-        if (!state.enabled) return
-        var text = latestParagraph()
-        if (text === '' || text === lastSpoken) return
-        if (timer !== null) return
-        timer = setTimeout(function () {
-          timer = null
-          speak(latestParagraph())
-        }, 1400)
-      }, 900)
-      return function () {
-        clearInterval(timerId)
-        if (timer !== null) clearTimeout(timer)
       }
     }
 
@@ -235,7 +294,7 @@ window.__ModuleLoader__.load({
           return response.json()
         })
         .then(function (data) {
-          state.mode = data.mode === 'clips' ? 'clips' : 'clips'
+          state.mode = 'clips'
           state.clips = Number(data.clips) || 0
           notify()
         })

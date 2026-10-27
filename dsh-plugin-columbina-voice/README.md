@@ -4,15 +4,16 @@
 
 ## 工作方式
 
-- 页面右下角一枚 ♪ 按钮（在小月亮上面），点一下开/关。
-- 开启时先播 `enable` 模板（C′）。
-- 之后监听最后一段助手正文；停 1.4 秒不再变化才处理。
-- 正文按句切开：
-  1. 先查 C′ 意图模板：`ack` / `soft` / `error` / `greeting` / `farewell` / `thanks` / `moon` / `sleep` / `friend` / `traveler`，每个 1–3 段；
-  2. 没有模板时走 D：字符双字组相似度检索，取最接近的**一段**原声；
-  3. 分数低于 `threshold`（默认 0.32），或文本像代码/命令/URL，保持静默，只留文字。
-- 每段最多拼 3 句；不词级剪切，不造新词。
-- 原声库：`assets/catalog.json` + 480 个 `assets/clips/*.ogg`（Opus 40 kbps，约 6 MB）。
+- 右下角 ♪ 开关；**默认开启**，显式关闭才关。
+- 监听最后一段助手正文（MutationObserver，1200ms 稳定触发，容器缺失时轮询兜底）。
+- 每条会话的首条回复**主动念**，不用点；新回复打断旧音频。
+- 正文按句处理：
+  1. L4：代码/命令/路径/URL/堆栈先过滤，永不出声；
+  2. L1：27 键意图模板（enable/ack/soft/comfort/error/greeting/farewell/thanks/apology/affirm/deny/followup/refuse/unsure/waiting/done/goodnight/moon/sleep/friend/traveler/identity/off_topic/praise/criticize；code/fact 留空走 L2），每键 1 段、enable 2 段；
+  3. L2：字符双字组检索（只用 ASR 验证过的 usable 段，名字词排除）；≤12 字阈值 0.45、>12 字阈值 0.42；
+  4. L3：低于阈值静默，只留文字。
+- 每回复最多 2 段；不词级剪切，不造新词，不调 TTS。
+- 原声库：`assets/catalog.json` + 1071 个 `assets/clips/*.ogg`（48 kHz Opus 40 kbps）。
 - D 检索只使用 ASR 验证过的切片（`usable`）；C′ 模板按音频实际内容人工校正。
 
 ## 配置
@@ -22,11 +23,12 @@
 ```yaml
 config:
   mode: clips
-  threshold: 0.32
-  maxClips: 3
+  thresholdShort: 0.45
+  thresholdLong: 0.42
+  maxClips: 2
 ```
 
-`threshold` 越高越保守；`maxClips` 限制每段拼接的句数，范围 1–3。
+`thresholdShort/Long` 越高越保守；`maxClips` 限每回复句数。
 
 ## 路由
 
