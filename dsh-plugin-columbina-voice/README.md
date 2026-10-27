@@ -13,7 +13,8 @@
   3. L2：字符双字组检索（只用 ASR 验证过的 usable 段，名字词排除）；≤12 字阈值 0.45、>12 字阈值 0.42；
   4. L3：低于阈值静默，只留文字。
 - 每回复最多 2 段；不词级剪切，不造新词，不调 TTS。
-- 原声库：`assets/catalog.json` + 1071 个 `assets/clips/*.ogg`（48 kHz Opus 40 kbps）。
+- 原声库：`assets/catalog.json` + 1328 个 `assets/clips/*.ogg`（48 kHz Opus 40 kbps，人声分离轨）。
+- 素材先经 htdemucs 人声分离；切边按统一词边界规则（末词 end+60ms / 首词 start−40ms），不拖尾不削首字。
 - D 检索只使用 ASR 验证过的切片（`usable`）；C′ 模板按音频实际内容人工校正。
 
 ## 配置

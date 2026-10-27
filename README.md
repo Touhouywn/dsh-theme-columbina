@@ -2,7 +2,7 @@
 
 > 「少女」的月夜与摇篮曲，做成 **DeepSeek Harness Web GUI** 可以直接安装的深色主题：月下立绘、玻璃侧栏、电影式开屏、三首可切换的摇篮曲，以及一个可开关的哥伦比娅人格。
 
-当前版本：**1.2.0**。语音库 v2：从三条角色语音素材重切出 1240 段，ASR 校验后发布 1071 段；27 键意图模板 + 双阈值检索；默认开启、首条回复主动念，不合成新词。
+当前版本：**1.2.1**。语音库 v2.1：三条角色语音素材经人声分离后重切，发布 1328 段；27 键意图 + 双阈值检索；词边界统一硬裁，不再拖尾；默认开启、首条回复主动念，不合成新词。
 
 ![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-0.2.1--rc.3%2B-cbb6ee?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Web-9fd8f5?style=flat-square)
@@ -22,7 +22,7 @@
 | `dsh-theme-columbina/` | 主题本体：月夜配色、月下立绘、玻璃侧栏、电影式开屏、摇篮曲播放器 |
 | `dsh-plugin-columbina/` | 可选的左侧栏「月下摇篮」入口：状态、三首曲子的播放面板、语气开关、语音状态/试听、重播开屏 |
 | `dsh-plugin-columbina-persona/` | 对话语气：可开关的系统提示段，让回复带上「少女」的口吻 |
-| `dsh-plugin-columbina-voice/` | 原声语音：1071 段 ASR 校验切片 + 27 键意图 + 双阈值检索，不调用 TTS |
+| `dsh-plugin-columbina-voice/` | 原声语音：1328 段人声分离切片 + 27 键意图 + 双阈值检索，不调用 TTS |
 
 ## 特性
 
@@ -32,7 +32,7 @@
 - **电影式开屏**：15 秒壁纸影片作底，一弯月牙里开出一扇圆窗，三句短词落下，9.15 秒圆窗涨满全屏；原创八音盒配乐，点击或任意键跳过，每个页面会话只播一次。
 - **摇篮曲播放器**：右下角常驻的小月亮按钮，展开是「月之摇篮曲」面板——三首曲子任选、开关背景音乐、调音量；选择记在本地。
 - **对话人格**：可开关的系统提示段，短句、省略号、偶尔用哼唱代替回答；命令、路径、代码、报错仍然精确。
-- **原声语音**：右下角 ♪ 按钮；1071 段原声切片，27 键意图优先、双阈值检索兜底；默认开启，首条回复主动念，新回复打断旧音频；代码/命令/低置信度静默，只留文字。
+- **原声语音**：右下角 ♪ 按钮；1328 段人声分离切片，27 键意图优先、双阈值检索兜底；默认开启，首条回复主动念，新回复打断旧音频；代码/命令/低置信度静默，只留文字。
 - **月下摇篮里的语音控制**：状态、切换、试听都在左侧栏；切换会同步右下角 ♪ 的状态。
 - **标题栏侧栏开关**：外壳自带的 Ctrl+B 按钮会压在月徽上，主题把它换成左上角一枚银紫小按钮（和桑多涅主题同位置），点击转发给外壳，`Ctrl+B` 照常可用。
 - **深色专用**：启用期间钉住 `body[data-ds-dark-theme]`，禁用后立刻回到 DSH 原生外观。
@@ -199,7 +199,7 @@ DSH 桌面端的主窗口不是用 `http://127.0.0.1:<port>/` 加载的，而是
 - `dsh-theme-columbina/assets/` 里的角色图、开屏影片与衍生素材：**不属于 MIT**，来自你提供的插画与 Wallpaper Engine 创意工坊素材，权利归原权利人。
 - 开屏配乐（月茧）：`tools/build-score.py` 用 numpy 从零合成，随代码以 MIT 发布。
 - 主界面三首《新月的摇篮曲》：版权归 HOYO-MiX / 权利人所有，**不属于 MIT**；仓库按使用者提供的文件原样收录，若权利人要求会移除。
-- 原声语音库：`dsh-plugin-columbina-voice/assets/clips/` 的 1071 段切片来自三条角色语音素材（见 `dsh-plugin-columbina-voice/assets/VOICE-BANK.md`，CV：杨梦露），权利归原权利人，**不属于 MIT**。
+- 原声语音库：`dsh-plugin-columbina-voice/assets/clips/` 的 1328 段切片来自三条角色语音素材的人声分离轨（见 `dsh-plugin-columbina-voice/assets/VOICE-BANK.md`，CV：杨梦露），权利归原权利人，**不属于 MIT**。
 - 逐文件来源、SHA-256 与转换说明见 [dsh-theme-columbina/PROVENANCE.json](dsh-theme-columbina/PROVENANCE.json)，权利说明见 [ASSET-LICENSE.md](ASSET-LICENSE.md) 与 [NOTICE.md](NOTICE.md)。
 
 非官方同人主题，与 HoYoverse / COGNOSPHERE、DeepSeek 均无隶属或背书关系。

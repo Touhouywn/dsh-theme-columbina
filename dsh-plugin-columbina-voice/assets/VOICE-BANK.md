@@ -5,9 +5,12 @@ material. It does not call GPT-SoVITS, Windows SAPI, or any cloud TTS.
 
 ## Bank
 
-- `assets/catalog.json` — **1071 clips** (catalog v2) with text, duration, source
+- `assets/catalog.json` — **1328 clips** (catalog v2) with text, duration, source
   range, tags, `asrScore`, `sourceFingerprint` and the source key.
-- `assets/clips/*.ogg` — **48 kHz** original audio, Opus 40 kbps, mono.
+- `assets/clips/*.ogg` — **48 kHz** original audio, Opus 40 kbps, mono; cut from
+  the htdemucs vocal stem of each source. Boundary caps use the shared word-cut
+  rule (last word end + 60 ms, first word start − 40 ms), so no tail leaks and
+  no clipped onsets.
 - `assets/templates.json` — C′ intent sequences, picked by tag from the bank
   itself (not by hand-assigned ids); D retrieval is the low-confidence fallback.
 

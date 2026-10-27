@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.1 — 2026-10-27
+
+- **人声分离**：三条源轨过 htdemucs vocal 分离，BGM 不再混入切片；有 BGM 的源（v3-fullvoice）floor-drop 25.9dB 达标，低频谱占比不足 0.15 的源标 `not_applicable`。
+- **切尾修正**：词边界硬上限统一成单一实现（末词 end+60ms / 首词 start−40ms），`tailOverrun` 从 7 降到 **0**；去重叠改为先收前段尾，不再削后段首字。
+- 切分参数 200/250/1000；中位守卫 1.0s + P25 0.6s（`reason: word-boundary-caps`）。
+- 库：1477 段，发布 **usable 1328 段**（89.9%），全部 `stem: vocals`；farewell 段 3 条，floor 按 `monologue-scarce` 降为 3。
+- voice **0.3.1**，theme **1.2.1**；A/B 抽听 15 段已人工签字。
+
 ## 1.2.0 — 2026-10-27
 
 - 语音库 v2 重建：三条角色语音素材 → 1240 段切片，ASR 校验后发布 **usable 1071 段**（48 kHz Opus 40 kbps，约 17 MB）；旧 480 段库与 11 键模板完整备份（`v2/backup/`、`~/.dsh/backups/`）。
